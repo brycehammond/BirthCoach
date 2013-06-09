@@ -16,9 +16,9 @@
 		029DFAAE1764E26F00D022FC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAAD1764E26F00D022FC /* Default.png */; };
 		029DFAB01764E26F00D022FC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAAF1764E26F00D022FC /* Default@2x.png */; };
 		029DFAB21764E26F00D022FC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAB11764E26F00D022FC /* Default-568h@2x.png */; };
-		029DFAB51764E26F00D022FC /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAB31764E26F00D022FC /* MainStoryboard_iPhone.storyboard */; };
-		029DFAB81764E26F00D022FC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAB61764E26F00D022FC /* MainStoryboard_iPad.storyboard */; };
-		029DFABB1764E26F00D022FC /* BCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFABA1764E26F00D022FC /* BCViewController.m */; };
+		029DFAC31764E46600D022FC /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAC21764E46600D022FC /* MainStoryboard_iPhone.storyboard */; };
+		029DFAC51764E48D00D022FC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAC41764E48D00D022FC /* MainStoryboard_iPad.storyboard */; };
+		029DFAC81764E84900D022FC /* BirthCoach.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAC61764E84900D022FC /* BirthCoach.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +35,9 @@
 		029DFAAD1764E26F00D022FC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		029DFAAF1764E26F00D022FC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		029DFAB11764E26F00D022FC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		029DFAB41764E26F00D022FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		029DFAB71764E26F00D022FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		029DFAB91764E26F00D022FC /* BCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCViewController.h; sourceTree = "<group>"; };
-		029DFABA1764E26F00D022FC /* BCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCViewController.m; sourceTree = "<group>"; };
+		029DFAC21764E46600D022FC /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard_iPhone.storyboard; path = BirthCoach/Storyboards/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		029DFAC41764E48D00D022FC /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard_iPad.storyboard; path = BirthCoach/Storyboards/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		029DFAC71764E84900D022FC /* BirthCoach.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BirthCoach.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +84,11 @@
 		029DFAA11764E26F00D022FC /* BirthCoach */ = {
 			isa = PBXGroup;
 			children = (
+				029DFACA1764E89900D022FC /* Models */,
+				029DFAC91764E89200D022FC /* View Controllers */,
+				029DFAC11764E3C300D022FC /* Storyboards */,
 				029DFAAA1764E26F00D022FC /* BCAppDelegate.h */,
 				029DFAAB1764E26F00D022FC /* BCAppDelegate.m */,
-				029DFAB31764E26F00D022FC /* MainStoryboard_iPhone.storyboard */,
-				029DFAB61764E26F00D022FC /* MainStoryboard_iPad.storyboard */,
-				029DFAB91764E26F00D022FC /* BCViewController.h */,
-				029DFABA1764E26F00D022FC /* BCViewController.m */,
 				029DFAA21764E26F00D022FC /* Supporting Files */,
 			);
 			path = BirthCoach;
@@ -106,8 +104,33 @@
 				029DFAAD1764E26F00D022FC /* Default.png */,
 				029DFAAF1764E26F00D022FC /* Default@2x.png */,
 				029DFAB11764E26F00D022FC /* Default-568h@2x.png */,
+				029DFAC61764E84900D022FC /* BirthCoach.xcdatamodeld */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		029DFAC11764E3C300D022FC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				029DFAC21764E46600D022FC /* MainStoryboard_iPhone.storyboard */,
+				029DFAC41764E48D00D022FC /* MainStoryboard_iPad.storyboard */,
+			);
+			name = Storyboards;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		029DFAC91764E89200D022FC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		029DFACA1764E89900D022FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,8 +189,8 @@
 				029DFAAE1764E26F00D022FC /* Default.png in Resources */,
 				029DFAB01764E26F00D022FC /* Default@2x.png in Resources */,
 				029DFAB21764E26F00D022FC /* Default-568h@2x.png in Resources */,
-				029DFAB51764E26F00D022FC /* MainStoryboard_iPhone.storyboard in Resources */,
-				029DFAB81764E26F00D022FC /* MainStoryboard_iPad.storyboard in Resources */,
+				029DFAC31764E46600D022FC /* MainStoryboard_iPhone.storyboard in Resources */,
+				029DFAC51764E48D00D022FC /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +203,7 @@
 			files = (
 				029DFAA81764E26F00D022FC /* main.m in Sources */,
 				029DFAAC1764E26F00D022FC /* BCAppDelegate.m in Sources */,
-				029DFABB1764E26F00D022FC /* BCViewController.m in Sources */,
+				029DFAC81764E84900D022FC /* BirthCoach.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,22 +216,6 @@
 				029DFAA51764E26F00D022FC /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		029DFAB31764E26F00D022FC /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				029DFAB41764E26F00D022FC /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		029DFAB61764E26F00D022FC /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				029DFAB71764E26F00D022FC /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -278,6 +285,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthCoach/BirthCoach-Prefix.pch";
 				INFOPLIST_FILE = "BirthCoach/BirthCoach-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -289,6 +297,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthCoach/BirthCoach-Prefix.pch";
 				INFOPLIST_FILE = "BirthCoach/BirthCoach-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -315,6 +324,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		029DFAC61764E84900D022FC /* BirthCoach.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				029DFAC71764E84900D022FC /* BirthCoach.xcdatamodel */,
+			);
+			currentVersion = 029DFAC71764E84900D022FC /* BirthCoach.xcdatamodel */;
+			path = BirthCoach.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 029DFA901764E26F00D022FC /* Project object */;
 }
