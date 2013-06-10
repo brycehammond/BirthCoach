@@ -21,5 +21,6 @@
 //averages
 + (CGFloat)averageFrequencyForLastMinutes:(NSInteger)minutes;
 + (CGFloat)averageDurationForLastMinutes:(NSInteger)minutes;
++ (NSInteger)numberInLastMinutes:(NSInteger)minutes;
 
 @end
