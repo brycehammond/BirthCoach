@@ -40,14 +40,6 @@
             <point key="canvasLocation" x="117" y="166"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BCBaseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCBaseViewController.h"/>
-        </class>
-        <class className="BCRootViewController" superclassName="BCBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCRootViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

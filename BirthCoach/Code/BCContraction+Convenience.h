@@ -10,4 +10,16 @@
 
 @interface BCContraction (Convenience)
 
+@property (nonatomic, readonly) NSTimeInterval frequency; //frequency in seconds
+@property (nonatomic, readonly) NSTimeInterval duration; //duration in seconds
+
+//finders
++ (BCContraction *)lastContractionBeforeTime:(NSDate *)time;
++ (BCContraction *)lastContraction;
++ (BCContraction *)activeContraction;
+
+//averages
++ (CGFloat)averageFrequencyForLastMinutes:(NSInteger)minutes;
++ (CGFloat)averageDurationForLastMinutes:(NSInteger)minutes;
+
 @end
