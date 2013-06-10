@@ -33,7 +33,7 @@
 
 - (void)updateViewState
 {
-    self.startStopButton.titleLabel.text = (nil == self.activeContraction) ? @"Start Contraction" : @"Stop Contraction";
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,6 +58,7 @@
         self.activeContraction = [BCContraction createEntity];
         self.activeContraction.startTime = [NSDate date];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+        [self.startStopButton setTitle:@"End Contraction" forState:UIControlStateNormal];
         
     }
     else
@@ -66,6 +67,7 @@
         self.activeContraction.endTime = [NSDate date];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         self.activeContraction = nil;
+        [self.startStopButton setTitle:@"Start Contraction" forState:UIControlStateNormal];
     }
     
     [self updateViewState];

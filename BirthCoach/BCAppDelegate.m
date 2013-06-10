@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"BirthCoach.sqlite"];
     return YES;
 }
 							

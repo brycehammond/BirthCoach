@@ -1,10 +1,13 @@
 PODS:
+  - CorePlot (1.2)
   - MagicalRecord (2.1)
 
 DEPENDENCIES:
+  - CorePlot
   - MagicalRecord
 
 SPEC CHECKSUMS:
+  CorePlot: 6512574463d36b4f0f43c0cb0057f1788ffdc8d2
   MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
 
 COCOAPODS: 0.20.2
