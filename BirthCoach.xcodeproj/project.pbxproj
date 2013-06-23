@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		029DFA9C1764E26F00D022FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9B1764E26F00D022FC /* UIKit.framework */; };
 		029DFA9E1764E26F00D022FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9D1764E26F00D022FC /* Foundation.framework */; };
 		029DFAA01764E26F00D022FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9F1764E26F00D022FC /* CoreGraphics.framework */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
+		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		029DFA981764E26F00D022FC /* BirthCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029DFA9B1764E26F00D022FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		029DFA9D1764E26F00D022FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +110,8 @@
 				029DFAC11764E3C300D022FC /* Storyboards */,
 				029DFAAA1764E26F00D022FC /* BCAppDelegate.h */,
 				029DFAAB1764E26F00D022FC /* BCAppDelegate.m */,
+				026ADDD71776735B0054FDCF /* BCConstants.h */,
+				026ADDD81776735B0054FDCF /* BCConstants.m */,
 				029DFAA21764E26F00D022FC /* Supporting Files */,
 			);
 			path = BirthCoach;
@@ -267,6 +272,7 @@
 				029DFAD01764FED600D022FC /* BCRootViewController.m in Sources */,
 				029DFAD317651A1300D022FC /* BCContraction.m in Sources */,
 				029DFAD617651A7E00D022FC /* BCContraction+Convenience.m in Sources */,
+				026ADDD91776735C0054FDCF /* BCConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

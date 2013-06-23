@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="QqC-Gy-unH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="QqC-Gy-unH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -39,6 +39,7 @@
                     </view>
                     <connections>
                         <outlet property="startStopButton" destination="u3J-Vw-NHF" id="JVL-89-L55"/>
+                        <outlet property="timerLabel" destination="AEz-Rw-O3I" id="65L-Vp-JG8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOl-Qn-9I6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -54,6 +55,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCRootViewController.h"/>
             <relationships>
                 <relationship kind="action" name="startStopContraction:"/>
+                <relationship kind="outlet" name="startStopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timerLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

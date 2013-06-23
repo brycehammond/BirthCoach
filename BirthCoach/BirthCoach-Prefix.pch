@@ -12,6 +12,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "BCContraction+Convenience.h"
+    #import "BCConstants.h"
 
     #define MR_SHORTHAND 1
     #import "CoreData+MagicalRecord.h"
