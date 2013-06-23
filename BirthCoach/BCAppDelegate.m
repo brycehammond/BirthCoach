@@ -13,6 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"BirthCoach.sqlite"];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     return YES;
 }
 							
