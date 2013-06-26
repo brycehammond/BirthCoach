@@ -1,13 +1,19 @@
 PODS:
   - CorePlot (1.2)
   - MagicalRecord (2.1)
+  - TestFlightSDK (1.2.6)
+  - UIColor-Utilities (1.0.1)
 
 DEPENDENCIES:
   - CorePlot
   - MagicalRecord
+  - TestFlightSDK (~> 1.2.4)
+  - UIColor-Utilities
 
 SPEC CHECKSUMS:
   CorePlot: 6512574463d36b4f0f43c0cb0057f1788ffdc8d2
   MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
+  TestFlightSDK: 7d9abce62f5a17191c4df84fd88e05797e6776e0
+  UIColor-Utilities: a392783be1b72e5d5ad9ae450ef2280239441bc8
 
 COCOAPODS: 0.20.2

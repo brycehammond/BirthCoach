@@ -17,13 +17,13 @@
 		029DFAAE1764E26F00D022FC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAAD1764E26F00D022FC /* Default.png */; };
 		029DFAB01764E26F00D022FC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAAF1764E26F00D022FC /* Default@2x.png */; };
 		029DFAB21764E26F00D022FC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAB11764E26F00D022FC /* Default-568h@2x.png */; };
-		029DFAC31764E46600D022FC /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAC21764E46600D022FC /* MainStoryboard_iPhone.storyboard */; };
 		029DFAC51764E48D00D022FC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DFAC41764E48D00D022FC /* MainStoryboard_iPad.storyboard */; };
 		029DFAC81764E84900D022FC /* BirthCoach.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAC61764E84900D022FC /* BirthCoach.xcdatamodeld */; };
 		029DFACD1764FEB800D022FC /* BCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFACC1764FEB800D022FC /* BCBaseViewController.m */; };
 		029DFAD01764FED600D022FC /* BCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFACF1764FED600D022FC /* BCRootViewController.m */; };
 		029DFAD317651A1300D022FC /* BCContraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD217651A1300D022FC /* BCContraction.m */; };
 		029DFAD617651A7E00D022FC /* BCContraction+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */; };
+		02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */; };
 		C9E2AE0CD97C40A8BCA2FEB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1052A2AEA4BF4BDF32D7C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,6 @@
 		029DFAAD1764E26F00D022FC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		029DFAAF1764E26F00D022FC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		029DFAB11764E26F00D022FC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		029DFAC21764E46600D022FC /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard_iPhone.storyboard; path = BirthCoach/Storyboards/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		029DFAC41764E48D00D022FC /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard_iPad.storyboard; path = BirthCoach/Storyboards/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		029DFAC71764E84900D022FC /* BirthCoach.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BirthCoach.xcdatamodel; sourceTree = "<group>"; };
 		029DFACB1764FEB800D022FC /* BCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCBaseViewController.h; path = Code/BCBaseViewController.h; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		029DFAD217651A1300D022FC /* BCContraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContraction.m; path = Code/BCContraction.m; sourceTree = "<group>"; };
 		029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BCContraction+Convenience.h"; path = "Code/BCContraction+Convenience.h"; sourceTree = "<group>"; };
 		029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCContraction+Convenience.m"; path = "Code/BCContraction+Convenience.m"; sourceTree = "<group>"; };
+		02AA22DA177AB92300C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3CC1052A2AEA4BF4BDF32D7C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,7 +135,7 @@
 		029DFAC11764E3C300D022FC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				029DFAC21764E46600D022FC /* MainStoryboard_iPhone.storyboard */,
+				02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */,
 				029DFAC41764E48D00D022FC /* MainStoryboard_iPad.storyboard */,
 			);
 			name = Storyboards;
@@ -202,6 +202,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 029DFA8F1764E26F00D022FC;
 			productRefGroup = 029DFA991764E26F00D022FC /* Products */;
@@ -222,7 +223,7 @@
 				029DFAAE1764E26F00D022FC /* Default.png in Resources */,
 				029DFAB01764E26F00D022FC /* Default@2x.png in Resources */,
 				029DFAB21764E26F00D022FC /* Default-568h@2x.png in Resources */,
-				029DFAC31764E46600D022FC /* MainStoryboard_iPhone.storyboard in Resources */,
+				02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */,
 				029DFAC51764E48D00D022FC /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +286,15 @@
 				029DFAA51764E26F00D022FC /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02AA22DA177AB92300C84BBA /* Base */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			path = BirthCoach/Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
