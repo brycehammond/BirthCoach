@@ -24,6 +24,10 @@
 		029DFAD617651A7E00D022FC /* BCContraction+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */; };
 		02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */; };
 		02AA22DB177ABD0300C84BBA /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22DD177ABD0300C84BBA /* MainStoryboard_iPad.storyboard */; };
+		02BB09D9177D5B7E0040A622 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D5177D5B7E0040A622 /* OpenSans-ExtraBold.ttf */; };
+		02BB09DA177D5B7E0040A622 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D6177D5B7E0040A622 /* OpenSans-Regular.ttf */; };
+		02BB09DB177D5B7E0040A622 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D7177D5B7E0040A622 /* SourceSansPro-Black.otf */; };
+		02BB09DC177D5B7E0040A622 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D8177D5B7E0040A622 /* SourceSansPro-Semibold.otf */; };
 		C9E2AE0CD97C40A8BCA2FEB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1052A2AEA4BF4BDF32D7C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +57,11 @@
 		029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BCContraction+Convenience.h"; path = "Code/BCContraction+Convenience.h"; sourceTree = "<group>"; };
 		029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCContraction+Convenience.m"; path = "Code/BCContraction+Convenience.m"; sourceTree = "<group>"; };
 		02AA22DA177AB92300C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		02AA22DE177ABD0800C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		02AA22DE177ABD0800C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		02BB09D5177D5B7E0040A622 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "Fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		02BB09D6177D5B7E0040A622 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		02BB09D7177D5B7E0040A622 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Black.otf"; path = "Fonts/SourceSansPro-Black.otf"; sourceTree = "<group>"; };
+		02BB09D8177D5B7E0040A622 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.otf"; path = "Fonts/SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 		2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3CC1052A2AEA4BF4BDF32D7C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +116,8 @@
 				029DFACA1764E89900D022FC /* Models */,
 				029DFAC91764E89200D022FC /* View Controllers */,
 				029DFAC11764E3C300D022FC /* Storyboards */,
+				02BB09D4177D5B6B0040A622 /* Images */,
+				02BB09D3177D5B580040A622 /* Fonts */,
 				029DFAAA1764E26F00D022FC /* BCAppDelegate.h */,
 				029DFAAB1764E26F00D022FC /* BCAppDelegate.m */,
 				026ADDD71776735B0054FDCF /* BCConstants.h */,
@@ -162,6 +172,24 @@
 				029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		02BB09D3177D5B580040A622 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				02BB09D5177D5B7E0040A622 /* OpenSans-ExtraBold.ttf */,
+				02BB09D6177D5B7E0040A622 /* OpenSans-Regular.ttf */,
+				02BB09D7177D5B7E0040A622 /* SourceSansPro-Black.otf */,
+				02BB09D8177D5B7E0040A622 /* SourceSansPro-Semibold.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		02BB09D4177D5B6B0040A622 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +253,10 @@
 				029DFAB21764E26F00D022FC /* Default-568h@2x.png in Resources */,
 				02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */,
 				02AA22DB177ABD0300C84BBA /* MainStoryboard_iPad.storyboard in Resources */,
+				02BB09D9177D5B7E0040A622 /* OpenSans-ExtraBold.ttf in Resources */,
+				02BB09DA177D5B7E0040A622 /* OpenSans-Regular.ttf in Resources */,
+				02BB09DB177D5B7E0040A622 /* SourceSansPro-Black.otf in Resources */,
+				02BB09DC177D5B7E0040A622 /* SourceSansPro-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

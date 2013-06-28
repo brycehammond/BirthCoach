@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UIView *timerBackgroundView;
 
 @property (nonatomic, strong)  BCContraction *activeContraction;
 
