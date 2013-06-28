@@ -37,6 +37,8 @@
 {
     [super viewDidLoad];
 	self.timerLabel.text = @"";
+    self.timerLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.timerLabel.font.pointSize];
+    self.nextContractionEstimateLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.nextContractionEstimateLabel.font.pointSize];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -128,6 +130,8 @@
         self.activeContraction.startTime = [NSDate date];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         [self.startStopButton setImage:[UIImage imageNamed:@"stop-button"] forState:UIControlStateNormal];
+        self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kMidOrangeColor] colorWithAlphaComponent:.15];
+        self.nextContractionEstimateLabel.hidden = YES;
         
         self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
         self.timerLabel.text = @"00:00";
@@ -139,7 +143,8 @@
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         self.activeContraction = nil;
         [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
-        
+        self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
+        self.nextContractionEstimateLabel.hidden = NO;
         self.timerLabel.text = @"";
     }
     
