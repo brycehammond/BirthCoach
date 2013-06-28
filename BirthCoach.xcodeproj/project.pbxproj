@@ -28,6 +28,10 @@
 		02BB09DA177D5B7E0040A622 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D6177D5B7E0040A622 /* OpenSans-Regular.ttf */; };
 		02BB09DB177D5B7E0040A622 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D7177D5B7E0040A622 /* SourceSansPro-Black.otf */; };
 		02BB09DC177D5B7E0040A622 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D8177D5B7E0040A622 /* SourceSansPro-Semibold.otf */; };
+		02BB09E2177D623B0040A622 /* start-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09DE177D623B0040A622 /* start-button.png */; };
+		02BB09E3177D623B0040A622 /* start-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09DF177D623B0040A622 /* start-button@2x.png */; };
+		02BB09E4177D623B0040A622 /* stop-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09E0177D623B0040A622 /* stop-button.png */; };
+		02BB09E5177D623B0040A622 /* stop-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09E1177D623B0040A622 /* stop-button@2x.png */; };
 		C9E2AE0CD97C40A8BCA2FEB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1052A2AEA4BF4BDF32D7C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +66,10 @@
 		02BB09D6177D5B7E0040A622 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		02BB09D7177D5B7E0040A622 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Black.otf"; path = "Fonts/SourceSansPro-Black.otf"; sourceTree = "<group>"; };
 		02BB09D8177D5B7E0040A622 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.otf"; path = "Fonts/SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		02BB09DE177D623B0040A622 /* start-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start-button.png"; path = "Images/start-button.png"; sourceTree = "<group>"; };
+		02BB09DF177D623B0040A622 /* start-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start-button@2x.png"; path = "Images/start-button@2x.png"; sourceTree = "<group>"; };
+		02BB09E0177D623B0040A622 /* stop-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-button.png"; path = "Images/stop-button.png"; sourceTree = "<group>"; };
+		02BB09E1177D623B0040A622 /* stop-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-button@2x.png"; path = "Images/stop-button@2x.png"; sourceTree = "<group>"; };
 		2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3CC1052A2AEA4BF4BDF32D7C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,8 +196,20 @@
 		02BB09D4177D5B6B0040A622 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				02BB09DD177D622A0040A622 /* Buttons */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		02BB09DD177D622A0040A622 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				02BB09DE177D623B0040A622 /* start-button.png */,
+				02BB09DF177D623B0040A622 /* start-button@2x.png */,
+				02BB09E0177D623B0040A622 /* stop-button.png */,
+				02BB09E1177D623B0040A622 /* stop-button@2x.png */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +277,10 @@
 				02BB09DA177D5B7E0040A622 /* OpenSans-Regular.ttf in Resources */,
 				02BB09DB177D5B7E0040A622 /* SourceSansPro-Black.otf in Resources */,
 				02BB09DC177D5B7E0040A622 /* SourceSansPro-Semibold.otf in Resources */,
+				02BB09E2177D623B0040A622 /* start-button.png in Resources */,
+				02BB09E3177D623B0040A622 /* start-button@2x.png in Resources */,
+				02BB09E4177D623B0040A622 /* stop-button.png in Resources */,
+				02BB09E5177D623B0040A622 /* stop-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

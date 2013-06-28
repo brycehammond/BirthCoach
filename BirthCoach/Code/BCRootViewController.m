@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIView *timerBackgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *nextContractionEstimateLabel;
 
 @property (nonatomic, strong)  BCContraction *activeContraction;
 
@@ -126,7 +127,7 @@
         self.activeContraction = [BCContraction createEntity];
         self.activeContraction.startTime = [NSDate date];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
-        [self.startStopButton setTitle:@"End Contraction" forState:UIControlStateNormal];
+        [self.startStopButton setImage:[UIImage imageNamed:@"stop-button"] forState:UIControlStateNormal];
         
         self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
         self.timerLabel.text = @"00:00";
@@ -137,7 +138,7 @@
         self.activeContraction.endTime = [NSDate date];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         self.activeContraction = nil;
-        [self.startStopButton setTitle:@"Start Contraction" forState:UIControlStateNormal];
+        [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
         
         self.timerLabel.text = @"";
     }
