@@ -317,6 +317,11 @@
                                     </label>
                                 </subviews>
                             </scrollView>
+                            <view contentMode="scaleToFill" id="TN6-se-tvH" customClass="BCPageControl">
+                                <rect key="frame" x="188" y="11" width="113" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -333,6 +338,7 @@
                         <outlet property="oneHourDuration" destination="lK8-IF-zMA" id="QoU-59-1k9"/>
                         <outlet property="oneHourFrequency" destination="fQ7-t5-AAA" id="557-Ld-Jic"/>
                         <outlet property="oneHourIntensity" destination="cW7-Is-rJ1" id="H1i-2D-4Gq"/>
+                        <outlet property="pageControl" destination="TN6-se-tvH" id="I0Y-OE-El2"/>
                         <outlet property="sixtyMinuteNumberLabel" destination="sHu-Qz-cWg" id="wZC-6F-QHP"/>
                         <outlet property="thirtyMinuteDuration" destination="afJ-xj-zqA" id="PJp-eN-PNm"/>
                         <outlet property="thirtyMinuteFrequency" destination="BHM-je-gf7" id="d8a-CT-Qf1"/>
@@ -363,6 +369,7 @@
                 <relationship kind="outlet" name="oneHourDuration" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="oneHourFrequency" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="oneHourIntensity" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="BCPageControl"/>
                 <relationship kind="outlet" name="sixtyMinuteNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thirtyMinuteDuration" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thirtyMinuteFrequency" candidateClass="UILabel"/>
@@ -372,6 +379,9 @@
         </class>
         <class className="BCBaseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCBaseViewController.h"/>
+        </class>
+        <class className="BCPageControl" superclassName="UIPageControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCPageControl.h"/>
         </class>
         <class className="BCRootViewController" superclassName="BCBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCRootViewController.h"/>

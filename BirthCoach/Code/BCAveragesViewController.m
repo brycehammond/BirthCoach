@@ -7,11 +7,13 @@
 //
 
 #import "BCAveragesViewController.h"
+#import "UIScrollView+CurrentPage.h"
+#import "BCPageControl.h"
 
 @interface BCAveragesViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *averagesScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
-
+@property (weak, nonatomic) IBOutlet BCPageControl *pageControl;
 
 //15 Minute
 @property (weak, nonatomic) IBOutlet UILabel *fifteenMinuteDuration;
@@ -33,8 +35,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *fifteenMinuteNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thirtyMinuteNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sixtyMinuteNumberLabel;
-
-
 
 @property (nonatomic, strong) NSArray *dataLabels;
 @property (nonatomic, strong) NSTimer *updateTimer;
@@ -79,6 +79,9 @@
     
     self.thirtyMinuteNumberLabel.alpha = 0;
     self.sixtyMinuteNumberLabel.alpha = 0;
+    
+    self.pageControl.numberOfPages = 3;
+    self.pageControl.currentPage = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated

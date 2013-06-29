@@ -36,6 +36,8 @@
 		02BB09ED177EA2A60040A622 /* orange-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09EB177EA2A60040A622 /* orange-handle@2x.png */; };
 		02BB09F0177EB1630040A622 /* BCTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09EF177EB1630040A622 /* BCTimeIntervalFormatter.m */; };
 		02BB09F3177EC0AA0040A622 /* BCAveragesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09F2177EC0AA0040A622 /* BCAveragesViewController.m */; };
+		02BB09F7177F911E0040A622 /* BCPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09F6177F911E0040A622 /* BCPageControl.m */; };
+		02BB09FB177F94FF0040A622 /* UIScrollView+CurrentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09FA177F94FF0040A622 /* UIScrollView+CurrentPage.m */; };
 		C9E2AE0CD97C40A8BCA2FEB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1052A2AEA4BF4BDF32D7C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,10 @@
 		02BB09EF177EB1630040A622 /* BCTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCTimeIntervalFormatter.m; path = Code/BCTimeIntervalFormatter.m; sourceTree = "<group>"; };
 		02BB09F1177EC0AA0040A622 /* BCAveragesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCAveragesViewController.h; path = Code/BCAveragesViewController.h; sourceTree = "<group>"; };
 		02BB09F2177EC0AA0040A622 /* BCAveragesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCAveragesViewController.m; path = Code/BCAveragesViewController.m; sourceTree = "<group>"; };
+		02BB09F5177F911E0040A622 /* BCPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPageControl.h; path = Code/BCPageControl.h; sourceTree = "<group>"; };
+		02BB09F6177F911E0040A622 /* BCPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPageControl.m; path = Code/BCPageControl.m; sourceTree = "<group>"; };
+		02BB09F9177F94FF0040A622 /* UIScrollView+CurrentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+CurrentPage.h"; path = "Code/UIScrollView+CurrentPage.h"; sourceTree = "<group>"; };
+		02BB09FA177F94FF0040A622 /* UIScrollView+CurrentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+CurrentPage.m"; path = "Code/UIScrollView+CurrentPage.m"; sourceTree = "<group>"; };
 		2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3CC1052A2AEA4BF4BDF32D7C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,6 +139,8 @@
 			children = (
 				029DFACA1764E89900D022FC /* Models */,
 				029DFAC91764E89200D022FC /* View Controllers */,
+				02BB09F4177F91050040A622 /* Views */,
+				02BB09F8177F94A10040A622 /* Categories */,
 				029DFAC11764E3C300D022FC /* Storyboards */,
 				02BB09D4177D5B6B0040A622 /* Images */,
 				02BB09D3177D5B580040A622 /* Fonts */,
@@ -234,6 +242,24 @@
 				02BB09EB177EA2A60040A622 /* orange-handle@2x.png */,
 			);
 			name = Handles;
+			sourceTree = "<group>";
+		};
+		02BB09F4177F91050040A622 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02BB09F5177F911E0040A622 /* BCPageControl.h */,
+				02BB09F6177F911E0040A622 /* BCPageControl.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		02BB09F8177F94A10040A622 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				02BB09F9177F94FF0040A622 /* UIScrollView+CurrentPage.h */,
+				02BB09FA177F94FF0040A622 /* UIScrollView+CurrentPage.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +384,8 @@
 				026ADDD91776735C0054FDCF /* BCConstants.m in Sources */,
 				02BB09F0177EB1630040A622 /* BCTimeIntervalFormatter.m in Sources */,
 				02BB09F3177EC0AA0040A622 /* BCAveragesViewController.m in Sources */,
+				02BB09F7177F911E0040A622 /* BCPageControl.m in Sources */,
+				02BB09FB177F94FF0040A622 /* UIScrollView+CurrentPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
