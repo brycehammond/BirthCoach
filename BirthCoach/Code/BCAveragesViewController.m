@@ -65,11 +65,35 @@
             titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:titleLabel.font.pointSize];
         }
     }
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateAverages];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionAdded:) name:kFinishedContractionAddedNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)contractionAdded:(NSNotification *)note
+{
+    [self updateAverages];
 }
 
 - (void)updateAverages
 {
+    self.fifteenMinuteDuration.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageDurationForLastMinutes:15]];
+    self.fifteenMinuteFrequency.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageFrequencyForLastMinutes:15]];
     
+    self.thirtyMinuteDuration.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageDurationForLastMinutes:30]];
+    self.thirtyMinuteFrequency.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageFrequencyForLastMinutes:30]];
+    
+    self.oneHourDuration.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageDurationForLastMinutes:60]];
+    self.oneHourFrequency.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageFrequencyForLastMinutes:60]];
 }
 
 @end

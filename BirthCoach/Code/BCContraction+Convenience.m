@@ -48,7 +48,7 @@
 
 + (NSTimeInterval)averageFrequencyForLastMinutes:(NSInteger)minutes
 {
-    NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime <= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
+    NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime >= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
     
     if(contractions.count == 0)
     {
@@ -83,12 +83,17 @@
 
 + (NSTimeInterval)averageDurationForLastMinutes:(NSInteger)minutes
 {
-    NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime <= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
+    NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime >= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
     
     NSTimeInterval totalDuration = 0;
     for(BCContraction *contraction in contractions)
     {
         totalDuration += contraction.duration;
+    }
+    
+    if(0 == totalDuration)
+    {
+        return 0; //prevent a 0/0 error
     }
     
     return totalDuration / contractions.count;

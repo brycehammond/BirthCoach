@@ -22,7 +22,7 @@
     }
     else
     {
-        return [NSString stringWithFormat:@"%i:%02i:%02i",(int)interval / 3600, (int)interval / 60, (int)interval % 60];
+        return [NSString stringWithFormat:@"%i:%02i:%02i",(int)interval / 3600, ((int)interval % 3600) / 60, (int)interval % 60];
     }
 }
 

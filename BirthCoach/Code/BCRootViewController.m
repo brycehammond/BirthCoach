@@ -7,6 +7,7 @@
 //
 
 #import "BCRootViewController.h"
+#import "BCAveragesViewController.h"
 
 @interface BCRootViewController ()
 
@@ -25,6 +26,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *intensityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
+
+//child controllers
+
+@property (weak, nonatomic) IBOutlet BCAveragesViewController *averagesController;
 
 //data
 @property (nonatomic, strong)  BCContraction *activeContraction;
@@ -169,12 +174,18 @@
         //there was an active contraction so stop it
         self.activeContraction.endTime = [NSDate date];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+        
+        //post the adding of the contraction in case someone is interested
+        [[NSNotificationCenter defaultCenter] postNotificationName:kFinishedContractionAddedNotification object:self userInfo:@{@"contraction" : self.activeContraction}];
+        
         self.activeContraction = nil;
         [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
         self.nextContractionEstimateLabel.hidden = NO;
         self.timerLabel.text = @"";
         [self updateLastContractionView];
+        
+        
     }
     
     [self updateViewState];
