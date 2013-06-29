@@ -36,7 +36,7 @@
                                         <rect key="frame" x="20" y="22" width="188" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="55"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.050980392156862744" green="0.14117647058823529" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="NEXT CONTRACTION ESTIMATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dt8-Gn-Lyq">
@@ -49,10 +49,70 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235294117646" green="0.43529411764705883" blue="0.53725490196078429" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LAST CONTRACTION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eJG-KD-7GQ">
+                                <rect key="frame" x="36" y="180" width="188" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.14117647059999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="orange-handle.png" id="vuW-L5-LUt">
+                                <rect key="frame" x="0.0" y="209" width="26" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BEi-4X-Lhy">
+                                <rect key="frame" x="43" y="209" width="77" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.14117647059999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HNB-kZ-NCc">
+                                <rect key="frame" x="128" y="208" width="65" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.14117647059999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1:16:55" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="37G-V5-0Jc">
+                                <rect key="frame" x="201" y="209" width="100" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.14117647059999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DURATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zd8-8J-Isd">
+                                <rect key="frame" x="43" y="232" width="84" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.94901960784313721" green="0.76862745098039209" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="INTENSITY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M69-PE-W5a">
+                                <rect key="frame" x="109" y="232" width="84" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.94901960780000005" green="0.76862745099999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FREQUENCY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OR3-nF-D60">
+                                <rect key="frame" x="213" y="232" width="88" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.94901960780000005" green="0.76862745099999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="durationLabel" destination="BEi-4X-Lhy" id="sbc-Ij-Z3J"/>
+                        <outlet property="durationTitleLabel" destination="zd8-8J-Isd" id="7RL-lT-WXF"/>
+                        <outlet property="frequencyLabel" destination="37G-V5-0Jc" id="7ls-gB-Uf3"/>
+                        <outlet property="frequencyTitleLabel" destination="OR3-nF-D60" id="Y6h-RM-xiV"/>
+                        <outlet property="intensityLabel" destination="HNB-kZ-NCc" id="1Lw-Uo-C9h"/>
+                        <outlet property="intensityTitleLabel" destination="M69-PE-W5a" id="xPZ-sJ-l6z"/>
+                        <outlet property="lastContractionLabel" destination="eJG-KD-7GQ" id="Rky-00-gGz"/>
                         <outlet property="nextContractionEstimateLabel" destination="Dt8-Gn-Lyq" id="Yur-zC-g4I"/>
                         <outlet property="startStopButton" destination="5fc-QZ-lLx" id="Ys9-Xr-fad"/>
                         <outlet property="timerBackgroundView" destination="Cpf-Qa-Y2s" id="Ga9-c9-tVw"/>
@@ -66,6 +126,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="orange-handle.png" width="26" height="44"/>
         <image name="start-button.png" width="60" height="80"/>
     </resources>
     <classes>
@@ -76,6 +137,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCRootViewController.h"/>
             <relationships>
                 <relationship kind="action" name="startStopContraction:"/>
+                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="durationTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frequencyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frequencyTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="intensityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="intensityTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lastContractionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nextContractionEstimateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startStopButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timerBackgroundView" candidateClass="UIView"/>

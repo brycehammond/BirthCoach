@@ -10,13 +10,23 @@
 
 @interface BCRootViewController ()
 
+//timer section
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIView *timerBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *nextContractionEstimateLabel;
 
-@property (nonatomic, strong)  BCContraction *activeContraction;
+//Last Contraction
+@property (weak, nonatomic) IBOutlet UILabel *lastContractionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *durationTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *intensityTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *frequencyTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *intensityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
 
+//data
+@property (nonatomic, strong)  BCContraction *activeContraction;
 @property (nonatomic, strong) NSTimer *secondTimer;
 @property (assign, nonatomic) NSTimeInterval secondsIntoContraction;
 
@@ -38,7 +48,16 @@
     [super viewDidLoad];
 	self.timerLabel.text = @"";
     self.timerLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.timerLabel.font.pointSize];
-    self.nextContractionEstimateLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.nextContractionEstimateLabel.font.pointSize];
+    
+    for(UILabel *titleLabel in @[self.nextContractionEstimateLabel, self.lastContractionLabel, self.durationTitleLabel, self.intensityTitleLabel, self.frequencyTitleLabel])
+    {
+        titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:titleLabel.font.pointSize];
+    }
+    
+    for(UILabel *valueLabel in @[self.durationLabel, self.intensityLabel, self.frequencyLabel])
+    {
+        valueLabel.font = [UIFont fontWithName:@"OpenSans" size:valueLabel.font.pointSize];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
