@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *oneHourFrequency;
 
 @property (nonatomic, strong) NSArray *dataLabels;
+@property (nonatomic, strong) NSTimer *updateTimer;
 
 @end
 
@@ -72,14 +73,27 @@
 {
     [self updateAverages];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionAdded:) name:kFinishedContractionAddedNotification object:nil];
+    
+    //have averages timer update the display every minute
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(updateAveragesFromTimer:) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if([self.updateTimer isValid])
+    {
+        [self.updateTimer invalidate];
+    }
+    self.updateTimer = nil;
 }
 
 - (void)contractionAdded:(NSNotification *)note
+{
+    [self updateAverages];
+}
+
+- (void)updateAveragesFromTimer:(NSTimer *)timer
 {
     [self updateAverages];
 }
