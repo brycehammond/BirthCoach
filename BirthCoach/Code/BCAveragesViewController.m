@@ -28,6 +28,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *oneHourIntensity;
 @property (weak, nonatomic) IBOutlet UILabel *oneHourFrequency;
 
+//minute average scroller
+@property (weak, nonatomic) IBOutlet UIScrollView *minuteNumberScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *fifteenMinuteNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thirtyMinuteNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sixtyMinuteNumberLabel;
+
+
+
 @property (nonatomic, strong) NSArray *dataLabels;
 @property (nonatomic, strong) NSTimer *updateTimer;
 
@@ -67,6 +75,7 @@
         }
     }
     
+    self.minuteNumberScrollView.contentSize = CGSizeMake(self.minuteNumberScrollView.frame.size.width * 3, self.minuteNumberScrollView.frame.size.height);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -141,6 +150,17 @@
     
     self.oneHourDuration.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageDurationForLastMinutes:60]];
     self.oneHourFrequency.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageFrequencyForLastMinutes:60]];
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGPoint contentOffset = scrollView.contentOffset;
+    CGFloat offsetFactor = contentOffset.x / scrollView.contentSize.width;
+    CGFloat minuteNumberOffset = offsetFactor * self.minuteNumberScrollView.contentSize.width;
+    self.minuteNumberScrollView.contentOffset = CGPointMake(floor(minuteNumberOffset), 0);
 }
 
 @end

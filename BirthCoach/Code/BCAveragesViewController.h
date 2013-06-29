@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BCAveragesViewController : UIViewController
+@interface BCAveragesViewController : UIViewController <UIScrollViewDelegate>
 
 - (void)updateAverages;
 

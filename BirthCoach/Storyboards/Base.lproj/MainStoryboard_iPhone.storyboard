@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MINUTE AVERAGE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pve-TK-0a8">
-                                <rect key="frame" x="40" y="7" width="134" height="31"/>
+                                <rect key="frame" x="54" y="7" width="134" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.14117647059999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -286,6 +286,36 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="tMg-FT-HbE" id="Rnr-YI-Y39"/>
+                                </connections>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="P5x-23-ryz">
+                                <rect key="frame" x="29" y="13" width="22" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kHY-Xl-yas">
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="19"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.070588235294117646" green="0.43529411764705883" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iXM-zR-Rlx">
+                                        <rect key="frame" x="22" y="0.0" width="22" height="19"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.070588235289999995" green="0.43529411759999997" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sHu-Qz-cWg">
+                                        <rect key="frame" x="44" y="0.0" width="22" height="19"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.070588235289999995" green="0.43529411759999997" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -298,12 +328,16 @@
                         <outlet property="fifteenMinuteDuration" destination="N2s-Wf-KCM" id="Vei-9N-eE9"/>
                         <outlet property="fifteenMinuteFrequency" destination="ZBJ-aT-at4" id="eAc-oq-x0r"/>
                         <outlet property="fifteenMinuteIntensity" destination="Kwk-j2-jZQ" id="5eh-Pr-Kbs"/>
+                        <outlet property="fifteenMinuteNumberLabel" destination="kHY-Xl-yas" id="Ue8-Mp-KxK"/>
+                        <outlet property="minuteNumberScrollView" destination="P5x-23-ryz" id="EgX-7H-cVt"/>
                         <outlet property="oneHourDuration" destination="lK8-IF-zMA" id="QoU-59-1k9"/>
                         <outlet property="oneHourFrequency" destination="fQ7-t5-AAA" id="557-Ld-Jic"/>
                         <outlet property="oneHourIntensity" destination="cW7-Is-rJ1" id="H1i-2D-4Gq"/>
+                        <outlet property="sixtyMinuteNumberLabel" destination="sHu-Qz-cWg" id="wZC-6F-QHP"/>
                         <outlet property="thirtyMinuteDuration" destination="afJ-xj-zqA" id="PJp-eN-PNm"/>
                         <outlet property="thirtyMinuteFrequency" destination="BHM-je-gf7" id="d8a-CT-Qf1"/>
                         <outlet property="thirtyMinuteIntensity" destination="qtZ-hr-Bcg" id="6pv-re-McX"/>
+                        <outlet property="thirtyMinuteNumberLabel" destination="iXM-zR-Rlx" id="cHY-tL-eIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ir5-eB-E1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,12 +358,16 @@
                 <relationship kind="outlet" name="fifteenMinuteDuration" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="fifteenMinuteFrequency" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="fifteenMinuteIntensity" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fifteenMinuteNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minuteNumberScrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="oneHourDuration" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="oneHourFrequency" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="oneHourIntensity" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sixtyMinuteNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thirtyMinuteDuration" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thirtyMinuteFrequency" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thirtyMinuteIntensity" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thirtyMinuteNumberLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="BCBaseViewController" superclassName="UIViewController">
