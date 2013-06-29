@@ -63,7 +63,7 @@
         if([subview isKindOfClass:[UILabel class]] && NO == [self.dataLabels containsObject:subview])
         {
             UILabel *titleLabel = (UILabel *)subview;
-            titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:titleLabel.font.pointSize];
+            titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:titleLabel.font.pointSize];
         }
     }
     
@@ -73,19 +73,48 @@
 {
     [self updateAverages];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionAdded:) name:kFinishedContractionAddedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appForegroundNotification:) name:kForegroundingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBackgroundNotification:) name:kBackgroundingNotification object:nil];
     
-    //have averages timer update the display every minute
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(updateAveragesFromTimer:) userInfo:nil repeats:YES];
+    [self startTimer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self stopTimer];
+}
+
+#pragma mark -
+#pragma mark Update Timer
+
+- (void)startTimer
+{
+    //have averages timer update the display every minute
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(updateAveragesFromTimer:) userInfo:nil repeats:YES];
+}
+
+- (void)stopTimer
+{
     if([self.updateTimer isValid])
     {
         [self.updateTimer invalidate];
     }
     self.updateTimer = nil;
+}
+
+#pragma mark -
+#pragma mark Notification and Timer handling
+
+- (void)appForegroundNotification:(NSNotification *)note
+{
+    [self startTimer];
+    [self updateAverages];
+}
+
+- (void)appBackgroundNotification:(NSNotification *)note
+{
+    [self stopTimer];
 }
 
 - (void)contractionAdded:(NSNotification *)note
@@ -97,6 +126,10 @@
 {
     [self updateAverages];
 }
+
+
+#pragma mark -
+#pragma mark Display Updatese
 
 - (void)updateAverages
 {

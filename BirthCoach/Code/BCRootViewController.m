@@ -27,10 +27,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *intensityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
 
-//child controllers
-
-@property (weak, nonatomic) IBOutlet BCAveragesViewController *averagesController;
-
 //data
 @property (nonatomic, strong)  BCContraction *activeContraction;
 @property (nonatomic, strong) NSTimer *secondTimer;
@@ -55,9 +51,14 @@
 	self.timerLabel.text = @"";
     self.timerLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.timerLabel.font.pointSize];
     
-    for(UILabel *titleLabel in @[self.nextContractionEstimateLabel, self.lastContractionLabel, self.durationTitleLabel, self.intensityTitleLabel, self.frequencyTitleLabel])
+    for(UILabel *titleLabel in @[self.nextContractionEstimateLabel, self.lastContractionLabel])
     {
         titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:titleLabel.font.pointSize];
+    }
+    
+    for(UILabel *titleLabel in @[self.durationTitleLabel, self.intensityTitleLabel, self.frequencyTitleLabel])
+    {
+        titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:titleLabel.font.pointSize];
     }
     
     for(UILabel *valueLabel in @[self.durationLabel, self.intensityLabel, self.frequencyLabel])
@@ -117,7 +118,10 @@
 
 - (void)updateTimerLabel
 {
-    self.timerLabel.text = [BCTimeIntervalFormatter timeStringForInterval:self.secondsIntoContraction];
+    if(self.secondsIntoContraction > 0)
+    {
+        self.timerLabel.text = [BCTimeIntervalFormatter timeStringForInterval:self.secondsIntoContraction];
+    }
 }
 
 - (void)clearTimer
@@ -166,8 +170,8 @@
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kMidOrangeColor] colorWithAlphaComponent:.15];
         self.nextContractionEstimateLabel.hidden = YES;
         
-        self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
         self.timerLabel.text = @"00:00";
+        self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
     }
     else
     {
