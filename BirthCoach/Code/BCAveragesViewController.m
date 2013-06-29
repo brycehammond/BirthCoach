@@ -76,6 +76,9 @@
     }
     
     self.minuteNumberScrollView.contentSize = CGSizeMake(self.minuteNumberScrollView.frame.size.width * 3, self.minuteNumberScrollView.frame.size.height);
+    
+    self.thirtyMinuteNumberLabel.alpha = 0;
+    self.sixtyMinuteNumberLabel.alpha = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -157,10 +160,33 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    CGFloat numberScrollerWidth = self.minuteNumberScrollView.frame.size.width;
+    
     CGPoint contentOffset = scrollView.contentOffset;
     CGFloat offsetFactor = contentOffset.x / scrollView.contentSize.width;
-    CGFloat minuteNumberOffset = offsetFactor * self.minuteNumberScrollView.contentSize.width;
-    self.minuteNumberScrollView.contentOffset = CGPointMake(floor(minuteNumberOffset), 0);
+    CGFloat minuteNumberOffset = floor(offsetFactor * self.minuteNumberScrollView.contentSize.width);
+    self.minuteNumberScrollView.contentOffset = CGPointMake(minuteNumberOffset, 0);
+    
+    self.fifteenMinuteNumberLabel.alpha = 1 - MAX(minuteNumberOffset / numberScrollerWidth, 0);
+    
+    if(minuteNumberOffset > numberScrollerWidth)
+    {
+        self.thirtyMinuteNumberLabel.alpha = 1 - MAX((minuteNumberOffset - numberScrollerWidth) / numberScrollerWidth, 0);
+    }
+    else
+    {
+        self.thirtyMinuteNumberLabel.alpha = MAX(minuteNumberOffset / numberScrollerWidth, 0);
+    }
+    
+    if(minuteNumberOffset > 2 * numberScrollerWidth)
+    {
+        self.sixtyMinuteNumberLabel.alpha = 1 - MAX((minuteNumberOffset - 2 * numberScrollerWidth) / numberScrollerWidth, 0);
+    }
+    else
+    {
+        self.sixtyMinuteNumberLabel.alpha = MAX((minuteNumberOffset - numberScrollerWidth) / numberScrollerWidth, 0);
+    }
+    
 }
 
 @end
