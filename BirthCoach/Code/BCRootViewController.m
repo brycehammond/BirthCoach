@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nextContractionEstimateLabel;
 
 //Last Contraction
+@property (weak, nonatomic) IBOutlet UIView *lastContractionContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *lastContractionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *intensityTitleLabel;
@@ -66,6 +67,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appForegroundNotification:) name:kForegroundingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBackgroundNotification:) name:kBackgroundingNotification object:nil];
     [self updateAppearanceState];
+    [self updateLastContractionView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -92,7 +94,7 @@
     if(nil != self.activeContraction)
     {
         self.secondsIntoContraction = [[NSDate date] timeIntervalSinceDate:self.activeContraction.startTime];
-        [self.startStopButton setTitle:@"End Contraction" forState:UIControlStateNormal];
+        [self.startStopButton setImage:[UIImage imageNamed:@"stop-button"] forState:UIControlStateNormal];
         self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
     }
     [self updateViewState];
@@ -110,7 +112,7 @@
 
 - (void)updateTimerLabel
 {
-    self.timerLabel.text = [NSString stringWithFormat:@"%02i:%02i",(int)self.secondsIntoContraction / 60, (int)self.secondsIntoContraction % 60];
+    self.timerLabel.text = [BCTimeIntervalFormatter timeStringForInterval:self.secondsIntoContraction];
 }
 
 - (void)clearTimer
@@ -127,6 +129,13 @@
 {
     self.secondsIntoContraction += 1;
     [self updateTimerLabel];
+}
+
+- (void)updateLastContractionView
+{
+    BCContraction *lastContraction = [BCContraction lastContraction];
+    self.durationLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.duration];
+    self.frequencyLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.frequency];
 }
 
 
@@ -165,6 +174,7 @@
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
         self.nextContractionEstimateLabel.hidden = NO;
         self.timerLabel.text = @"";
+        [self updateLastContractionView];
     }
     
     [self updateViewState];

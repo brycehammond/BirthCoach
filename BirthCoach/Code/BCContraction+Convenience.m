@@ -22,7 +22,8 @@
         return 0;
     }
     
-    return [self.startTime timeIntervalSinceDate:prevContraction.startTime];
+    NSTimeInterval frequency = [self.startTime timeIntervalSinceDate:prevContraction.startTime];
+    return frequency;
 }
 
 - (NSTimeInterval)duration
@@ -32,7 +33,7 @@
 
 + (BCContraction *)lastContractionBeforeTime:(NSDate *)time
 {
-    return [BCContraction findFirstWithPredicate:[NSPredicate predicateWithFormat:@"startTime <= %@ AND endTime != nil",time] sortedBy:@"startTime" ascending:NO];
+    return [BCContraction findFirstWithPredicate:[NSPredicate predicateWithFormat:@"startTime < %@ AND endTime != nil",time] sortedBy:@"startTime" ascending:NO];
 }
 
 + (BCContraction *)lastContraction
@@ -45,7 +46,7 @@
     return [BCContraction findFirstWithPredicate:[NSPredicate predicateWithFormat:@"endTime = nil"] sortedBy:@"startTime" ascending:NO];
 }
 
-+ (CGFloat)averageFrequencyForLastMinutes:(NSInteger)minutes
++ (NSTimeInterval)averageFrequencyForLastMinutes:(NSInteger)minutes
 {
     NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime <= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
     
@@ -77,10 +78,10 @@
         previousContraction = contraction;
     }
     
-    return summedFrequency / (CGFloat)totalContractions;
+    return summedFrequency / totalContractions;
 }
 
-+ (CGFloat)averageDurationForLastMinutes:(NSInteger)minutes
++ (NSTimeInterval)averageDurationForLastMinutes:(NSInteger)minutes
 {
     NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime <= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
     

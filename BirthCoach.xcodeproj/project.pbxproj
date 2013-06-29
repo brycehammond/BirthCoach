@@ -34,6 +34,7 @@
 		02BB09E5177D623B0040A622 /* stop-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09E1177D623B0040A622 /* stop-button@2x.png */; };
 		02BB09EC177EA2A60040A622 /* orange-handle.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09EA177EA2A60040A622 /* orange-handle.png */; };
 		02BB09ED177EA2A60040A622 /* orange-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09EB177EA2A60040A622 /* orange-handle@2x.png */; };
+		02BB09F0177EB1630040A622 /* BCTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09EF177EB1630040A622 /* BCTimeIntervalFormatter.m */; };
 		C9E2AE0CD97C40A8BCA2FEB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1052A2AEA4BF4BDF32D7C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		02BB09E1177D623B0040A622 /* stop-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-button@2x.png"; path = "Images/stop-button@2x.png"; sourceTree = "<group>"; };
 		02BB09EA177EA2A60040A622 /* orange-handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "orange-handle.png"; path = "Images/orange-handle.png"; sourceTree = "<group>"; };
 		02BB09EB177EA2A60040A622 /* orange-handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "orange-handle@2x.png"; path = "Images/orange-handle@2x.png"; sourceTree = "<group>"; };
+		02BB09EE177EB1630040A622 /* BCTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCTimeIntervalFormatter.h; path = Code/BCTimeIntervalFormatter.h; sourceTree = "<group>"; };
+		02BB09EF177EB1630040A622 /* BCTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCTimeIntervalFormatter.m; path = Code/BCTimeIntervalFormatter.m; sourceTree = "<group>"; };
 		2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3CC1052A2AEA4BF4BDF32D7C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,6 +185,8 @@
 				029DFAD217651A1300D022FC /* BCContraction.m */,
 				029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */,
 				029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */,
+				02BB09EE177EB1630040A622 /* BCTimeIntervalFormatter.h */,
+				02BB09EF177EB1630040A622 /* BCTimeIntervalFormatter.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				029DFAD317651A1300D022FC /* BCContraction.m in Sources */,
 				029DFAD617651A7E00D022FC /* BCContraction+Convenience.m in Sources */,
 				026ADDD91776735C0054FDCF /* BCConstants.m in Sources */,
+				02BB09F0177EB1630040A622 /* BCTimeIntervalFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
