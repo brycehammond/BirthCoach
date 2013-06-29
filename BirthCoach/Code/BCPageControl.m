@@ -37,7 +37,7 @@
     self.tapViews = [[NSMutableArray alloc] init];
     self.hidesForSinglePage = NO;
     _dotSize = 10;
-    _dotSpacing = 12;
+    _dotSpacing = 8;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -53,9 +53,7 @@
 		
 		float dotSize = _dotSize;
 		
-		float dotsWidth = (dotSize * [self numberOfPages]) + (([self numberOfPages] - 1) * _dotSpacing);
-		
-		float offset = (self.frame.size.width - dotsWidth) / 2;
+		float offset = 0;
 		
 		for (NSInteger i = 1; i <= [self numberOfPages]; i++){
 			if (i == [self currentPage]){

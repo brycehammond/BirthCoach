@@ -318,7 +318,7 @@
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" id="TN6-se-tvH" customClass="BCPageControl">
-                                <rect key="frame" x="188" y="11" width="113" height="21"/>
+                                <rect key="frame" x="182" y="12" width="223" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
