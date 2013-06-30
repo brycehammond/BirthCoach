@@ -82,6 +82,7 @@
     
     self.pageControl.numberOfPages = 3;
     self.pageControl.currentPage = 1;
+    self.pageControl.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -190,6 +191,19 @@
         self.sixtyMinuteNumberLabel.alpha = MAX((minuteNumberOffset - numberScrollerWidth) / numberScrollerWidth, 0);
     }
     
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    self.pageControl.currentPage = scrollView.currentPage;
+}
+
+#pragma mark -
+#pragma BCPageControlDelegate methods
+
+- (void)pageControl:(BCPageControl *)pageControl didSelectPage:(NSInteger)page
+{
+    self.averagesScrollView.currentPage = page;
 }
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BCPageControl.h"
 
-@interface BCAveragesViewController : UIViewController <UIScrollViewDelegate>
+@interface BCAveragesViewController : UIViewController <UIScrollViewDelegate, BCPageControlDelegate>
 
 - (void)updateAverages;
 
