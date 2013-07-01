@@ -100,6 +100,24 @@
     
 }
 
++ (NSNumber *)averageIntensityForLastMinutes:(NSInteger)minutes
+{
+    NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime >= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
+    
+    NSInteger totalIntensity = 0;
+    for(BCContraction *contraction in contractions)
+    {
+        totalIntensity += contraction.intensity.intValue;
+    }
+    
+    if(0 == totalIntensity)
+    {
+        return 0; //prevent a 0/0 error
+    }
+    
+    return @((float)totalIntensity / contractions.count);
+}
+
 + (NSInteger)numberInLastMinutes:(NSInteger)minutes
 {
     return [BCContraction countOfEntitiesWithPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime <= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
