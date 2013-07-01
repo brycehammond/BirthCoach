@@ -53,7 +53,7 @@
 		
 		float dotSize = _dotSize;
 		
-		float offset = 0;
+		float offset = 5;
 		
 		for (NSInteger i = 1; i <= [self numberOfPages]; i++){
 			if (i == [self currentPage]){
@@ -64,7 +64,7 @@
 				CGContextSetFillColorWithColor(context, [inactivePageColor CGColor]);
 			}
 			
-            CGRect dotRect = CGRectMake(offset + (dotSize + _dotSpacing) * (i - 1), (self.frame.size.height / 2) - (dotSize / 2), dotSize, dotSize);
+            CGRect dotRect = CGRectMake(offset + (dotSize + _dotSpacing) * (i - 1), floor((self.frame.size.height / 2) - (dotSize / 2)), dotSize, dotSize);
             
             CGContextStrokeEllipseInRect(context, dotRect);
             CGContextFillEllipseInRect(context, dotRect);
