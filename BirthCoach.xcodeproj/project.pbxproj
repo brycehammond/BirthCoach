@@ -38,6 +38,7 @@
 		02BB09F3177EC0AA0040A622 /* BCAveragesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09F2177EC0AA0040A622 /* BCAveragesViewController.m */; };
 		02BB09F7177F911E0040A622 /* BCPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09F6177F911E0040A622 /* BCPageControl.m */; };
 		02BB09FB177F94FF0040A622 /* UIScrollView+CurrentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09FA177F94FF0040A622 /* UIScrollView+CurrentPage.m */; };
+		02BB09FE1781403F0040A622 /* BCHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB09FD1781403F0040A622 /* BCHistoryViewController.m */; };
 		C9E2AE0CD97C40A8BCA2FEB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1052A2AEA4BF4BDF32D7C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,8 @@
 		02BB09F6177F911E0040A622 /* BCPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPageControl.m; path = Code/BCPageControl.m; sourceTree = "<group>"; };
 		02BB09F9177F94FF0040A622 /* UIScrollView+CurrentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+CurrentPage.h"; path = "Code/UIScrollView+CurrentPage.h"; sourceTree = "<group>"; };
 		02BB09FA177F94FF0040A622 /* UIScrollView+CurrentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+CurrentPage.m"; path = "Code/UIScrollView+CurrentPage.m"; sourceTree = "<group>"; };
+		02BB09FC1781403F0040A622 /* BCHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCHistoryViewController.h; path = Code/BCHistoryViewController.h; sourceTree = "<group>"; };
+		02BB09FD1781403F0040A622 /* BCHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCHistoryViewController.m; path = Code/BCHistoryViewController.m; sourceTree = "<group>"; };
 		2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3CC1052A2AEA4BF4BDF32D7C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -187,6 +190,8 @@
 				029DFACF1764FED600D022FC /* BCRootViewController.m */,
 				02BB09F1177EC0AA0040A622 /* BCAveragesViewController.h */,
 				02BB09F2177EC0AA0040A622 /* BCAveragesViewController.m */,
+				02BB09FC1781403F0040A622 /* BCHistoryViewController.h */,
+				02BB09FD1781403F0040A622 /* BCHistoryViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				02BB09F3177EC0AA0040A622 /* BCAveragesViewController.m in Sources */,
 				02BB09F7177F911E0040A622 /* BCPageControl.m in Sources */,
 				02BB09FB177F94FF0040A622 /* UIScrollView+CurrentPage.m in Sources */,
+				02BB09FE1781403F0040A622 /* BCHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
