@@ -26,6 +26,7 @@
 		02AA22DB177ABD0300C84BBA /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22DD177ABD0300C84BBA /* MainStoryboard_iPad.storyboard */; };
 		02AD1D10178776C30082A8A7 /* BCContractionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D0F178776C30082A8A7 /* BCContractionCell.m */; };
 		02AD1D13178776D50082A8A7 /* BCFrequencyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D12178776D50082A8A7 /* BCFrequencyCell.m */; };
+		02AD1D16178782AF0082A8A7 /* UIView+FrameConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D15178782AF0082A8A7 /* UIView+FrameConvenience.m */; };
 		02BB09D9177D5B7E0040A622 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D5177D5B7E0040A622 /* OpenSans-ExtraBold.ttf */; };
 		02BB09DA177D5B7E0040A622 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D6177D5B7E0040A622 /* OpenSans-Regular.ttf */; };
 		02BB09DB177D5B7E0040A622 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02BB09D7177D5B7E0040A622 /* SourceSansPro-Black.otf */; };
@@ -75,6 +76,8 @@
 		02AD1D0F178776C30082A8A7 /* BCContractionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContractionCell.m; path = Code/BCContractionCell.m; sourceTree = "<group>"; };
 		02AD1D11178776D50082A8A7 /* BCFrequencyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCFrequencyCell.h; path = Code/BCFrequencyCell.h; sourceTree = "<group>"; };
 		02AD1D12178776D50082A8A7 /* BCFrequencyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCFrequencyCell.m; path = Code/BCFrequencyCell.m; sourceTree = "<group>"; };
+		02AD1D14178782AF0082A8A7 /* UIView+FrameConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+FrameConvenience.h"; path = "Code/UIView+FrameConvenience.h"; sourceTree = "<group>"; };
+		02AD1D15178782AF0082A8A7 /* UIView+FrameConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+FrameConvenience.m"; path = "Code/UIView+FrameConvenience.m"; sourceTree = "<group>"; };
 		02BB09D5177D5B7E0040A622 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "Fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		02BB09D6177D5B7E0040A622 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		02BB09D7177D5B7E0040A622 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Black.otf"; path = "Fonts/SourceSansPro-Black.otf"; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 			children = (
 				02BB09F9177F94FF0040A622 /* UIScrollView+CurrentPage.h */,
 				02BB09FA177F94FF0040A622 /* UIScrollView+CurrentPage.m */,
+				02AD1D14178782AF0082A8A7 /* UIView+FrameConvenience.h */,
+				02AD1D15178782AF0082A8A7 /* UIView+FrameConvenience.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				02BB09FE1781403F0040A622 /* BCHistoryViewController.m in Sources */,
 				02AD1D10178776C30082A8A7 /* BCContractionCell.m in Sources */,
 				02AD1D13178776D50082A8A7 /* BCFrequencyCell.m in Sources */,
+				02AD1D16178782AF0082A8A7 /* UIView+FrameConvenience.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

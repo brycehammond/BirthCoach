@@ -11,6 +11,9 @@
 #import "BCFrequencyCell.h"
 #import "BCContraction.h"
 
+#define kTopBound 162
+#define kBottomBound 368
+
 @interface BCHistoryViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *contractionHistoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationHeaderLabel;
@@ -141,8 +144,40 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.frequencyTableView.contentOffset = scrollView.contentOffset;
-    self.contractionTableView.contentOffset = scrollView.contentOffset;
+    CGFloat currentYOrigin = self.view.superview.frame.origin.y;
+    CGFloat newYOrigin = 0;
+    
+    if(scrollView.contentOffset.y < 0)
+    {
+        newYOrigin = MIN(kBottomBound, currentYOrigin - scrollView.contentOffset.y);
+    }
+    else
+    {
+        newYOrigin = MAX(kTopBound, currentYOrigin - scrollView.contentOffset.y);
+    }
+    
+    if(newYOrigin > kTopBound && newYOrigin < kBottomBound)
+    {
+        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 15;
+        
+        
+            [self.view.superview setFrameYOrigin:newYOrigin];
+            [self.view.superview setFrameHeight:newViewHeight];
+            
+            [self.view setFrameHeight:newViewHeight];
+            
+            self.frequencyTableView.contentOffset = CGPointZero;
+            self.contractionTableView.contentOffset = CGPointZero;
+            [self.frequencyTableView setFrameHeight:newViewHeight - self.frequencyTableView.frame.origin.y];
+            [self.contractionTableView setFrameHeight:newViewHeight - self.contractionTableView.frame.origin.y];
+    }
+    else
+    {
+        self.frequencyTableView.contentOffset = scrollView.contentOffset;
+        self.contractionTableView.contentOffset = scrollView.contentOffset;
+    }
+    
+    
 }
 
 @end

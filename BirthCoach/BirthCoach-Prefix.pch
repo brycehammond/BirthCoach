@@ -15,6 +15,7 @@
     #import "UIColor+Expanded.h"
     #import "BCConstants.h"
     #import "BCTimeIntervalFormatter.h"
+    #import "UIView+FrameConvenience.h"
 
     #define MR_SHORTHAND 1
     #import "CoreData+MagicalRecord.h"
