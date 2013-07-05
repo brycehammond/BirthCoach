@@ -7,6 +7,9 @@
 //
 
 #import "BCHistoryViewController.h"
+#import "BCContractionCell.h"
+#import "BCFrequencyCell.h"
+#import "BCContraction.h"
 
 @interface BCHistoryViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *contractionHistoryLabel;
@@ -66,12 +69,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark -
 #pragma mark UITableViewDelegate/Datasource methods
 
@@ -79,7 +76,9 @@
 {
     if(tableView == self.contractionTableView)
     {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContractionCell"];
+        BCContractionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContractionCell"];
+        [cell setContraction:self.contractions[indexPath.row]];
+        
         return cell;
     }
     else
@@ -91,7 +90,9 @@
         }
         else
         {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FrequencyCell"];
+            BCFrequencyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FrequencyCell"];
+            [cell setFrequency:self.frequencies[indexPath.row]];
+            
             return cell;
         }
     }

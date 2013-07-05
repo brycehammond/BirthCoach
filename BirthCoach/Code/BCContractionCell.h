@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BCContraction;
+
 @interface BCContractionCell : UITableViewCell
+
+- (void)setContraction:(BCContraction *)contraction;
 
 @end

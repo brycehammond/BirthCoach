@@ -10,4 +10,6 @@
 
 @interface BCFrequencyCell : UITableViewCell
 
+- (void)setFrequency:(NSNumber *)frequency;
+
 @end
