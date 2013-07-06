@@ -156,16 +156,15 @@
         newYOrigin = MAX(kTopBound, currentYOrigin - scrollView.contentOffset.y);
     }
     
+    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 15;
+    
+    [self.view.superview setFrameYOrigin:newYOrigin];
+    [self.view.superview setFrameHeight:newViewHeight];
+    
+    [self.view setFrameHeight:newViewHeight];
+    
     if(newYOrigin > kTopBound && newYOrigin < kBottomBound)
     {
-        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 15;
-        
-        
-            [self.view.superview setFrameYOrigin:newYOrigin];
-            [self.view.superview setFrameHeight:newViewHeight];
-            
-            [self.view setFrameHeight:newViewHeight];
-            
             self.frequencyTableView.contentOffset = CGPointZero;
             self.contractionTableView.contentOffset = CGPointZero;
             [self.frequencyTableView setFrameHeight:newViewHeight - self.frequencyTableView.frame.origin.y];
