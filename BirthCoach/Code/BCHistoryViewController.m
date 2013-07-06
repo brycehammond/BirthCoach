@@ -95,12 +95,14 @@
     
     CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
     
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
         [self.view.superview setFrameYOrigin:newYOrigin];
         [self.view.superview setFrameHeight:newViewHeight];
         [self.view setFrameHeight:newViewHeight];
         [self.frequencyTableView setFrameHeight:newViewHeight - self.frequencyTableView.frame.origin.y];
         [self.contractionTableView setFrameHeight:newViewHeight - self.contractionTableView.frame.origin.y];
+        self.frequencyTableView.contentOffset = CGPointZero;
+        self.contractionTableView.contentOffset = CGPointZero;
         
     }];
         
@@ -108,7 +110,42 @@
 
 - (void)headerPanned:(UIPanGestureRecognizer *)gesture
 {
-    
+    static CGFloat originalGesturePosition = 0;
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        originalGesturePosition = self.view.superview.frame.origin.y;
+    }
+    else if(gesture.state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint yTranslation = [gesture translationInView:self.view];
+        CGFloat newYOrigin = originalGesturePosition + yTranslation.y;
+        [self.view.superview setFrameYOrigin:newYOrigin];
+        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
+        
+        [self.view.superview setFrameYOrigin:newYOrigin];
+        [self.view.superview setFrameHeight:newViewHeight];
+        
+        [self.view setFrameHeight:newViewHeight];
+    }
+    else if(gesture.state == UIGestureRecognizerStateEnded)
+    {
+        CGFloat newYOrigin = kTopBound;
+        if(fabs(self.view.superview.frame.origin.y - kBottomBound)
+           < fabs(self.view.superview.frame.origin.y - kTopBound))
+        {
+            newYOrigin = kBottomBound;
+        }
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.view.superview setFrameYOrigin:newYOrigin];
+            CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
+            
+            [self.view.superview setFrameYOrigin:newYOrigin];
+            [self.view.superview setFrameHeight:newViewHeight];
+            
+            [self.view setFrameHeight:newViewHeight];
+        }];
+    }
 }
 
 #pragma mark -
