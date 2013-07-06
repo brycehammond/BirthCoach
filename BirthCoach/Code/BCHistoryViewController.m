@@ -144,6 +144,8 @@
             [self.view.superview setFrameHeight:newViewHeight];
             
             [self.view setFrameHeight:newViewHeight];
+            self.frequencyTableView.contentOffset = CGPointZero;
+            self.contractionTableView.contentOffset = CGPointZero;
         }];
     }
 }
