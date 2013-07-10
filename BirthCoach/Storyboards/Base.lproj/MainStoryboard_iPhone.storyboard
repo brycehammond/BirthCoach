@@ -68,7 +68,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DURATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zd8-8J-Isd">
-                                        <rect key="frame" x="40" y="72" width="84" height="31"/>
+                                        <rect key="frame" x="40" y="69" width="84" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                         <color key="textColor" red="0.94901960784313721" green="0.76862745098039209" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,14 +82,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="INTENSITY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M69-PE-W5a">
-                                        <rect key="frame" x="109" y="72" width="84" height="31"/>
+                                        <rect key="frame" x="109" y="69" width="84" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.76862745099999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FREQUENCY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OR3-nF-D60">
-                                        <rect key="frame" x="213" y="72" width="88" height="31"/>
+                                        <rect key="frame" x="213" y="69" width="88" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.76862745099999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,13 +102,25 @@
                                         <color key="textColor" red="0.050980392159999999" green="0.14117647059999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" id="KYF-Bj-iAR">
+                                        <rect key="frame" x="-275" y="48" width="301" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView contentMode="scaleToFill" image="orange-handle.png" id="vuW-L5-LUt">
+                                                <rect key="frame" x="275" y="0.0" width="26" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" id="Rne-uW-qoO">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.97647058823529409" green="0.90196078431372551" blue="0.83137254901960778" alpha="1" colorSpace="deviceRGB"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="orange-handle.png" id="vuW-L5-LUt">
-                                <rect key="frame" x="0.0" y="209" width="26" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <containerView contentMode="scaleToFill" id="0xo-Xa-pcg">
                                 <rect key="frame" x="0.0" y="272" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -136,7 +148,9 @@
                         <outlet property="intensityLabel" destination="HNB-kZ-NCc" id="1Lw-Uo-C9h"/>
                         <outlet property="intensityTitleLabel" destination="M69-PE-W5a" id="xPZ-sJ-l6z"/>
                         <outlet property="lastContractionContainerView" destination="B3i-zO-6Q7" id="HV6-UQ-ikr"/>
+                        <outlet property="lastContractionHandle" destination="vuW-L5-LUt" id="RJA-ug-VYJ"/>
                         <outlet property="lastContractionLabel" destination="eJG-KD-7GQ" id="Rky-00-gGz"/>
+                        <outlet property="lastContractionSlideOut" destination="KYF-Bj-iAR" id="nNB-fL-idW"/>
                         <outlet property="nextContractionEstimateLabel" destination="Dt8-Gn-Lyq" id="Yur-zC-g4I"/>
                         <outlet property="startStopButton" destination="5fc-QZ-lLx" id="Ys9-Xr-fad"/>
                         <outlet property="timerBackgroundView" destination="Cpf-Qa-Y2s" id="Ga9-c9-tVw"/>
@@ -420,7 +434,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="Yrp-bY-iza">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="Yrp-bY-iza">
                                 <rect key="frame" x="0.0" y="41" width="197" height="139"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -475,7 +489,7 @@
                                     <outlet property="delegate" destination="2ls-d1-09R" id="iu1-0g-Pef"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="Sla-Gh-2o1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="Sla-Gh-2o1">
                                 <rect key="frame" x="197" y="41" width="123" height="139"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -593,6 +607,7 @@
                 <relationship kind="outlet" name="durationHeaderLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="frequencyHeaderLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="frequencyTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="headerContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="intensityHeaderLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -610,7 +625,9 @@
                 <relationship kind="outlet" name="intensityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="intensityTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lastContractionContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="lastContractionHandle" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="lastContractionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lastContractionSlideOut" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nextContractionEstimateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startStopButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timerBackgroundView" candidateClass="UIView"/>

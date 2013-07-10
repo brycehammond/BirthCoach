@@ -27,6 +27,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *intensityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *lastContractionHandle;
+@property (weak, nonatomic) IBOutlet UIView *lastContractionSlideOut;
+
+
 //data
 @property (nonatomic, strong)  BCContraction *activeContraction;
 @property (nonatomic, strong) NSTimer *secondTimer;
@@ -65,6 +69,11 @@
     {
         valueLabel.font = [UIFont fontWithName:@"OpenSans" size:valueLabel.font.pointSize];
     }
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandleTapped:)];
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandlePanned:)];
+    [self.lastContractionHandle addGestureRecognizer:tapGesture];
+    [self.lastContractionHandle addGestureRecognizer:panGesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -93,6 +102,9 @@
     [self updateDisappearanceState];
 }
 
+#pragma mark -
+#pragma mark View Updates
+
 - (void)updateAppearanceState
 {
     [self clearTimer];
@@ -104,6 +116,13 @@
         self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
     }
     [self updateViewState];
+}
+
+- (void)updateLastContractionView
+{
+    BCContraction *lastContraction = [BCContraction lastContraction];
+    self.durationLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.duration];
+    self.frequencyLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.frequency];
 }
 
 - (void)updateDisappearanceState
@@ -124,6 +143,70 @@
     }
 }
 
+#pragma mark -
+#pragma mark Gesture Handling
+
+- (void)lastContractionHandleTapped:(UITapGestureRecognizer *)tapGesture
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.lastContractionSlideOut.frame.origin.x >= 0)
+        {
+            [self.lastContractionSlideOut setFrameXOrigin:-275];
+        }
+        else
+        {
+            [self.lastContractionSlideOut setFrameXOrigin:0];
+        }
+    }];
+    
+}
+
+- (void)lastContractionHandlePanned:(UIPanGestureRecognizer *)panGesture
+{
+    static CGFloat originalGesturePosition = 0;
+    static CGFloat lastGesturePosition = 0;
+    if(panGesture.state == UIGestureRecognizerStateBegan)
+    {
+        originalGesturePosition = self.lastContractionSlideOut.frame.origin.x;
+    }
+    else if(panGesture.state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint translation = [panGesture translationInView:self.view];
+        lastGesturePosition = originalGesturePosition + translation.x;
+        [self.lastContractionSlideOut setFrameXOrigin:lastGesturePosition];
+    }
+    else
+    {
+        //get velocity to complete at that velocity or distance based velocity (if they are moving slowly)
+        CGPoint velocity = [panGesture velocityInView:self.view];
+        CGFloat newFrameXOrigin = 0;
+        CGFloat durationByVelocity = 0;
+        CGFloat durationByDistance = 0;
+        
+        if(lastGesturePosition >= originalGesturePosition)
+        {
+            //moving to the right so complete
+            newFrameXOrigin = 0;
+            durationByVelocity = (self.lastContractionSlideOut.bounds.size.width - [self.lastContractionSlideOut rightBorderXValue]) / velocity.x;
+            durationByDistance = ((self.lastContractionSlideOut.bounds.size.width - [self.lastContractionSlideOut rightBorderXValue]) / self.lastContractionSlideOut.bounds.size.width) * 0.3;
+        }
+        else
+        {
+            //moving to the left
+            newFrameXOrigin = -275;
+            durationByVelocity = [self.lastContractionSlideOut rightBorderXValue] / velocity.x;
+            durationByDistance = [self.lastContractionSlideOut rightBorderXValue] / self.lastContractionSlideOut.bounds.size.width * 0.3;
+        }
+        
+        [UIView animateWithDuration:MIN(durationByDistance, durationByVelocity) animations:^{
+            [self.lastContractionSlideOut setFrameXOrigin:newFrameXOrigin];
+        }];
+    }
+}
+
+#pragma mark -
+#pragma mark Timer Updates
+
 - (void)clearTimer
 {
     if([self.secondTimer isValid])
@@ -138,20 +221,6 @@
 {
     self.secondsIntoContraction += 1;
     [self updateTimerLabel];
-}
-
-- (void)updateLastContractionView
-{
-    BCContraction *lastContraction = [BCContraction lastContraction];
-    self.durationLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.duration];
-    self.frequencyLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.frequency];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)startStopContraction:(id)sender
