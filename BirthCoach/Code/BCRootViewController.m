@@ -29,7 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *lastContractionHandle;
 @property (weak, nonatomic) IBOutlet UIView *lastContractionSlideOut;
-
+@property (weak, nonatomic) IBOutlet UIView *lastContractionIntensityContainerView;
 
 //data
 @property (nonatomic, strong)  BCContraction *activeContraction;
@@ -123,6 +123,14 @@
     BCContraction *lastContraction = [BCContraction lastContraction];
     self.durationLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.duration];
     self.frequencyLabel.text = [BCTimeIntervalFormatter timeStringForInterval:lastContraction.frequency];
+    self.intensityLabel.text = lastContraction.intensity.intValue > 0 ? lastContraction.intensity.stringValue : @"-";
+    
+    for(UIButton *intensityButton in self.lastContractionIntensityContainerView.subviews)
+    {
+        intensityButton.enabled = [intensityButton titleForState:UIControlStateNormal].intValue != lastContraction.intensity.intValue;
+    }
+    
+    
 }
 
 - (void)updateDisappearanceState
@@ -148,7 +156,12 @@
 
 - (void)lastContractionHandleTapped:(UITapGestureRecognizer *)tapGesture
 {
-    [UIView animateWithDuration:0.3 animations:^{
+    [self toggleLastContractionSliderState:YES];
+}
+
+- (void)toggleLastContractionSliderState:(BOOL)animated
+{
+    [UIView animateWithDuration:animated ? 0.3 : 0.0 animations:^{
         if(self.lastContractionSlideOut.frame.origin.x >= 0)
         {
             [self.lastContractionSlideOut setFrameXOrigin:-275];
@@ -158,7 +171,6 @@
             [self.lastContractionSlideOut setFrameXOrigin:0];
         }
     }];
-    
 }
 
 - (void)lastContractionHandlePanned:(UIPanGestureRecognizer *)panGesture
@@ -202,6 +214,34 @@
             [self.lastContractionSlideOut setFrameXOrigin:newFrameXOrigin];
         }];
     }
+}
+
+#pragma mark -
+#pragma mark Last Contraction Editing
+
+- (IBAction)deleteLastContraction:(id)sender
+{
+    BCContraction *lastContraction = [BCContraction lastContraction];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLastContractionWillDeleteNotification object:self userInfo:@{@"contraction" : lastContraction}];
+    [lastContraction deleteEntity];
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+    [self updateLastContractionView];
+    [self toggleLastContractionSliderState:YES];
+}
+
+- (IBAction)editLastContraction:(id)sender
+{
+    
+}
+
+- (IBAction)lastContractionIntensityPressed:(UIButton *)sender
+{
+    BCContraction *lastContraction = [BCContraction lastContraction];
+    lastContraction.intensity = @([sender titleForState:UIControlStateNormal].intValue);
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+    [self updateLastContractionView];
+    [self toggleLastContractionSliderState:YES];
 }
 
 #pragma mark -
