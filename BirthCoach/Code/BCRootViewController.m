@@ -223,7 +223,7 @@
 {
     BCContraction *lastContraction = [BCContraction lastContraction];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kLastContractionWillDeleteNotification object:self userInfo:@{@"contraction" : lastContraction}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kContractionWillDeleteNotification object:self userInfo:@{@"contraction" : lastContraction}];
     [lastContraction deleteEntity];
     [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
     [self updateLastContractionView];

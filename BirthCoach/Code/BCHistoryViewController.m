@@ -50,6 +50,12 @@
 {
     self.contractions = [[BCContraction findAllSortedBy:@"endTime" ascending:NO withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil"]] mutableCopy];
     
+    [self calculateFrequencies];
+    
+}
+
+- (void)calculateFrequencies
+{
     //go through and calculate all the frequencies
     self.frequencies = [[NSMutableArray alloc] initWithCapacity:self.contractions.count];
     for(BCContraction *contraction in self.contractions)
@@ -76,6 +82,55 @@
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(headerPanned:)];
     [self.headerContainerView addGestureRecognizer:tapGesture];
     [self.headerContainerView addGestureRecognizer:panGesture];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionAdded:) name:kFinishedContractionAddedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionWillDelete:) name:kContractionWillDeleteNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark -
+#pragma mark Notification Handling
+
+- (void)contractionAdded:(NSNotification *)note
+{
+    [self.contractions insertObject:note.userInfo[@"contraction"] atIndex:0];
+    [self calculateFrequencies];
+    [self.contractionTableView beginUpdates];
+    [self.contractionTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.contractionTableView endUpdates];
+    [self.frequencyTableView beginUpdates];
+    [self.frequencyTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.frequencyTableView endUpdates];
+}
+
+- (void)contractionWillDelete:(NSNotification *)note
+{
+    NSInteger initialFrequencyCount = self.frequencies.count;
+    NSInteger contractionIdx = [self.contractions indexOfObject:note.userInfo[@"contraction"]];
+    [self.contractions removeObjectAtIndex:contractionIdx];
+    [self calculateFrequencies];
+    
+    [self.contractionTableView beginUpdates];
+    [self.contractionTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.contractionTableView endUpdates];
+    
+    if(initialFrequencyCount > 0)
+    {
+        [self.frequencyTableView beginUpdates];
+        [self.frequencyTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.frequencyTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.frequencyTableView endUpdates];
+    }
 }
 
 #pragma mark -
