@@ -151,12 +151,13 @@
     CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
     
     [UIView animateWithDuration:0 animations:^{
+        [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
+        [self.contractionTableView setContentOffset:CGPointZero animated:NO];
         [self.view setFrameYOrigin:newYOrigin];
         [self.view setFrameHeight:newViewHeight];
         [self.frequencyTableView setFrameHeight:newViewHeight - self.frequencyTableView.frame.origin.y];
         [self.contractionTableView setFrameHeight:newViewHeight - self.contractionTableView.frame.origin.y];
-        self.frequencyTableView.contentOffset = CGPointZero;
-        self.contractionTableView.contentOffset = CGPointZero;
+        
         
     }];
         
@@ -167,6 +168,8 @@
     static CGFloat originalGesturePosition = 0;
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
+        [self.frequencyTableView setContentOffset:self.frequencyTableView.contentOffset animated:NO];
+        [self.contractionTableView setContentOffset:self.contractionTableView.contentOffset animated:NO];
         originalGesturePosition = self.view.frame.origin.y;
     }
     else if(gesture.state == UIGestureRecognizerStateChanged)
@@ -201,8 +204,8 @@
         
         [self.view setFrameYOrigin:newYOrigin];
         [self.view setFrameHeight:newViewHeight];
-        self.frequencyTableView.contentOffset = CGPointZero;
-        self.contractionTableView.contentOffset = CGPointZero;
+        [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
+        [self.contractionTableView setContentOffset:CGPointZero animated:NO];
     }];
 }
 
@@ -315,7 +318,11 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self finishAnimationToBound];
+    CGFloat currentYOrigin = self.view.frame.origin.y;
+    if(currentYOrigin > kTopBound && currentYOrigin < kBottomBound)
+    {
+        [self finishAnimationToBound];
+    }
 }
 
 @end
