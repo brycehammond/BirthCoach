@@ -139,7 +139,7 @@
 - (void)headerTapped:(UITapGestureRecognizer *)gesture
 {
     CGFloat newYOrigin = 0;
-    if(self.view.superview.frame.origin.y >= kBottomBound)
+    if(self.view.frame.origin.y >= kBottomBound)
     {
         newYOrigin = kTopBound;
     }
@@ -150,9 +150,8 @@
     
     CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
     
-    [UIView animateWithDuration:0.4 animations:^{
-        [self.view.superview setFrameYOrigin:newYOrigin];
-        [self.view.superview setFrameHeight:newViewHeight];
+    [UIView animateWithDuration:0 animations:^{
+        [self.view setFrameYOrigin:newYOrigin];
         [self.view setFrameHeight:newViewHeight];
         [self.frequencyTableView setFrameHeight:newViewHeight - self.frequencyTableView.frame.origin.y];
         [self.contractionTableView setFrameHeight:newViewHeight - self.contractionTableView.frame.origin.y];
@@ -168,36 +167,33 @@
     static CGFloat originalGesturePosition = 0;
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
-        originalGesturePosition = self.view.superview.frame.origin.y;
+        originalGesturePosition = self.view.frame.origin.y;
     }
     else if(gesture.state == UIGestureRecognizerStateChanged)
     {
         CGPoint yTranslation = [gesture translationInView:self.view];
         CGFloat newYOrigin = originalGesturePosition + yTranslation.y;
-        [self.view.superview setFrameYOrigin:newYOrigin];
+        [self.view setFrameYOrigin:newYOrigin];
         CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
         
-        [self.view.superview setFrameYOrigin:newYOrigin];
-        [self.view.superview setFrameHeight:newViewHeight];
+        [self.view setFrameYOrigin:newYOrigin];
+        [self.view setFrameHeight:newViewHeight];
         
         [self.view setFrameHeight:newViewHeight];
     }
     else if(gesture.state == UIGestureRecognizerStateEnded)
     {
         CGFloat newYOrigin = kTopBound;
-        if(fabs(self.view.superview.frame.origin.y - kBottomBound)
-           < fabs(self.view.superview.frame.origin.y - kTopBound))
+        if(fabs(self.view.frame.origin.y - kBottomBound)
+           < fabs(self.view.frame.origin.y - kTopBound))
         {
             newYOrigin = kBottomBound;
         }
         
-        [UIView animateWithDuration:0.2 animations:^{
-            [self.view.superview setFrameYOrigin:newYOrigin];
+        [UIView animateWithDuration:0 animations:^{
             CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
             
-            [self.view.superview setFrameYOrigin:newYOrigin];
-            [self.view.superview setFrameHeight:newViewHeight];
-            
+            [self.view setFrameYOrigin:newYOrigin];
             [self.view setFrameHeight:newViewHeight];
             self.frequencyTableView.contentOffset = CGPointZero;
             self.contractionTableView.contentOffset = CGPointZero;
@@ -277,7 +273,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat currentYOrigin = self.view.superview.frame.origin.y;
+    CGFloat currentYOrigin = self.view.frame.origin.y;
     CGFloat newYOrigin = 0;
     
     if(scrollView.contentOffset.y < 0)
@@ -291,8 +287,8 @@
     
     CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
     
-    [self.view.superview setFrameYOrigin:newYOrigin];
-    [self.view.superview setFrameHeight:newViewHeight];
+    [self.view setFrameYOrigin:newYOrigin];
+    [self.view setFrameHeight:newViewHeight];
     
     [self.view setFrameHeight:newViewHeight];
     

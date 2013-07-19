@@ -8,6 +8,7 @@
 
 #import "BCRootViewController.h"
 #import "BCAveragesViewController.h"
+#import "BCHistoryViewController.h"
 
 @interface BCRootViewController ()
 
@@ -35,6 +36,12 @@
 @property (nonatomic, strong)  BCContraction *activeContraction;
 @property (nonatomic, strong) NSTimer *secondTimer;
 @property (assign, nonatomic) NSTimeInterval secondsIntoContraction;
+
+//sub view controllers
+@property (weak, nonatomic) IBOutlet UIView *historyContainerView;
+@property (weak, nonatomic) IBOutlet UIView *averagesContainerView;
+@property (strong, nonatomic) BCAveragesViewController *averagesController;
+@property (strong, nonatomic) BCHistoryViewController *historyController;
 
 @end
 
@@ -69,6 +76,16 @@
     {
         valueLabel.font = [UIFont fontWithName:@"OpenSans" size:valueLabel.font.pointSize];
     }
+    
+    self.averagesController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"AveragesController"];
+    [self addChildViewController:self.averagesController];
+    self.averagesController.view.frame = self.averagesContainerView.frame;
+    [self.view addSubview:self.averagesController.view];
+    
+    self.historyController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"HistoryController"];
+    [self addChildViewController:self.historyController];
+    self.historyController.view.frame = self.historyContainerView.frame;
+    [self.view addSubview:self.historyController.view];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandleTapped:)];
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandlePanned:)];

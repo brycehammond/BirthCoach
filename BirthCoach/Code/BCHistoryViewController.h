@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BCHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
+@interface BCHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+   
 @end

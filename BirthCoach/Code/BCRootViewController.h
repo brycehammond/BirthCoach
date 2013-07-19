@@ -8,6 +8,7 @@
 
 #import "BCBaseViewController.h"
 
-@interface BCRootViewController : BCBaseViewController
+
+@interface BCRootViewController : BCBaseViewController 
 
 @end

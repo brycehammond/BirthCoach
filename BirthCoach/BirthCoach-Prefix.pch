@@ -16,6 +16,7 @@
     #import "BCConstants.h"
     #import "BCTimeIntervalFormatter.h"
     #import "UIView+FrameConvenience.h"
+    #import "UIStoryboard+BCConvenience.h"
 
     #define MR_SHORTHAND 1
     #import "CoreData+MagicalRecord.h"
