@@ -321,4 +321,24 @@
     [self updateViewState];
 }
 
+#pragma mark -
+#pragma mark Segue handling
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"LastContractionEdit"])
+    {
+        BCContractionEditViewController *editController = segue.destinationViewController;
+        editController.delegate = self;
+    }
+}
+
+#pragma mark -
+#pragma mark BCContractionEditViewControllerDelegate
+
+- (void)contractionEditViewController:(BCContractionEditViewController *)controller didFinishWithSave:(BOOL)saved
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

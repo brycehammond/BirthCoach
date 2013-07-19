@@ -35,4 +35,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -
+#pragma mark Button Handling
+
+- (IBAction)cancelPressed:(id)sender
+{
+    [self.delegate contractionEditViewController:self didFinishWithSave:NO];
+}
+
+- (IBAction)savePressed:(id)sender
+{
+    [self.delegate contractionEditViewController:self didFinishWithSave:YES];
+}
+
 @end
