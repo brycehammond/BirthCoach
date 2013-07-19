@@ -183,22 +183,27 @@
     }
     else if(gesture.state == UIGestureRecognizerStateEnded)
     {
-        CGFloat newYOrigin = kTopBound;
-        if(fabs(self.view.frame.origin.y - kBottomBound)
-           < fabs(self.view.frame.origin.y - kTopBound))
-        {
-            newYOrigin = kBottomBound;
-        }
-        
-        [UIView animateWithDuration:0 animations:^{
-            CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
-            
-            [self.view setFrameYOrigin:newYOrigin];
-            [self.view setFrameHeight:newViewHeight];
-            self.frequencyTableView.contentOffset = CGPointZero;
-            self.contractionTableView.contentOffset = CGPointZero;
-        }];
+        [self finishAnimationToBound];
     }
+}
+
+- (void)finishAnimationToBound
+{
+    CGFloat newYOrigin = kTopBound;
+    if(fabs(self.view.frame.origin.y - kBottomBound)
+       < fabs(self.view.frame.origin.y - kTopBound))
+    {
+        newYOrigin = kBottomBound;
+    }
+    
+    [UIView animateWithDuration:0 animations:^{
+        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
+        
+        [self.view setFrameYOrigin:newYOrigin];
+        [self.view setFrameHeight:newViewHeight];
+        self.frequencyTableView.contentOffset = CGPointZero;
+        self.contractionTableView.contentOffset = CGPointZero;
+    }];
 }
 
 #pragma mark -
@@ -306,6 +311,11 @@
     }
     
     
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self finishAnimationToBound];
 }
 
 @end
