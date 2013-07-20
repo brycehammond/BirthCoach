@@ -98,7 +98,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appForegroundNotification:) name:kForegroundingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBackgroundNotification:) name:kBackgroundingNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lastContractionDeletedNotification:) name:kLastContractionDeletedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionDeletedNotification:) name:kContractionDeletedNotification object:nil];
     [self updateAppearanceState];
     [self updateLastContractionView];
 }
@@ -237,9 +237,10 @@
 #pragma mark -
 #pragma mark Last Contraction Editing
 
-- (void)lastContractionDeletedNotification:(NSNotification *)note
+- (void)contractionDeletedNotification:(NSNotification *)note
 {
     [self updateLastContractionView];
+    [self.averagesController updateAverages];
 }
 
 
@@ -248,11 +249,6 @@
     //the history controller will trigger a notification for us to do our view updates
     [self.historyController deleteLastContraction];
     [self toggleLastContractionSliderState:YES];
-}
-
-- (IBAction)editLastContraction:(id)sender
-{
-    
 }
 
 - (IBAction)lastContractionIntensityPressed:(UIButton *)sender

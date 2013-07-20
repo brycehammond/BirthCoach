@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BCContractionEditViewController.h"
 
-
-@interface BCHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface BCHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, BCContractionEditViewControllerDelegate>
 
 - (void)refreshData;
 - (void)deleteLastContraction;

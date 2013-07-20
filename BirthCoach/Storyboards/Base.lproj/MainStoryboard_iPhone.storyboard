@@ -141,7 +141,6 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="editLastContraction:" destination="QqC-Gy-unH" eventType="touchUpInside" id="kZe-vo-QU9"/>
                                                             <segue destination="07H-zW-wPl" kind="modal" identifier="LastContractionEdit" modalTransitionStyle="flipHorizontal" id="wFg-P6-rVT"/>
                                                         </connections>
                                                     </button>
@@ -714,7 +713,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="editSelectedContraction:" destination="2ls-d1-09R" eventType="touchUpInside" id="7ay-93-57X"/>
+                                                    <segue destination="07H-zW-wPl" kind="modal" identifier="ContractionEdit" modalTransitionStyle="flipHorizontal" id="gHv-HP-DCe"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" id="Y7M-cZ-nVs">
@@ -968,6 +967,7 @@
                 <relationship kind="action" name="editSelectedContraction:"/>
                 <relationship kind="action" name="selectedContractionIntensityPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="contractionHistoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contractionIntensityContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="contractionSlideOut" candidateClass="UIView"/>
                 <relationship kind="outlet" name="contractionTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="durationHeaderLabel" candidateClass="UILabel"/>
@@ -985,7 +985,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCRootViewController.h"/>
             <relationships>
                 <relationship kind="action" name="deleteLastContraction:"/>
-                <relationship kind="action" name="editLastContraction:"/>
                 <relationship kind="action" name="lastContractionIntensityPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="startStopContraction:"/>
                 <relationship kind="outlet" name="averagesContainerView" candidateClass="UIView"/>
@@ -1013,4 +1012,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="gHv-HP-DCe"/>
+    </inferredMetricsTieBreakers>
 </document>

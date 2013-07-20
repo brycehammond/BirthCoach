@@ -170,10 +170,7 @@
         
         [contraction deleteEntity];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
-        if(0 == contractionIdx)
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kLastContractionDeletedNotification object:self userInfo:nil];
-        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kContractionDeletedNotification object:self userInfo:nil];
     }
     
 }
@@ -524,6 +521,27 @@
     {
         [self finishAnimationToBound];
     }
+}
+
+#pragma mark -
+#pragma mark Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"ContractionEdit"])
+    {
+        BCContractionEditViewController *editController = segue.destinationViewController;
+        editController.contraction = self.contractions[[self.contractionTableView indexPathForSelectedRow].row];
+        editController.delegate = self;
+    }
+}
+
+#pragma mark -
+#pragma mark BCContractionEditViewController 
+
+- (void)contractionEditViewController:(BCContractionEditViewController *)controller didFinishWithSave:(BOOL)saved
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
