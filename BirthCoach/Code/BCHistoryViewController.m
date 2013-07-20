@@ -27,6 +27,13 @@
 @property (strong, nonatomic) NSMutableArray *contractions;
 @property (strong, nonatomic) NSMutableArray *frequencies;
 
+//contraction editing
+@property (weak, nonatomic) IBOutlet UIView *contractionSlideOut;
+@property (assign, nonatomic) CGFloat slideOutOffset;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedContractionHandle;
+
+
+
 @end
 
 @implementation BCHistoryViewController
@@ -82,6 +89,13 @@
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(headerPanned:)];
     [self.headerContainerView addGestureRecognizer:tapGesture];
     [self.headerContainerView addGestureRecognizer:panGesture];
+    
+    self.slideOutOffset = self.contractionSlideOut.frame.origin.y;
+    
+    UITapGestureRecognizer *handleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedContractionHandleTapped:)];
+    UIPanGestureRecognizer *handlePanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(selectedContractionHandlePanned:)];
+    [self.selectedContractionHandle addGestureRecognizer:handleTapGesture];
+    [self.selectedContractionHandle addGestureRecognizer:handlePanGesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -121,8 +135,13 @@
 
 - (void)contractionWillDelete:(NSNotification *)note
 {
+    [self deleteContraction:note.userInfo[@"contraction"]];
+}
+
+- (void)deleteContraction:(BCContraction *)contraction
+{
     NSInteger initialFrequencyCount = self.frequencies.count;
-    NSInteger contractionIdx = [self.contractions indexOfObject:note.userInfo[@"contraction"]];
+    NSInteger contractionIdx = [self.contractions indexOfObject:contraction];
     [self.contractions removeObjectAtIndex:contractionIdx];
     [self calculateFrequencies];
     
@@ -136,6 +155,71 @@
         [self.frequencyTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.frequencyTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.frequencyTableView endUpdates];
+    }
+}
+
+#pragma mark -
+#pragma mark Gesture Handling
+
+- (void)selectedContractionHandleTapped:(UITapGestureRecognizer *)tapGesture
+{
+    [self toggleSelectedContractionSliderState:YES];
+}
+
+- (void)toggleSelectedContractionSliderState:(BOOL)animated
+{
+    [UIView animateWithDuration:animated ? 0.3 : 0.0 animations:^{
+        if(self.contractionSlideOut.frame.origin.x >= 0)
+        {
+            [self.contractionSlideOut setFrameXOrigin:-275];
+        }
+        else
+        {
+            [self.contractionSlideOut setFrameXOrigin:0];
+        }
+    }];
+}
+
+- (void)selectedContractionHandlePanned:(UIPanGestureRecognizer *)panGesture
+{
+    static CGFloat originalGesturePosition = 0;
+    static CGFloat lastGesturePosition = 0;
+    if(panGesture.state == UIGestureRecognizerStateBegan)
+    {
+        originalGesturePosition = self.contractionSlideOut.frame.origin.x;
+    }
+    else if(panGesture.state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint translation = [panGesture translationInView:self.view];
+        lastGesturePosition = originalGesturePosition + translation.x;
+        [self.contractionSlideOut setFrameXOrigin:lastGesturePosition];
+    }
+    else
+    {
+        //get velocity to complete at that velocity or distance based velocity (if they are moving slowly)
+        CGPoint velocity = [panGesture velocityInView:self.view];
+        CGFloat newFrameXOrigin = 0;
+        CGFloat durationByVelocity = 0;
+        CGFloat durationByDistance = 0;
+        
+        if(lastGesturePosition >= originalGesturePosition)
+        {
+            //moving to the right so complete
+            newFrameXOrigin = 0;
+            durationByVelocity = (self.contractionSlideOut.bounds.size.width - [self.contractionSlideOut rightBorderXValue]) / velocity.x;
+            durationByDistance = ((self.contractionSlideOut.bounds.size.width - [self.contractionSlideOut rightBorderXValue]) / self.contractionSlideOut.bounds.size.width) * 0.3;
+        }
+        else
+        {
+            //moving to the left
+            newFrameXOrigin = -275;
+            durationByVelocity = [self.contractionSlideOut rightBorderXValue] / velocity.x;
+            durationByDistance = [self.contractionSlideOut rightBorderXValue] / self.contractionSlideOut.bounds.size.width * 0.3;
+        }
+        
+        [UIView animateWithDuration:MIN(durationByDistance, durationByVelocity) animations:^{
+            [self.contractionSlideOut setFrameXOrigin:newFrameXOrigin];
+        }];
     }
 }
 
@@ -214,6 +298,33 @@
         [self.contractionTableView setContentOffset:CGPointZero animated:NO];
     }];
 }
+
+#pragma mark -
+#pragma mark Last Contraction Editing
+
+- (IBAction)deleteSelectedContraction:(id)sender
+{
+    BCContraction *lastContraction = [BCContraction lastContraction];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kContractionWillDeleteNotification object:self userInfo:@{@"contraction" : lastContraction}];
+    [lastContraction deleteEntity];
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+    [self toggleSelectedContractionSliderState:YES];
+}
+
+- (IBAction)editSelectedContraction:(id)sender
+{
+    
+}
+
+- (IBAction)selectedContractionIntensityPressed:(UIButton *)sender
+{
+    BCContraction *lastContraction = [BCContraction lastContraction];
+    lastContraction.intensity = @([sender titleForState:UIControlStateNormal].intValue);
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+    [self toggleSelectedContractionSliderState:YES];
+}
+
 
 #pragma mark -
 #pragma mark UITableViewDelegate/Datasource methods
@@ -319,6 +430,7 @@
         self.contractionTableView.contentOffset = scrollView.contentOffset;
     }
     
+    [self.contractionSlideOut setFrameYOrigin:self.slideOutOffset - scrollView.contentOffset.y];
     
 }
 
