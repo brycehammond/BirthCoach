@@ -114,7 +114,6 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionAdded:) name:kFinishedContractionAddedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionWillDelete:) name:kContractionWillDeleteNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -140,34 +139,46 @@
     [self.contractionTableView beginUpdates];
     [self.contractionTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.contractionTableView endUpdates];
-    [self.frequencyTableView beginUpdates];
-    [self.frequencyTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.frequencyTableView endUpdates];
-}
-
-- (void)contractionWillDelete:(NSNotification *)note
-{
-    [self deleteContraction:note.userInfo[@"contraction"]];
-}
-
-- (void)deleteContraction:(BCContraction *)contraction
-{
-    NSInteger initialFrequencyCount = self.frequencies.count;
-    NSInteger contractionIdx = [self.contractions indexOfObject:contraction];
-    [self.contractions removeObjectAtIndex:contractionIdx];
-    [self calculateFrequencies];
     
-    [self.contractionTableView beginUpdates];
-    [self.contractionTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.contractionTableView endUpdates];
-    
-    if(initialFrequencyCount > 0)
+    if(self.frequencies.count > 0)
     {
         [self.frequencyTableView beginUpdates];
-        [self.frequencyTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.frequencyTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.frequencyTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.frequencyTableView endUpdates];
     }
+    
+    
+}
+
+- (void)deleteContractionAtIndex:(NSInteger)contractionIdx
+{
+    if(contractionIdx < self.contractions.count)
+    {
+        NSInteger initialFrequencyCount = self.frequencies.count;
+        BCContraction *contraction = [self.contractions objectAtIndex:contractionIdx];
+        [self.contractions removeObjectAtIndex:contractionIdx];
+        [self calculateFrequencies];
+        
+        [self.contractionTableView beginUpdates];
+        [self.contractionTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.contractionTableView endUpdates];
+        
+        if(initialFrequencyCount > 0)
+        {
+            [self.frequencyTableView beginUpdates];
+            [self.frequencyTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.frequencyTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.frequencyTableView endUpdates];
+        }
+        
+        [contraction deleteEntity];
+        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+        if(0 == contractionIdx)
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLastContractionDeletedNotification object:self userInfo:nil];
+        }
+    }
+    
 }
 
 #pragma mark -
@@ -312,16 +323,19 @@
 }
 
 #pragma mark -
-#pragma mark Last Contraction Editing
+#pragma mark Contraction Editing
+
+- (void)deleteLastContraction
+{
+    [self deleteContractionAtIndex:0];
+}
 
 - (IBAction)deleteSelectedContraction:(id)sender
 {
-    BCContraction *lastContraction = [BCContraction lastContraction];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kContractionWillDeleteNotification object:self userInfo:@{@"contraction" : lastContraction}];
-    [lastContraction deleteEntity];
-    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+    [self deleteContractionAtIndex:self.selectedContractionRow];
     [self toggleSelectedContractionSliderState:YES];
+
 }
 
 - (IBAction)editSelectedContraction:(id)sender

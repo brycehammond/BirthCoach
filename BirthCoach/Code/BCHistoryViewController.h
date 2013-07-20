@@ -12,5 +12,6 @@
 @interface BCHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 - (void)refreshData;
+- (void)deleteLastContraction;
 
 @end

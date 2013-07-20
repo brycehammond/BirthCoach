@@ -11,7 +11,7 @@
 #define kForegroundingNotification @"ForegroundingNotification"
 #define kBackgroundingNotification @"BackgroundingNotification"
 #define kFinishedContractionAddedNotification @"FinishedContractionAddedNotification"
-#define kContractionWillDeleteNotification @"ContrctionWillDeleteNotification"
+#define kLastContractionDeletedNotification @"ContractionWillDeleteNotification"
 
 //Colors
 
