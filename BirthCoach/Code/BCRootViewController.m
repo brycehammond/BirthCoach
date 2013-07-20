@@ -263,6 +263,7 @@
     [self updateLastContractionView];
     [self toggleLastContractionSliderState:YES];
     [self.historyController refreshData];
+    [self.averagesController updateAverages];
 }
 
 #pragma mark -

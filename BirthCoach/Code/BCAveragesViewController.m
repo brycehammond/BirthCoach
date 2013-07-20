@@ -89,8 +89,10 @@
 {
     [self updateAverages];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionAdded:) name:kFinishedContractionAddedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionUpdated:) name:kContractionEditedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appForegroundNotification:) name:kForegroundingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBackgroundNotification:) name:kBackgroundingNotification object:nil];
+    
     
     [self startTimer];
 }
@@ -138,6 +140,12 @@
     [self updateAverages];
 }
 
+- (void)contractionUpdated:(NSNotification *)note
+{
+    [self updateAverages];
+    
+}
+
 - (void)updateAveragesFromTimer:(NSTimer *)timer
 {
     [self updateAverages];
@@ -151,12 +159,15 @@
 {
     self.fifteenMinuteDuration.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageDurationForLastMinutes:15]];
     self.fifteenMinuteFrequency.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageFrequencyForLastMinutes:15]];
+    self.fifteenMinuteIntensity.text =  [NSString stringWithFormat:@"%0.1f", [BCContraction averageIntensityForLastMinutes:15].floatValue];
     
     self.thirtyMinuteDuration.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageDurationForLastMinutes:30]];
     self.thirtyMinuteFrequency.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageFrequencyForLastMinutes:30]];
+    self.thirtyMinuteIntensity.text =  [NSString stringWithFormat:@"%0.1f", [BCContraction averageIntensityForLastMinutes:30].floatValue];
     
     self.oneHourDuration.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageDurationForLastMinutes:60]];
     self.oneHourFrequency.text = [BCTimeIntervalFormatter timeStringForInterval:[BCContraction averageFrequencyForLastMinutes:60]];
+    self.oneHourIntensity.text =  [NSString stringWithFormat:@"%0.1f", [BCContraction averageIntensityForLastMinutes:60].floatValue];
 }
 
 #pragma mark -

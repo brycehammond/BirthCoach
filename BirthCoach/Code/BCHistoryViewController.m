@@ -359,6 +359,8 @@
     
     [self toggleSelectedContractionSliderState:YES];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:kContractionEditedNotification object:self userInfo:@{ @"contraction" : contraction }];
+    
 }
 
 

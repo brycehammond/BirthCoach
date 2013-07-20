@@ -105,9 +105,14 @@
     NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime >= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
     
     NSInteger totalIntensity = 0;
+    NSInteger nonZeroContractions = 0;
     for(BCContraction *contraction in contractions)
     {
-        totalIntensity += contraction.intensity.intValue;
+        if(contraction.intensity.intValue > 0)
+        {
+            totalIntensity += contraction.intensity.intValue;
+            nonZeroContractions++;
+        } 
     }
     
     if(0 == totalIntensity)
@@ -115,7 +120,7 @@
         return 0; //prevent a 0/0 error
     }
     
-    return @((float)totalIntensity / contractions.count);
+    return @((float)totalIntensity / nonZeroContractions);
 }
 
 + (NSInteger)numberInLastMinutes:(NSInteger)minutes
