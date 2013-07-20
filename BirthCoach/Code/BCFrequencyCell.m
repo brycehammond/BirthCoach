@@ -40,7 +40,7 @@
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    self.contentView.backgroundColor = selected ? [[UIColor colorWithHexString:kMidGreenColor] colorWithAlphaComponent:0.15] : [UIColor whiteColor];
 }
 
 - (void)setFrequency:(NSNumber *)frequency

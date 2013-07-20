@@ -45,7 +45,7 @@
     [self clearTapViews];
     
     UIColor *activePageColor = [UIColor colorWithHexString:kMidGreenColor];
-    UIColor *inactivePageColor = [[UIColor colorWithHexString:kMidGreenColor] colorWithAlphaComponent:0.3];
+    UIColor *inactivePageColor = [[UIColor colorWithHexString:kMidGreenColor] colorWithAlphaComponent:0.15];
     
 	if (hidesForSinglePage == NO || [self numberOfPages] > 1){
 		

@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIView *contractionSlideOut;
 @property (assign, nonatomic) CGFloat slideOutOffset;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedContractionHandle;
+@property (assign, nonatomic) NSInteger selectedContractionRow;
 
 
 
@@ -97,6 +98,16 @@
     UIPanGestureRecognizer *handlePanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(selectedContractionHandlePanned:)];
     [self.selectedContractionHandle addGestureRecognizer:handleTapGesture];
     [self.selectedContractionHandle addGestureRecognizer:handlePanGesture];
+    
+    //start by selecting the first row
+    [self.contractionTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    if(self.frequencies.count > 0)
+    {
+        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    
+    self.selectedContractionRow = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -407,6 +418,15 @@
     }];
     
     self.slideOutOffset = newOffset.y + tableView.contentOffset.y;
+    
+    [self.contractionTableView selectRowAtIndexPath:lookupPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    if(self.frequencies.count > 0)
+    {
+        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lookupPath.row inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    
+    self.selectedContractionRow = indexPath.row;
     
 }
 

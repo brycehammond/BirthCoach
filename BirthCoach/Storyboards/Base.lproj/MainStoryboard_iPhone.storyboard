@@ -749,10 +749,10 @@
                                                             <color key="titleColor" red="0.070588235289999995" green="0.43529411759999997" blue="0.53725490200000003" alpha="1" colorSpace="deviceRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="disabled" title="2" backgroundImage="orange-circle-selected.png">
+                                                        <state key="disabled" title="2" backgroundImage="blue-circle-selected.png">
                                                             <color key="titleColor" red="0.74901960779999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="deviceRGB"/>
                                                         </state>
-                                                        <state key="highlighted" title="2" backgroundImage="orange-circle-selected.png">
+                                                        <state key="highlighted" title="2" backgroundImage="blue-circle-selected.png">
                                                             <color key="titleColor" red="0.74901960779999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="deviceRGB"/>
                                                         </state>
                                                         <connections>
