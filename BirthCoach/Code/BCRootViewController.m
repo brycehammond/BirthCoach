@@ -259,6 +259,7 @@
     [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
     [self updateLastContractionView];
     [self toggleLastContractionSliderState:YES];
+    [self.historyController refreshData];
 }
 
 #pragma mark -
@@ -298,6 +299,12 @@
         
         self.timerLabel.text = @"00:00";
         self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
+        
+        //make sure the last contraction slider is hidden
+        [UIView animateWithDuration:0.3 animations:^{
+                [self.lastContractionSlideOut setFrameXOrigin:-275];
+        }];
+        
     }
     else
     {
@@ -315,6 +322,10 @@
         self.timerLabel.text = @"";
         [self updateLastContractionView];
         
+        //show the contraction slider so they can set intensity
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.lastContractionSlideOut setFrameXOrigin:0];
+        }];
         
     }
     

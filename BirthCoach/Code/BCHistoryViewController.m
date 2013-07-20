@@ -98,6 +98,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)refreshData
+{
+    [self.contractionTableView reloadData];
+    [self.frequencyTableView reloadData];
+}
+
 #pragma mark -
 #pragma mark Notification Handling
 

@@ -10,5 +10,7 @@
 
 
 @interface BCHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
-   
+
+- (void)refreshData;
+
 @end
