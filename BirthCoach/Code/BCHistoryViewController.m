@@ -13,6 +13,7 @@
 
 #define kTopBound 162
 #define kBottomBound 368
+#define kHeaderHeight 40
 
 @interface BCHistoryViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *contractionHistoryLabel;
@@ -395,6 +396,22 @@
 
     return 54;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSIndexPath *lookupPath = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+    CGRect cellRect = [self.contractionTableView rectForRowAtIndexPath:lookupPath];
+    CGPoint newOffset = CGPointMake(-275, cellRect.origin.y - tableView.contentOffset.y + 5 + kHeaderHeight);
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.contractionSlideOut setFrameOrigin:newOffset];
+    }];
+    
+    self.slideOutOffset = newOffset.y + tableView.contentOffset.y;
+    
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
