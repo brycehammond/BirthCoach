@@ -48,7 +48,7 @@
 - (void)setContraction:(BCContraction *)contraction
 {
     self.durationLabel.text = [BCTimeIntervalFormatter timeStringForInterval:contraction.duration];
-    self.intensityLabel.text = contraction.intensity.stringValue;
+    self.intensityLabel.text = contraction.intensity.integerValue > 0 ? contraction.intensity.stringValue : @"-";
 }
 
 @end
