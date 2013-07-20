@@ -885,6 +885,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="contractionHistoryLabel" destination="s2O-oK-gLP" id="0Sh-ST-Mnu"/>
+                        <outlet property="contractionIntensityContainerView" destination="Y7M-cZ-nVs" id="ooj-oa-9G9"/>
                         <outlet property="contractionSlideOut" destination="qGh-wo-LSc" id="YNy-oc-7nA"/>
                         <outlet property="contractionTableView" destination="Yrp-bY-iza" id="Ktj-hk-hyP"/>
                         <outlet property="durationHeaderLabel" destination="MYx-7H-Knp" id="3Ov-TJ-fsp"/>

@@ -30,6 +30,7 @@
 
 //contraction editing
 @property (weak, nonatomic) IBOutlet UIView *contractionSlideOut;
+@property (weak, nonatomic) IBOutlet UIView *contractionIntensityContainerView;
 @property (assign, nonatomic) CGFloat slideOutOffset;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedContractionHandle;
 @property (assign, nonatomic) NSInteger selectedContractionRow;
@@ -100,13 +101,7 @@
     [self.selectedContractionHandle addGestureRecognizer:handlePanGesture];
     
     //start by selecting the first row
-    [self.contractionTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    
-    if(self.frequencies.count > 0)
-    {
-        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    }
-    
+    [self selectContractionIndex:0];
     self.selectedContractionRow = 0;
 }
 
@@ -146,6 +141,8 @@
         [self.frequencyTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.frequencyTableView endUpdates];
     }
+    
+    [self selectContractionIndex:0];
     
     
 }
@@ -345,10 +342,23 @@
 
 - (IBAction)selectedContractionIntensityPressed:(UIButton *)sender
 {
-    BCContraction *lastContraction = [BCContraction lastContraction];
-    lastContraction.intensity = @([sender titleForState:UIControlStateNormal].intValue);
+    
+    BCContraction *contraction = self.contractions[self.selectedContractionRow];
+    contraction.intensity = @([sender titleForState:UIControlStateNormal].intValue);
     [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+    
+    NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:self.selectedContractionRow inSection:0];
+    
+    [self.contractionTableView reloadRowsAtIndexPaths:@[currentIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.contractionTableView selectRowAtIndexPath:currentIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    for(UIButton *intensityButton in self.contractionIntensityContainerView.subviews)
+    {
+        intensityButton.enabled = [intensityButton titleForState:UIControlStateNormal].intValue != contraction.intensity.intValue;
+    }
+    
     [self toggleSelectedContractionSliderState:YES];
+    
 }
 
 
@@ -425,6 +435,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *lookupPath = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+    if(tableView == self.frequencyTableView)
+    {
+        lookupPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
+    }
+    
     CGRect cellRect = [self.contractionTableView rectForRowAtIndexPath:lookupPath];
     CGPoint newOffset = CGPointMake(-275, cellRect.origin.y - tableView.contentOffset.y + 5 + kHeaderHeight);
     [UIView animateWithDuration:0.3 animations:^{
@@ -433,15 +448,30 @@
     
     self.slideOutOffset = newOffset.y + tableView.contentOffset.y;
     
-    [self.contractionTableView selectRowAtIndexPath:lookupPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-    
-    if(self.frequencies.count > 0)
-    {
-        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lookupPath.row inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    }
+    [self selectContractionIndex:lookupPath.row];
     
     self.selectedContractionRow = indexPath.row;
+}
+
+- (void)selectContractionIndex:(NSInteger)contractionIdx
+{
+    [self.contractionTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIdx inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     
+    if(contractionIdx > 0)
+    {
+        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIdx - 1 inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    else
+    {
+        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:-1 inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    
+    BCContraction *selectedContraction = self.contractions[contractionIdx];
+    
+    for(UIButton *intensityButton in self.contractionIntensityContainerView.subviews)
+    {
+        intensityButton.enabled = [intensityButton titleForState:UIControlStateNormal].intValue != selectedContraction.intensity.intValue;
+    }
 }
 
 #pragma mark -
