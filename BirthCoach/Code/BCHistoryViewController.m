@@ -154,6 +154,9 @@
         NSInteger initialFrequencyCount = self.frequencies.count;
         BCContraction *contraction = [self.contractions objectAtIndex:contractionIdx];
         [self.contractions removeObjectAtIndex:contractionIdx];
+        [contraction deleteEntity];
+        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+        
         [self calculateFrequencies];
         
         [self.contractionTableView beginUpdates];
@@ -163,13 +166,28 @@
         if(initialFrequencyCount > 0)
         {
             [self.frequencyTableView beginUpdates];
-            [self.frequencyTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            if(contractionIdx > 0)
+            {
+                [self.frequencyTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:contractionIdx - 1 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
             [self.frequencyTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
             [self.frequencyTableView endUpdates];
         }
         
-        [contraction deleteEntity];
-        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+        
+        
+        if(contractionIdx > 0)
+        {
+            [self selectContractionIndex:contractionIdx - 1];
+            [self moveHandleToIndex:contractionIdx - 1];
+            self.selectedContractionRow -= 1;
+            
+        }
+        else
+        {
+            [self moveHandleToIndex:0];
+        }
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:kContractionDeletedNotification object:self userInfo:nil];
     }
     
@@ -328,13 +346,7 @@
 {
     
     [self deleteContractionAtIndex:self.selectedContractionRow];
-    [self toggleSelectedContractionSliderState:YES];
 
-}
-
-- (IBAction)editSelectedContraction:(id)sender
-{
-    
 }
 
 - (IBAction)selectedContractionIntensityPressed:(UIButton *)sender
@@ -439,17 +451,22 @@
         lookupPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
     }
     
-    CGRect cellRect = [self.contractionTableView rectForRowAtIndexPath:lookupPath];
-    CGPoint newOffset = CGPointMake(-275, cellRect.origin.y - tableView.contentOffset.y + 5 + kHeaderHeight);
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.contractionSlideOut setFrameOrigin:newOffset];
-    }];
-    
-    self.slideOutOffset = newOffset.y + tableView.contentOffset.y;
+    [self moveHandleToIndex:lookupPath.row];
     
     [self selectContractionIndex:lookupPath.row];
     
     self.selectedContractionRow = indexPath.row;
+}
+
+- (void)moveHandleToIndex:(NSInteger)contractionIndex
+{
+    CGRect cellRect = [self.contractionTableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIndex inSection:0]];
+    CGPoint newOffset = CGPointMake(-275, cellRect.origin.y - self.contractionTableView.contentOffset.y + 5 + kHeaderHeight);
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.contractionSlideOut setFrameOrigin:newOffset];
+    }];
+    
+    self.slideOutOffset = newOffset.y + self.contractionTableView.contentOffset.y;
 }
 
 - (void)selectContractionIndex:(NSInteger)contractionIdx
