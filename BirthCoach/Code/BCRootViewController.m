@@ -91,6 +91,12 @@
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandlePanned:)];
     [self.lastContractionHandle addGestureRecognizer:tapGesture];
     [self.lastContractionHandle addGestureRecognizer:panGesture];
+    
+    if(0 == [BCContraction countOfEntities])
+    {
+        //hide the last contraction thumb if we don't have any contractions yet
+        [self.lastContractionSlideOut setFrameXOrigin:kSliderHiddenXCoordinate];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -182,11 +188,11 @@
     [UIView animateWithDuration:animated ? 0.3 : 0.0 animations:^{
         if(self.lastContractionSlideOut.frame.origin.x >= 0)
         {
-            [self.lastContractionSlideOut setFrameXOrigin:-275];
+            [self.lastContractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
         }
         else
         {
-            [self.lastContractionSlideOut setFrameXOrigin:0];
+            [self.lastContractionSlideOut setFrameXOrigin:kSliderShownXCoordinate];
         }
     }];
 }
@@ -223,7 +229,7 @@
         else
         {
             //moving to the left
-            newFrameXOrigin = -275;
+            newFrameXOrigin = kSliderThumbShownXCoordinate;
             durationByVelocity = [self.lastContractionSlideOut rightBorderXValue] / velocity.x;
             durationByDistance = [self.lastContractionSlideOut rightBorderXValue] / self.lastContractionSlideOut.bounds.size.width * 0.3;
         }
@@ -249,6 +255,14 @@
     //the history controller will trigger a notification for us to do our view updates
     [self.historyController deleteLastContraction];
     [self toggleLastContractionSliderState:YES];
+    
+    if(0 == [BCContraction countOfEntities])
+    {
+        //hide the last contraction thumb if we don't have any contractions now
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.lastContractionSlideOut setFrameXOrigin:kSliderHiddenXCoordinate];
+        }];
+    }
 }
 
 - (IBAction)lastContractionIntensityPressed:(UIButton *)sender
@@ -302,7 +316,7 @@
         
         //make sure the last contraction slider is hidden
         [UIView animateWithDuration:0.3 animations:^{
-                [self.lastContractionSlideOut setFrameXOrigin:-275];
+                [self.lastContractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
         }];
         
     }
@@ -324,7 +338,7 @@
         
         //show the contraction slider so they can set intensity
         [UIView animateWithDuration:0.3 animations:^{
-            [self.lastContractionSlideOut setFrameXOrigin:0];
+            [self.lastContractionSlideOut setFrameXOrigin:kSliderShownXCoordinate];
         }];
         
     }

@@ -24,6 +24,11 @@
 #define kMidOrangeColor @"F2C497" //R: 242 G: 196 B: 151
 #define kDarkOrangeColor    @"DE9247" //R: 222 G: 146 B: 71
 
+//slider positions
+#define kSliderHiddenXCoordinate -301
+#define kSliderThumbShownXCoordinate -275
+#define kSliderShownXCoordinate 0
+
 @interface BCConstants : NSObject
 
 @end

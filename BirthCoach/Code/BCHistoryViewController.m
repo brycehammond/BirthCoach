@@ -100,9 +100,16 @@
     [self.selectedContractionHandle addGestureRecognizer:handleTapGesture];
     [self.selectedContractionHandle addGestureRecognizer:handlePanGesture];
     
-    //start by selecting the first row
-    [self selectContractionIndex:0];
-    self.selectedContractionRow = 0;
+    if(self.contractions.count > 0)
+    {        
+        //start by selecting the first row
+        [self selectContractionIndex:0];
+        self.selectedContractionRow = 0;
+    }
+    else
+    {
+        [self.contractionSlideOut setFrameXOrigin:kSliderHiddenXCoordinate];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -143,6 +150,7 @@
     }
     
     [self selectContractionIndex:0];
+    [self moveHandleToIndex:0];
     
     
 }
@@ -206,11 +214,11 @@
     [UIView animateWithDuration:animated ? 0.3 : 0.0 animations:^{
         if(self.contractionSlideOut.frame.origin.x >= 0)
         {
-            [self.contractionSlideOut setFrameXOrigin:-275];
+            [self.contractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
         }
         else
         {
-            [self.contractionSlideOut setFrameXOrigin:0];
+            [self.contractionSlideOut setFrameXOrigin:kSliderShownXCoordinate];
         }
     }];
 }
@@ -247,7 +255,7 @@
         else
         {
             //moving to the left
-            newFrameXOrigin = -275;
+            newFrameXOrigin = kSliderThumbShownXCoordinate;
             durationByVelocity = [self.contractionSlideOut rightBorderXValue] / velocity.x;
             durationByDistance = [self.contractionSlideOut rightBorderXValue] / self.contractionSlideOut.bounds.size.width * 0.3;
         }
@@ -461,7 +469,7 @@
 - (void)moveHandleToIndex:(NSInteger)contractionIndex
 {
     CGRect cellRect = [self.contractionTableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIndex inSection:0]];
-    CGPoint newOffset = CGPointMake(-275, cellRect.origin.y - self.contractionTableView.contentOffset.y + 5 + kHeaderHeight);
+    CGPoint newOffset = CGPointMake(kSliderThumbShownXCoordinate, cellRect.origin.y - self.contractionTableView.contentOffset.y + 5 + kHeaderHeight);
     [UIView animateWithDuration:0.3 animations:^{
         [self.contractionSlideOut setFrameOrigin:newOffset];
     }];
