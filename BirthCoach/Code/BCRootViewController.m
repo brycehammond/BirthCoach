@@ -32,6 +32,10 @@
 @property (weak, nonatomic) IBOutlet UIView *lastContractionSlideOut;
 @property (weak, nonatomic) IBOutlet UIView *lastContractionIntensityContainerView;
 
+//inspirational
+
+@property (weak, nonatomic) IBOutlet UILabel *inspirationalLabel;
+
 //data
 @property (nonatomic, strong)  BCContraction *activeContraction;
 @property (nonatomic, strong) NSTimer *secondTimer;
@@ -61,6 +65,9 @@
     [super viewDidLoad];
 	self.timerLabel.text = @"";
     self.timerLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.timerLabel.font.pointSize];
+    
+    self.inspirationalLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.inspirationalLabel.font.pointSize];
+    self.inspirationalLabel.alpha = 0.0;
     
     for(UILabel *titleLabel in @[self.nextContractionEstimateLabel, self.lastContractionLabel])
     {
@@ -314,9 +321,12 @@
         self.timerLabel.text = @"00:00";
         self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
         
-        //make sure the last contraction slider is hidden
+        //hide the last contraction area and show a motivational quote
         [UIView animateWithDuration:0.3 animations:^{
-                [self.lastContractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
+            self.lastContractionContainerView.alpha = 0.0;
+            self.inspirationalLabel.alpha = 1.0;
+        } completion:^(BOOL finished) {
+            [self.lastContractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
         }];
         
     }
@@ -336,11 +346,16 @@
         self.timerLabel.text = @"";
         [self updateLastContractionView];
         
-        //show the contraction slider so they can set intensity
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.lastContractionSlideOut setFrameXOrigin:kSliderShownXCoordinate];
+        //show the last contraction area and hide the motivational quote
+        [UIView animateWithDuration:0.2 animations:^{
+            self.lastContractionContainerView.alpha = 1.0;
+            self.inspirationalLabel.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            //show the contraction slider so they can set intensity
+            [UIView animateWithDuration:0.3 animations:^{
+                [self.lastContractionSlideOut setFrameXOrigin:kSliderShownXCoordinate];
+            }];
         }];
-        
     }
     
     [self updateViewState];

@@ -34,6 +34,7 @@
 		020006A917991391004DD366 /* save-changes-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A517991391004DD366 /* save-changes-button.png */; };
 		020006AA17991391004DD366 /* save-changes-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A617991391004DD366 /* save-changes-button@2x.png */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
+		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
 		029DFA9C1764E26F00D022FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9B1764E26F00D022FC /* UIKit.framework */; };
 		029DFA9E1764E26F00D022FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9D1764E26F00D022FC /* Foundation.framework */; };
 		029DFAA01764E26F00D022FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9F1764E26F00D022FC /* CoreGraphics.framework */; };
@@ -102,6 +103,7 @@
 		020006A617991391004DD366 /* save-changes-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-changes-button@2x.png"; path = "Images/save-changes-button@2x.png"; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
+		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		029DFA981764E26F00D022FC /* BirthCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029DFA9B1764E26F00D022FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		029DFA9D1764E26F00D022FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */,
 				029DFA9C1764E26F00D022FC /* UIKit.framework in Frameworks */,
 				029DFA9E1764E26F00D022FC /* Foundation.framework in Frameworks */,
 				029DFAA01764E26F00D022FC /* CoreGraphics.framework in Frameworks */,
@@ -234,6 +237,7 @@
 		029DFA9A1764E26F00D022FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0291B7AB179CD83E00DDC00D /* AVFoundation.framework */,
 				029DFA9B1764E26F00D022FC /* UIKit.framework */,
 				029DFA9D1764E26F00D022FC /* Foundation.framework */,
 				029DFA9F1764E26F00D022FC /* CoreGraphics.framework */,
