@@ -40,6 +40,7 @@
 @property (nonatomic, strong)  BCContraction *activeContraction;
 @property (nonatomic, strong) NSTimer *secondTimer;
 @property (assign, nonatomic) NSTimeInterval secondsIntoContraction;
+@property (assign, nonatomic) NSTimeInterval secondsUntilNextContraction;
 
 //sub view controllers
 @property (weak, nonatomic) IBOutlet UIView *historyContainerView;
@@ -140,12 +141,17 @@
 {
     [self clearTimer];
     self.activeContraction = [BCContraction activeContraction];
+    self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
     if(nil != self.activeContraction)
     {
         self.secondsIntoContraction = [[NSDate date] timeIntervalSinceDate:self.activeContraction.startTime];
         [self.startStopButton setImage:[UIImage imageNamed:@"stop-button"] forState:UIControlStateNormal];
-        self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
     }
+    else
+    {
+        
+    }
+    
     [self updateViewState];
 }
 
@@ -298,6 +304,7 @@
 
 - (void)secondTimerIncremented:(NSTimer *)timer
 {
+    
     self.secondsIntoContraction += 1;
     [self updateTimerLabel];
 }
@@ -305,10 +312,11 @@
 - (IBAction)startStopContraction:(id)sender
 {
     [self clearTimer];
+    self.secondsIntoContraction = 0;
+    self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
     
     if(nil == self.activeContraction)
     {
-        self.secondsIntoContraction = 0;
         //there is no active contraction so they were in rest
         //so start one
         self.activeContraction = [BCContraction createEntity];
@@ -316,15 +324,14 @@
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         [self.startStopButton setImage:[UIImage imageNamed:@"stop-button"] forState:UIControlStateNormal];
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kMidOrangeColor] colorWithAlphaComponent:.15];
-        self.nextContractionEstimateLabel.hidden = YES;
         
         self.timerLabel.text = @"00:00";
-        self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
         
         //hide the last contraction area and show a motivational quote
         [UIView animateWithDuration:0.3 animations:^{
             self.lastContractionContainerView.alpha = 0.0;
             self.inspirationalLabel.alpha = 1.0;
+            self.nextContractionEstimateLabel.alpha = 0.0;
         } completion:^(BOOL finished) {
             [self.lastContractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
         }];
@@ -342,7 +349,6 @@
         self.activeContraction = nil;
         [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
-        self.nextContractionEstimateLabel.hidden = NO;
         self.timerLabel.text = @"";
         [self updateLastContractionView];
         
@@ -350,6 +356,7 @@
         [UIView animateWithDuration:0.2 animations:^{
             self.lastContractionContainerView.alpha = 1.0;
             self.inspirationalLabel.alpha = 0.0;
+            self.nextContractionEstimateLabel.alpha = 1.0;
         } completion:^(BOOL finished) {
             //show the contraction slider so they can set intensity
             [UIView animateWithDuration:0.3 animations:^{
