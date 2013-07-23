@@ -368,13 +368,13 @@
     {
         //there was an active contraction so stop it
         self.activeContraction.endTime = [NSDate date];
-        self.secondsUntilNextContraction = [BCContraction estimatedTimeUntilNextContraction];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         
         //post the adding of the contraction in case someone is interested
         [[NSNotificationCenter defaultCenter] postNotificationName:kFinishedContractionAddedNotification object:self userInfo:@{@"contraction" : self.activeContraction}];
         
         self.activeContraction = nil;
+        self.secondsUntilNextContraction = [BCContraction estimatedTimeUntilNextContraction];
         [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
         self.timerLabel.text = @"";

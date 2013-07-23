@@ -50,7 +50,6 @@
 		029DFAD317651A1300D022FC /* BCContraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD217651A1300D022FC /* BCContraction.m */; };
 		029DFAD617651A7E00D022FC /* BCContraction+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */; };
 		02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */; };
-		02AA22DB177ABD0300C84BBA /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22DD177ABD0300C84BBA /* MainStoryboard_iPad.storyboard */; };
 		02AD1D10178776C30082A8A7 /* BCContractionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D0F178776C30082A8A7 /* BCContractionCell.m */; };
 		02AD1D13178776D50082A8A7 /* BCFrequencyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D12178776D50082A8A7 /* BCFrequencyCell.m */; };
 		02AD1D16178782AF0082A8A7 /* UIView+FrameConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D15178782AF0082A8A7 /* UIView+FrameConvenience.m */; };
@@ -127,7 +126,6 @@
 		029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BCContraction+Convenience.h"; path = "Code/BCContraction+Convenience.h"; sourceTree = "<group>"; };
 		029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCContraction+Convenience.m"; path = "Code/BCContraction+Convenience.m"; sourceTree = "<group>"; };
 		02AA22DA177AB92300C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		02AA22DE177ABD0800C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		02AD1D0E178776C30082A8A7 /* BCContractionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCContractionCell.h; path = Code/BCContractionCell.h; sourceTree = "<group>"; };
 		02AD1D0F178776C30082A8A7 /* BCContractionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContractionCell.m; path = Code/BCContractionCell.m; sourceTree = "<group>"; };
 		02AD1D11178776D50082A8A7 /* BCFrequencyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCFrequencyCell.h; path = Code/BCFrequencyCell.h; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */,
-				02AA22DD177ABD0300C84BBA /* MainStoryboard_iPad.storyboard */,
 			);
 			name = Storyboards;
 			path = ..;
@@ -460,7 +457,6 @@
 				029DFAB01764E26F00D022FC /* Default@2x.png in Resources */,
 				029DFAB21764E26F00D022FC /* Default-568h@2x.png in Resources */,
 				02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */,
-				02AA22DB177ABD0300C84BBA /* MainStoryboard_iPad.storyboard in Resources */,
 				02BB09D9177D5B7E0040A622 /* OpenSans-ExtraBold.ttf in Resources */,
 				02BB09DA177D5B7E0040A622 /* OpenSans-Regular.ttf in Resources */,
 				02BB09DB177D5B7E0040A622 /* SourceSansPro-Black.otf in Resources */,
@@ -574,15 +570,6 @@
 				02AA22DA177AB92300C84BBA /* Base */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			path = BirthCoach/Storyboards;
-			sourceTree = "<group>";
-		};
-		02AA22DD177ABD0300C84BBA /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02AA22DE177ABD0800C84BBA /* Base */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			path = BirthCoach/Storyboards;
 			sourceTree = "<group>";
 		};
