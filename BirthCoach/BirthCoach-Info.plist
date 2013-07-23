@@ -32,7 +32,7 @@
 		<string>OpenSans-ExtraBold.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard_iPhone</string>
+	<string>MainStoryboard_iPad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
