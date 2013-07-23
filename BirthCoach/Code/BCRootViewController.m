@@ -149,7 +149,8 @@
     }
     else
     {
-        
+        self.secondsUntilNextContraction = [BCContraction estimatedTimeUntilNextContraction];
+        [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
     }
     
     [self updateViewState];
@@ -182,9 +183,17 @@
 
 - (void)updateTimerLabel
 {
-    if(self.secondsIntoContraction > 0)
+    if(nil != self.activeContraction)
     {
-        self.timerLabel.text = [BCTimeIntervalFormatter timeStringForInterval:self.secondsIntoContraction];
+        //active contraction so show seconds in
+        if(self.secondsIntoContraction > 0)
+        {
+            self.timerLabel.text = [BCTimeIntervalFormatter timeStringForInterval:self.secondsIntoContraction];
+        }
+    }
+    else
+    {
+        self.timerLabel.text = [BCTimeIntervalFormatter timeStringForInterval:self.secondsUntilNextContraction];
     }
 }
 
@@ -304,8 +313,16 @@
 
 - (void)secondTimerIncremented:(NSTimer *)timer
 {
+    if(nil == self.activeContraction)
+    {
+        self.secondsUntilNextContraction -= 1;
+    }
+    else
+    {
+        self.secondsIntoContraction += 1;
+    }
     
-    self.secondsIntoContraction += 1;
+    
     [self updateTimerLabel];
 }
 
@@ -341,6 +358,7 @@
     {
         //there was an active contraction so stop it
         self.activeContraction.endTime = [NSDate date];
+        self.secondsUntilNextContraction = [BCContraction estimatedTimeUntilNextContraction];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         
         //post the adding of the contraction in case someone is interested

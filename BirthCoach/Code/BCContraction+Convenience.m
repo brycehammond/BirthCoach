@@ -128,4 +128,17 @@
     return [BCContraction countOfEntitiesWithPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime <= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
 }
 
++ (NSTimeInterval)estimatedTimeUntilNextContraction
+{
+    BCContraction *lastContraction = [BCContraction lastContraction];
+    CGFloat frequency = lastContraction.frequency;
+    
+    if(0 == frequency)
+        return 0; //we don't have any information yet so just return 0
+    
+    NSTimeInterval timeIntoWait = [[NSDate date] timeIntervalSinceDate:lastContraction.endTime];
+    
+    return MAX(0, frequency - timeIntoWait);
+}
+
 @end

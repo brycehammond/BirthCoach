@@ -23,5 +23,6 @@
 + (NSTimeInterval)averageDurationForLastMinutes:(NSInteger)minutes;
 + (NSNumber *)averageIntensityForLastMinutes:(NSInteger)minutes;
 + (NSInteger)numberInLastMinutes:(NSInteger)minutes;
++ (NSTimeInterval)estimatedTimeUntilNextContraction;
 
 @end
