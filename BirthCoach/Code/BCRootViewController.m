@@ -97,11 +97,11 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandleTapped:)];
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandlePanned:)];
-    //UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionSwiped:)];
-    //[swipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionSwiped:)];
+    [swipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.lastContractionHandle addGestureRecognizer:tapGesture];
     [self.lastContractionHandle addGestureRecognizer:panGesture];
-    //[self.lastContractionContainerView addGestureRecognizer:swipeGesture];
+    [self.lastContractionContainerView addGestureRecognizer:swipeGesture];
     
     if(0 == [BCContraction countOfEntities])
     {

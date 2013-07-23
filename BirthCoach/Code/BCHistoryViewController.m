@@ -97,8 +97,11 @@
     
     UITapGestureRecognizer *handleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedContractionHandleTapped:)];
     UIPanGestureRecognizer *handlePanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(selectedContractionHandlePanned:)];
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectedContractionSwiped:)];
+    [swipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.selectedContractionHandle addGestureRecognizer:handleTapGesture];
     [self.selectedContractionHandle addGestureRecognizer:handlePanGesture];
+    [self.contractionSlideOut addGestureRecognizer:swipeGesture];
     
     if(self.contractions.count > 0)
     {        
@@ -264,6 +267,13 @@
             [self.contractionSlideOut setFrameXOrigin:newFrameXOrigin];
         }];
     }
+}
+
+- (void)selectedContractionSwiped:(UISwipeGestureRecognizer *)gesture
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.contractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
+    }];
 }
 
 #pragma mark -
