@@ -42,13 +42,23 @@
     
     self.startTimeLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.startTimeLabel.font.pointSize];
     self.durationLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.durationLabel.font.pointSize];
+    
+    //Add tap gestures to bring up editing controls
+    UITapGestureRecognizer *startTimeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startTimeTapped:)];
+    [self.startTimeLabel addGestureRecognizer:startTimeGesture];
+    
+    UITapGestureRecognizer *durationGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(durationTapped:)];
+    [self.durationLabel addGestureRecognizer:durationGesture];
+    
     [self updateView];
 }
 
 - (void)updateView
 {
     NSDateFormatter *startTimeFormatter = [[NSDateFormatter alloc] init];
-    startTimeFormatter.dateFormat = @"HH:mm a";
+    startTimeFormatter.timeStyle = NSDateFormatterShortStyle;
+    startTimeFormatter.dateStyle = NSDateFormatterNoStyle;
+    
     self.durationLabel.text = [[BCTimeIntervalFormatter timeStringForInterval:self.duration] stringByAppendingString:@"  "];
     self.startTimeLabel.text = [[startTimeFormatter stringFromDate:self.startTime] stringByAppendingString:@"  "];
 }
@@ -57,6 +67,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark Gesture Handling
+
+- (void)startTimeTapped:(UIGestureRecognizer *)gesture
+{
+    
+}
+
+- (void)durationTapped:(UIGestureRecognizer *)gesture
+{
+    
 }
 
 #pragma mark -
@@ -70,6 +93,24 @@
 - (IBAction)savePressed:(id)sender
 {
     [self.delegate contractionEditViewController:self didFinishWithSave:YES];
+}
+
+#pragma mark -
+#pragma mark UIPickerView Delegate/DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 2;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return @"";
 }
 
 @end

@@ -17,7 +17,7 @@
 
 @end
 
-@interface BCContractionEditViewController : BCBaseViewController
+@interface BCContractionEditViewController : BCBaseViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, weak) id<BCContractionEditViewControllerDelegate> delegate;
 @property (nonatomic, strong) BCContraction *contraction;
