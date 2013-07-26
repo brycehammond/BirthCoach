@@ -46,6 +46,16 @@
     return [BCContraction findFirstWithPredicate:[NSPredicate predicateWithFormat:@"endTime = nil"] sortedBy:@"startTime" ascending:NO];
 }
 
+- (BCContraction *)previousContraction
+{
+    return [BCContraction findFirstWithPredicate:[NSPredicate predicateWithFormat:@"startTime < %@", self.startTime] sortedBy:@"startTime" ascending:NO];
+}
+
+- (BCContraction *)nextContraction
+{
+    return [BCContraction findFirstWithPredicate:[NSPredicate predicateWithFormat:@"startTime > %@", self.endTime] sortedBy:@"startTime" ascending:YES];
+}
+
 + (NSTimeInterval)averageFrequencyForLastMinutes:(NSInteger)minutes
 {
     NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime >= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];

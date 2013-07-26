@@ -18,6 +18,9 @@
 + (BCContraction *)lastContraction;
 + (BCContraction *)activeContraction;
 
+- (BCContraction *)previousContraction;
+- (BCContraction *)nextContraction;
+
 //averages
 + (NSTimeInterval)averageFrequencyForLastMinutes:(NSInteger)minutes;
 + (NSTimeInterval)averageDurationForLastMinutes:(NSInteger)minutes;

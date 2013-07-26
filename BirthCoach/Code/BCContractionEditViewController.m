@@ -19,7 +19,7 @@
 @property (nonatomic, strong) IBOutlet UIView *fadeView;
 
 @property (nonatomic, assign) NSTimeInterval duration;
-@property (nonatomic, assign) NSDate *startTime;
+@property (nonatomic, strong) NSDate *startTime;
 
 @end
 
@@ -63,6 +63,9 @@
     [self.durationPickerView setFrameYOrigin:self.view.frame.size.height];
     [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height];
     
+    [self.durationPickerView selectRow:MIN((NSInteger)self.duration / 60, 60) inComponent:0 animated:NO];
+    [self.durationPickerView selectRow:(NSInteger)self.duration % 60 inComponent:1 animated:NO];
+    [self.startTimePickerView setDate:self.startTime];
     
     [self updateView];
 }
@@ -96,6 +99,7 @@
 
 - (void)durationTapped:(UIGestureRecognizer *)gesture
 {
+    [self.durationPickerView reloadAllComponents];
     [UIView animateWithDuration:0.3 animations:^{
         [self.durationPickerView setFrameYOrigin:self.view.frame.size.height - self.durationPickerView.frame.size.height];
         self.fadeView.alpha = 0.3;
@@ -134,17 +138,46 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 0;
+    
+    if(1 == component)
+    {
+        return 60;
+    }
+    else
+    {
+        return [self maximumMinute] + 1;
+    }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return @"";
+    NSString *numberValue = [NSString stringWithFormat:@"%i",row];
+    
+    if(1 == numberValue.length)
+    {
+       //add a 0 to the front
+        numberValue = [@"0" stringByAppendingString:numberValue];
+    }
+
+    return numberValue;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    self.duration = [pickerView selectedRowInComponent:0] * 60 + [pickerView selectedRowInComponent:1];
+}
+
+- (NSInteger)maximumMinute
+{
+    BCContraction *nextContraction = [self.contraction nextContraction];
+    NSTimeInterval maxDuration = INT_MAX;
     
+    if(nil != nextContraction)
+    {
+        maxDuration = [nextContraction.startTime timeIntervalSinceDate:self.startTime];
+    }
+    
+    return  MIN(maxDuration / 60, 59);
 }
 
 @end
