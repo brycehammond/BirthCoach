@@ -571,27 +571,71 @@
                                 <color key="textColor" red="0.070588235289999995" green="0.43529411759999997" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1:10 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="qOp-gR-Ydr">
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="1:10 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="qOp-gR-Ydr">
                                 <rect key="frame" x="164" y="72" width="134" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1:10 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GtB-Bj-eQC">
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="1:10 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GtB-Bj-eQC">
                                 <rect key="frame" x="164" y="143" width="134" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" id="qpm-yD-XUo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <pickerView contentMode="scaleToFill" id="S21-wd-2K4">
+                                <rect key="frame" x="0.0" y="244" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="07H-zW-wPl" id="4jw-GJ-Olc"/>
+                                    <outlet property="delegate" destination="07H-zW-wPl" id="m2H-jY-VhF"/>
+                                </connections>
+                            </pickerView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" id="08q-oO-Wzu">
+                                <rect key="frame" x="0.0" y="244" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="396509208.28776002">
+                                    <!--2013-07-26 05:26:48 +0000-->
+                                </date>
+                                <timeZone key="timeZone" name="America/Los_Angeles">
+                                    <mutableData key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</mutableData>
+                                </timeZone>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="0.74901960784313726" green="0.8784313725490196" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="durationLabel" destination="GtB-Bj-eQC" id="DPy-9M-4ec"/>
+                        <outlet property="durationPickerView" destination="S21-wd-2K4" id="fIP-BW-Nh6"/>
                         <outlet property="durationTitleLabel" destination="l5m-Xe-vPj" id="Ua5-LA-dLp"/>
+                        <outlet property="fadeView" destination="qpm-yD-XUo" id="LId-gv-sDl"/>
                         <outlet property="startTimeLabel" destination="qOp-gR-Ydr" id="aOo-TW-0aU"/>
+                        <outlet property="startTimePickerView" destination="08q-oO-Wzu" id="jwG-G1-fnH"/>
                         <outlet property="startTimeTitleLabel" destination="P6z-Al-hkZ" id="8Xy-jE-d4g"/>
                     </connections>
                 </viewController>
@@ -992,11 +1036,12 @@
         <class className="BCContractionEditViewController" superclassName="BCBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCContractionEditViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="savePressed:"/>
                 <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="durationPickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="durationTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fadeView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="startTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startTimePickerView" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="startTimeTitleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -1009,8 +1054,6 @@
         <class className="BCHistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCHistoryViewController.h"/>
             <relationships>
-                <relationship kind="action" name="deleteSelectedContraction:"/>
-                <relationship kind="action" name="selectedContractionIntensityPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="contractionHistoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="contractionIntensityContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="contractionSlideOut" candidateClass="UIView"/>
@@ -1029,9 +1072,6 @@
         <class className="BCRootViewController" superclassName="BCBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCRootViewController.h"/>
             <relationships>
-                <relationship kind="action" name="deleteLastContraction:"/>
-                <relationship kind="action" name="lastContractionIntensityPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="startStopContraction:"/>
                 <relationship kind="outlet" name="averagesContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="durationTitleLabel" candidateClass="UILabel"/>

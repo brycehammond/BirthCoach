@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UIPickerView *durationPickerView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *startTimePickerView;
+@property (nonatomic, strong) IBOutlet UIView *fadeView;
 
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, assign) NSDate *startTime;
@@ -21,6 +24,8 @@
 @end
 
 @implementation BCContractionEditViewController
+
+@synthesize fadeView = _fadeView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +55,15 @@
     UITapGestureRecognizer *durationGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(durationTapped:)];
     [self.durationLabel addGestureRecognizer:durationGesture];
     
+    UITapGestureRecognizer *fadeViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fadeViewTapped:)];
+    [self.fadeView addGestureRecognizer:fadeViewGesture];
+    
+    self.fadeView.alpha = 0.0;
+    
+    [self.durationPickerView setFrameYOrigin:self.view.frame.size.height];
+    [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height];
+    
+    
     [self updateView];
 }
 
@@ -74,12 +88,27 @@
 
 - (void)startTimeTapped:(UIGestureRecognizer *)gesture
 {
-    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height - self.startTimePickerView.frame.size.height];
+        self.fadeView.alpha = 0.3;
+    }];
 }
 
 - (void)durationTapped:(UIGestureRecognizer *)gesture
 {
-    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.durationPickerView setFrameYOrigin:self.view.frame.size.height - self.durationPickerView.frame.size.height];
+        self.fadeView.alpha = 0.3;
+    }];
+}
+
+- (void)fadeViewTapped:(UIGestureRecognizer *)gesture
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.durationPickerView setFrameYOrigin:self.view.frame.size.height];
+        [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height];
+        self.fadeView.alpha = 0.0;
+    }];
 }
 
 #pragma mark -
@@ -111,6 +140,11 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return @"";
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
 }
 
 @end
