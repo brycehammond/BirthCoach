@@ -404,6 +404,7 @@
     if([segue.identifier isEqualToString:@"LastContractionEdit"])
     {
         BCContractionEditViewController *editController = segue.destinationViewController;
+        editController.contraction = [BCContraction lastContraction];
         editController.delegate = self;
     }
 }

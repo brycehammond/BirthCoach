@@ -7,8 +7,16 @@
 //
 
 #import "BCContractionEditViewController.h"
+#import "BCTimeIntervalFormatter.h"
 
 @interface BCContractionEditViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *startTimeTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *durationTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+
+@property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, assign) NSDate *startTime;
 
 @end
 
@@ -26,7 +34,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	self.startTime = self.contraction.startTime;
+    self.duration = self.contraction.duration;
+    
+    self.startTimeTitleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.startTimeTitleLabel.font.pointSize];
+    self.durationTitleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.durationTitleLabel.font.pointSize];
+    
+    self.startTimeLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.startTimeLabel.font.pointSize];
+    self.durationLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:self.durationLabel.font.pointSize];
+    [self updateView];
+}
+
+- (void)updateView
+{
+    NSDateFormatter *startTimeFormatter = [[NSDateFormatter alloc] init];
+    startTimeFormatter.dateFormat = @"HH:mm a";
+    self.durationLabel.text = [[BCTimeIntervalFormatter timeStringForInterval:self.duration] stringByAppendingString:@"  "];
+    self.startTimeLabel.text = [[startTimeFormatter stringFromDate:self.startTime] stringByAppendingString:@"  "];
 }
 
 - (void)didReceiveMemoryWarning
