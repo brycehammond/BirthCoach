@@ -67,6 +67,8 @@
     [self.durationPickerView selectRow:(NSInteger)self.duration % 60 inComponent:1 animated:NO];
     [self.startTimePickerView setDate:self.startTime];
     
+    [self.startTimePickerView addTarget:self action:@selector(startTimeChanged:) forControlEvents:UIControlEventValueChanged];
+    
     [self updateView];
 }
 
@@ -129,6 +131,15 @@
 }
 
 #pragma mark -
+#pragma mark Start Time Changing
+
+- (void)startTimeChanged:(UIDatePicker *)datePicker
+{
+    self.startTime = datePicker.date;
+    [self updateView];
+}
+
+#pragma mark -
 #pragma mark UIPickerView Delegate/DataSource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -165,6 +176,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.duration = [pickerView selectedRowInComponent:0] * 60 + [pickerView selectedRowInComponent:1];
+    [self updateView];
 }
 
 - (NSInteger)maximumMinute
