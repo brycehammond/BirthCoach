@@ -63,13 +63,17 @@
     [self.durationPickerView setFrameYOrigin:self.view.frame.size.height];
     [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height];
     
-    [self.durationPickerView selectRow:MIN((NSInteger)self.duration / 60, 60) inComponent:0 animated:NO];
-    [self.durationPickerView selectRow:(NSInteger)self.duration % 60 inComponent:1 animated:NO];
-    [self.startTimePickerView setDate:self.startTime];
-    
     [self.startTimePickerView addTarget:self action:@selector(startTimeChanged:) forControlEvents:UIControlEventValueChanged];
     
     [self updateView];
+    
+    //Set up the picker view current state and contraints
+    [self.durationPickerView selectRow:MIN((NSInteger)self.duration / 60, 60) inComponent:0 animated:NO];
+    [self.durationPickerView selectRow:(NSInteger)self.duration % 60 inComponent:1 animated:NO];
+    self.startTimePickerView.date = self.startTime;
+    
+    self.startTimePickerView.minimumDate = [self.contraction previousContraction].endTime;
+    self.startTimePickerView.maximumDate = [self.contraction nextContraction].startTime;
 }
 
 - (void)updateView
@@ -127,6 +131,8 @@
 
 - (IBAction)savePressed:(id)sender
 {
+    self.contraction.startTime = self.startTime;
+    self.contraction.endTime = [self.startTime dateByAddingTimeInterval:self.duration];
     [self.delegate contractionEditViewController:self didFinishWithSave:YES];
 }
 
@@ -136,6 +142,7 @@
 - (void)startTimeChanged:(UIDatePicker *)datePicker
 {
     self.startTime = datePicker.date;
+    [self.durationPickerView reloadAllComponents];
     [self updateView];
 }
 
