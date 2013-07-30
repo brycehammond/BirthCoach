@@ -433,6 +433,12 @@
 - (void)settingsControllerDidDismiss:(BCSettingsViewController *)controller
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    if([[BCContraction numberOfEntities] intValue] == 0)
+    {
+        [self.lastContractionSlideOut setFrameXOrigin:kSliderHiddenXCoordinate];
+        [self.historyController hideSlider];
+        [self.historyController moveToBottomBound];
+    }
 }
 
 @end

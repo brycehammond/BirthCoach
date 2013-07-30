@@ -29,6 +29,9 @@
 #define kSliderThumbShownXCoordinate -275
 #define kSliderShownXCoordinate 0
 
+//Settings
+#define kDisplayKeepOnKey @"DisplayKeepOn"
+
 @interface BCConstants : NSObject
 
 @end

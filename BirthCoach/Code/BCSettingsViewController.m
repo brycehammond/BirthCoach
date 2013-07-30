@@ -9,6 +9,7 @@
 #import "BCSettingsViewController.h"
 
 @interface BCSettingsViewController ()
+@property (weak, nonatomic) IBOutlet UISwitch *displayOnSwitch;
 
 @end
 
@@ -26,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.displayOnSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:kDisplayKeepOnKey];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +39,20 @@
 - (IBAction)doneButtonPressed:(id)sender
 {
     [self.delegate settingsControllerDidDismiss:self];
+}
+
+- (IBAction)clearContractions:(id)sender
+{
+    [BCContraction truncateAll];
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
+}
+
+- (IBAction)displayOnChanged:(UISwitch *)sender
+{
+    BOOL displayOn = sender.on;
+    [[NSUserDefaults standardUserDefaults] setBool:displayOn forKey:kDisplayKeepOnKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:displayOn];
 }
 
 @end

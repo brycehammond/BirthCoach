@@ -45,23 +45,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setupController];
     }
     return self;
-}
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    [self setupController];
-}
-
-- (void)setupController
-{
-    self.contractions = [[BCContraction findAllSortedBy:@"endTime" ascending:NO withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil"]] mutableCopy];
-    
-    [self calculateFrequencies];
-    
 }
 
 - (void)calculateFrequencies
@@ -119,6 +104,12 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionAdded:) name:kFinishedContractionAddedNotification object:nil];
+    self.contractions = [[BCContraction findAllSortedBy:@"endTime" ascending:NO withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil"]] mutableCopy];
+    
+    [self calculateFrequencies];
+    
+    [self.frequencyTableView reloadData];
+    [self.contractionTableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -132,6 +123,25 @@
 {
     [self.contractionTableView reloadData];
     [self.frequencyTableView reloadData];
+}
+
+- (void)moveToBottomBound
+{
+    [self moveToYCoordinate:kBottomBound];
+}
+
+- (void)moveToTopBound
+{
+    [self moveToYCoordinate:kTopBound];
+}
+
+- (void)moveToYCoordinate:(CGFloat)yCoordinate
+{
+    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - yCoordinate - 20;
+    [self.view setFrameYOrigin:yCoordinate];
+    [self.view setFrameHeight:newViewHeight];
+    [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
+    [self.contractionTableView setContentOffset:CGPointZero animated:NO];
 }
 
 #pragma mark -
@@ -506,6 +516,11 @@
     {
         intensityButton.enabled = [intensityButton titleForState:UIControlStateNormal].intValue != selectedContraction.intensity.intValue;
     }
+}
+
+- (void)hideSlider
+{
+    [self.contractionSlideOut setFrameXOrigin:kSliderHiddenXCoordinate];
 }
 
 #pragma mark -

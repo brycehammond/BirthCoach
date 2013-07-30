@@ -15,7 +15,15 @@
 {
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"BirthCoach.sqlite"];
     [TestFlight takeOff:@"8c004250-8cbf-49c9-938a-9b6a29f9157a"];
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    //default to keeping the display on all the time (no idle)
+    if([[NSUserDefaults standardUserDefaults] objectForKey:kDisplayKeepOnKey] == nil)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kDisplayKeepOnKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:[[NSUserDefaults standardUserDefaults] boolForKey:kDisplayKeepOnKey]];
     return YES;
 }
 							

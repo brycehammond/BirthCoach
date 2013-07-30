@@ -13,5 +13,8 @@
 
 - (void)refreshData;
 - (void)deleteLastContraction;
+- (void)hideSlider;
+- (void)moveToBottomBound;
+- (void)moveToTopBound;
 
 @end
