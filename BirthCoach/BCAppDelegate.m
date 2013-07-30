@@ -7,12 +7,14 @@
 //
 
 #import "BCAppDelegate.h"
+#import "TestFlight.h"
 
 @implementation BCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"BirthCoach.sqlite"];
+    [TestFlight takeOff:@"8c004250-8cbf-49c9-938a-9b6a29f9157a"];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     return YES;
 }
