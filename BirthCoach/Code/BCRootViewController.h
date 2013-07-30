@@ -8,7 +8,8 @@
 
 #import "BCBaseViewController.h"
 #import "BCContractionEditViewController.h"
+#import "BCSettingsViewController.h"
 
-@interface BCRootViewController : BCBaseViewController <BCContractionEditViewControllerDelegate>
+@interface BCRootViewController : BCBaseViewController <BCContractionEditViewControllerDelegate, BCSettingsViewControllerDelegate>
 
 @end

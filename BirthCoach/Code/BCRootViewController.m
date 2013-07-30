@@ -9,6 +9,7 @@
 #import "BCRootViewController.h"
 #import "BCAveragesViewController.h"
 #import "BCHistoryViewController.h"
+#import "BCSettingsViewController.h"
 
 @interface BCRootViewController ()
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIView *timerBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *nextContractionEstimateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 //Last Contraction
 @property (weak, nonatomic) IBOutlet UIView *lastContractionContainerView;
@@ -88,12 +90,13 @@
     self.averagesController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"AveragesController"];
     [self addChildViewController:self.averagesController];
     self.averagesController.view.frame = self.averagesContainerView.frame;
-    [self.view addSubview:self.averagesController.view];
+    [self.view insertSubview:self.averagesController.view belowSubview:self.settingsButton];
     
     self.historyController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"HistoryController"];
     [self addChildViewController:self.historyController];
+    
     self.historyController.view.frame = self.historyContainerView.frame;
-    [self.view addSubview:self.historyController.view];
+    [self.view insertSubview:self.historyController.view belowSubview:self.settingsButton];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandleTapped:)];
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandlePanned:)];
@@ -407,6 +410,11 @@
         editController.contraction = [BCContraction lastContraction];
         editController.delegate = self;
     }
+    else if([segue.identifier isEqualToString:@"Settings"])
+    {
+        BCSettingsViewController *settingsController = [segue.destinationViewController viewControllers][0];
+        settingsController.delegate = self;
+    }
 }
 
 #pragma mark -
@@ -417,6 +425,14 @@
     [self dismissViewControllerAnimated:YES completion:^{
         [self toggleLastContractionSliderState:YES];
     }];
+}
+
+#pragma mark -
+#pragma mark BCSettingsViewControllerDelegate methods
+
+- (void)settingsControllerDidDismiss:(BCSettingsViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

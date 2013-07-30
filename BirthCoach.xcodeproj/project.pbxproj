@@ -49,6 +49,7 @@
 		029DFAD01764FED600D022FC /* BCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFACF1764FED600D022FC /* BCRootViewController.m */; };
 		029DFAD317651A1300D022FC /* BCContraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD217651A1300D022FC /* BCContraction.m */; };
 		029DFAD617651A7E00D022FC /* BCContraction+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */; };
+		02A3A5CF17A791D900D99238 /* BCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A5CE17A791D900D99238 /* BCSettingsViewController.m */; };
 		02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */; };
 		02AD1D10178776C30082A8A7 /* BCContractionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D0F178776C30082A8A7 /* BCContractionCell.m */; };
 		02AD1D13178776D50082A8A7 /* BCFrequencyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D12178776D50082A8A7 /* BCFrequencyCell.m */; };
@@ -125,6 +126,8 @@
 		029DFAD217651A1300D022FC /* BCContraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContraction.m; path = Code/BCContraction.m; sourceTree = "<group>"; };
 		029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BCContraction+Convenience.h"; path = "Code/BCContraction+Convenience.h"; sourceTree = "<group>"; };
 		029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCContraction+Convenience.m"; path = "Code/BCContraction+Convenience.m"; sourceTree = "<group>"; };
+		02A3A5CD17A791D900D99238 /* BCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCSettingsViewController.h; path = Code/BCSettingsViewController.h; sourceTree = "<group>"; };
+		02A3A5CE17A791D900D99238 /* BCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCSettingsViewController.m; path = Code/BCSettingsViewController.m; sourceTree = "<group>"; };
 		02AA22DA177AB92300C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		02AD1D0E178776C30082A8A7 /* BCContractionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCContractionCell.h; path = Code/BCContractionCell.h; sourceTree = "<group>"; };
 		02AD1D0F178776C30082A8A7 /* BCContractionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContractionCell.m; path = Code/BCContractionCell.m; sourceTree = "<group>"; };
@@ -206,8 +209,6 @@
 				020006731797ABA4004DD366 /* blue-circle-unselected@2x.png */,
 				020006741797ABA4004DD366 /* blue-edit.png */,
 				020006751797ABA4004DD366 /* blue-edit@2x.png */,
-				020006761797ABA4004DD366 /* blue-handle.png */,
-				020006771797ABA4004DD366 /* blue-handle@2.png */,
 				020006781797ABA4004DD366 /* blue-trash.png */,
 				020006791797ABA4004DD366 /* blue-trash@2x.png */,
 			);
@@ -300,6 +301,8 @@
 				02BB09FD1781403F0040A622 /* BCHistoryViewController.m */,
 				020006A017990336004DD366 /* BCContractionEditViewController.h */,
 				020006A117990336004DD366 /* BCContractionEditViewController.m */,
+				02A3A5CD17A791D900D99238 /* BCSettingsViewController.h */,
+				02A3A5CE17A791D900D99238 /* BCSettingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -368,6 +371,8 @@
 		02BB09E9177EA27B0040A622 /* Handles */ = {
 			isa = PBXGroup;
 			children = (
+				020006761797ABA4004DD366 /* blue-handle.png */,
+				020006771797ABA4004DD366 /* blue-handle@2.png */,
 				02BB09EA177EA2A60040A622 /* orange-handle.png */,
 				02BB09EB177EA2A60040A622 /* orange-handle@2x.png */,
 			);
@@ -550,6 +555,7 @@
 				02AD1D16178782AF0082A8A7 /* UIView+FrameConvenience.m in Sources */,
 				0200069F1798FA86004DD366 /* UIStoryboard+BCConvenience.m in Sources */,
 				020006A217990336004DD366 /* BCContractionEditViewController.m in Sources */,
+				02A3A5CF17A791D900D99238 /* BCSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
