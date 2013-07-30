@@ -1,18 +1,18 @@
 //
-//  BCBaseViewController.m
+//  BCMotivationalListViewController.m
 //  BirthCoach
 //
-//  Created by Bryce Hammond on 6/9/13.
+//  Created by Bryce Hammond on 7/30/13.
 //  Copyright (c) 2013 Fluidvision Design, LLC. All rights reserved.
 //
 
-#import "BCBaseViewController.h"
+#import "BCMotivationalListViewController.h"
 
-@interface BCBaseViewController ()
+@interface BCMotivationalListViewController ()
 
 @end
 
-@implementation BCBaseViewController
+@implementation BCMotivationalListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,11 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)backButtonPressed:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface BCBaseViewController : UIViewController
 
+- (IBAction)backButtonPressed:(id)sender;
+
 @end

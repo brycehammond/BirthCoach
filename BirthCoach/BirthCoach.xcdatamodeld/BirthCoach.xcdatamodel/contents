@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BCContraction" representedClassName="BCContraction" syncable="YES">
         <attribute name="endTime" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="intensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
     </entity>
+    <entity name="BCMotivationalQuote" representedClassName="BCMotivationalQuote" syncable="YES">
+        <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="BCContraction" positionX="-252" positionY="-1494" width="128" height="103"/>
+        <element name="BCMotivationalQuote" positionX="-83" positionY="-1485" width="128" height="73"/>
     </elements>
 </model>
