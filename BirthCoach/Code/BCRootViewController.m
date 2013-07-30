@@ -414,7 +414,9 @@
 
 - (void)contractionEditViewController:(BCContractionEditViewController *)controller didFinishWithSave:(BOOL)saved
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self toggleLastContractionSliderState:YES];
+    }];
 }
 
 @end

@@ -133,6 +133,7 @@
 {
     self.contraction.startTime = self.startTime;
     self.contraction.endTime = [self.startTime dateByAddingTimeInterval:self.duration];
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
     [self.delegate contractionEditViewController:self didFinishWithSave:YES];
 }
 
