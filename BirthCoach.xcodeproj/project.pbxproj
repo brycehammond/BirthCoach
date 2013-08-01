@@ -22,7 +22,6 @@
 		0200067E1797ABA4004DD366 /* blue-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006741797ABA4004DD366 /* blue-edit.png */; };
 		0200067F1797ABA4004DD366 /* blue-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006751797ABA4004DD366 /* blue-edit@2x.png */; };
 		020006801797ABA4004DD366 /* blue-handle.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006761797ABA4004DD366 /* blue-handle.png */; };
-		020006811797ABA4004DD366 /* blue-handle@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006771797ABA4004DD366 /* blue-handle@2.png */; };
 		020006821797ABA4004DD366 /* blue-trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006781797ABA4004DD366 /* blue-trash.png */; };
 		020006831797ABA4004DD366 /* blue-trash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006791797ABA4004DD366 /* blue-trash@2x.png */; };
 		020006861797AC10004DD366 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006841797AC10004DD366 /* settings.png */; };
@@ -31,10 +30,15 @@
 		020006A217990336004DD366 /* BCContractionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020006A117990336004DD366 /* BCContractionEditViewController.m */; };
 		020006A717991391004DD366 /* cancel-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A317991391004DD366 /* cancel-button.png */; };
 		020006A817991391004DD366 /* cancel-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A417991391004DD366 /* cancel-button@2x.png */; };
-		020006A917991391004DD366 /* save-changes-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A517991391004DD366 /* save-changes-button.png */; };
-		020006AA17991391004DD366 /* save-changes-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A617991391004DD366 /* save-changes-button@2x.png */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
+		029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2C17AA18C600106797 /* blue-handle@2x.png */; };
+		029D1F3417AA194600106797 /* cancel-button-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2E17AA194600106797 /* cancel-button-selected.png */; };
+		029D1F3517AA194600106797 /* cancel-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2F17AA194600106797 /* cancel-button-selected@2x.png */; };
+		029D1F3617AA194600106797 /* save-button-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3017AA194600106797 /* save-button-selected.png */; };
+		029D1F3717AA194600106797 /* save-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3117AA194600106797 /* save-button-selected@2x.png */; };
+		029D1F3817AA194600106797 /* save-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3217AA194600106797 /* save-button.png */; };
+		029D1F3917AA194600106797 /* save-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3317AA194600106797 /* save-button@2x.png */; };
 		029DFA9C1764E26F00D022FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9B1764E26F00D022FC /* UIKit.framework */; };
 		029DFA9E1764E26F00D022FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9D1764E26F00D022FC /* Foundation.framework */; };
 		029DFAA01764E26F00D022FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9F1764E26F00D022FC /* CoreGraphics.framework */; };
@@ -52,6 +56,7 @@
 		02A3A5CF17A791D900D99238 /* BCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A5CE17A791D900D99238 /* BCSettingsViewController.m */; };
 		02A3A5D317A79DDF00D99238 /* BCMotivationalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A5D217A79DDF00D99238 /* BCMotivationalListViewController.m */; };
 		02A3A5D617A7A01000D99238 /* BCMotivationalQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A5D517A7A01000D99238 /* BCMotivationalQuote.m */; };
+		02A3A5D817A7A36E00D99238 /* Motivational Quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A3A5D717A7A36E00D99238 /* Motivational Quotes.plist */; };
 		02AA22D7177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */; };
 		02AD1D10178776C30082A8A7 /* BCContractionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D0F178776C30082A8A7 /* BCContractionCell.m */; };
 		02AD1D13178776D50082A8A7 /* BCFrequencyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD1D12178776D50082A8A7 /* BCFrequencyCell.m */; };
@@ -90,7 +95,6 @@
 		020006741797ABA4004DD366 /* blue-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-edit.png"; path = "Images/blue-edit.png"; sourceTree = "<group>"; };
 		020006751797ABA4004DD366 /* blue-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-edit@2x.png"; path = "Images/blue-edit@2x.png"; sourceTree = "<group>"; };
 		020006761797ABA4004DD366 /* blue-handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-handle.png"; path = "Images/blue-handle.png"; sourceTree = "<group>"; };
-		020006771797ABA4004DD366 /* blue-handle@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-handle@2.png"; path = "Images/blue-handle@2.png"; sourceTree = "<group>"; };
 		020006781797ABA4004DD366 /* blue-trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-trash.png"; path = "Images/blue-trash.png"; sourceTree = "<group>"; };
 		020006791797ABA4004DD366 /* blue-trash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-trash@2x.png"; path = "Images/blue-trash@2x.png"; sourceTree = "<group>"; };
 		020006841797AC10004DD366 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Images/settings.png; sourceTree = "<group>"; };
@@ -101,11 +105,16 @@
 		020006A117990336004DD366 /* BCContractionEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContractionEditViewController.m; path = Code/BCContractionEditViewController.m; sourceTree = "<group>"; };
 		020006A317991391004DD366 /* cancel-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button.png"; path = "Images/cancel-button.png"; sourceTree = "<group>"; };
 		020006A417991391004DD366 /* cancel-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button@2x.png"; path = "Images/cancel-button@2x.png"; sourceTree = "<group>"; };
-		020006A517991391004DD366 /* save-changes-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-changes-button.png"; path = "Images/save-changes-button.png"; sourceTree = "<group>"; };
-		020006A617991391004DD366 /* save-changes-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-changes-button@2x.png"; path = "Images/save-changes-button@2x.png"; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		029D1F2C17AA18C600106797 /* blue-handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-handle@2x.png"; path = "Images/blue-handle@2x.png"; sourceTree = "<group>"; };
+		029D1F2E17AA194600106797 /* cancel-button-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button-selected.png"; path = "Images/cancel-button-selected.png"; sourceTree = "<group>"; };
+		029D1F2F17AA194600106797 /* cancel-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button-selected@2x.png"; path = "Images/cancel-button-selected@2x.png"; sourceTree = "<group>"; };
+		029D1F3017AA194600106797 /* save-button-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-button-selected.png"; path = "Images/save-button-selected.png"; sourceTree = "<group>"; };
+		029D1F3117AA194600106797 /* save-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-button-selected@2x.png"; path = "Images/save-button-selected@2x.png"; sourceTree = "<group>"; };
+		029D1F3217AA194600106797 /* save-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-button.png"; path = "Images/save-button.png"; sourceTree = "<group>"; };
+		029D1F3317AA194600106797 /* save-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-button@2x.png"; path = "Images/save-button@2x.png"; sourceTree = "<group>"; };
 		029DFA981764E26F00D022FC /* BirthCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029DFA9B1764E26F00D022FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		029DFA9D1764E26F00D022FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,6 +143,7 @@
 		02A3A5D217A79DDF00D99238 /* BCMotivationalListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMotivationalListViewController.m; path = Code/BCMotivationalListViewController.m; sourceTree = "<group>"; };
 		02A3A5D417A7A01000D99238 /* BCMotivationalQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMotivationalQuote.h; path = Code/BCMotivationalQuote.h; sourceTree = "<group>"; };
 		02A3A5D517A7A01000D99238 /* BCMotivationalQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMotivationalQuote.m; path = Code/BCMotivationalQuote.m; sourceTree = "<group>"; };
+		02A3A5D717A7A36E00D99238 /* Motivational Quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Motivational Quotes.plist"; sourceTree = "<group>"; };
 		02AA22DA177AB92300C84BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		02AD1D0E178776C30082A8A7 /* BCContractionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCContractionCell.h; path = Code/BCContractionCell.h; sourceTree = "<group>"; };
 		02AD1D0F178776C30082A8A7 /* BCContractionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContractionCell.m; path = Code/BCContractionCell.m; sourceTree = "<group>"; };
@@ -281,6 +291,7 @@
 				029DFAAF1764E26F00D022FC /* Default@2x.png */,
 				029DFAB11764E26F00D022FC /* Default-568h@2x.png */,
 				029DFAC61764E84900D022FC /* BirthCoach.xcdatamodeld */,
+				02A3A5D717A7A36E00D99238 /* Motivational Quotes.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -372,10 +383,14 @@
 		02BB09DD177D622A0040A622 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				029D1F2E17AA194600106797 /* cancel-button-selected.png */,
+				029D1F2F17AA194600106797 /* cancel-button-selected@2x.png */,
+				029D1F3017AA194600106797 /* save-button-selected.png */,
+				029D1F3117AA194600106797 /* save-button-selected@2x.png */,
+				029D1F3217AA194600106797 /* save-button.png */,
+				029D1F3317AA194600106797 /* save-button@2x.png */,
 				020006A317991391004DD366 /* cancel-button.png */,
 				020006A417991391004DD366 /* cancel-button@2x.png */,
-				020006A517991391004DD366 /* save-changes-button.png */,
-				020006A617991391004DD366 /* save-changes-button@2x.png */,
 				020006841797AC10004DD366 /* settings.png */,
 				020006851797AC10004DD366 /* settings@2x.png */,
 				02BB09DE177D623B0040A622 /* start-button.png */,
@@ -389,8 +404,8 @@
 		02BB09E9177EA27B0040A622 /* Handles */ = {
 			isa = PBXGroup;
 			children = (
+				029D1F2C17AA18C600106797 /* blue-handle@2x.png */,
 				020006761797ABA4004DD366 /* blue-handle.png */,
-				020006771797ABA4004DD366 /* blue-handle@2.png */,
 				02BB09EA177EA2A60040A622 /* orange-handle.png */,
 				02BB09EB177EA2A60040A622 /* orange-handle@2x.png */,
 			);
@@ -505,15 +520,20 @@
 				0200067E1797ABA4004DD366 /* blue-edit.png in Resources */,
 				0200067F1797ABA4004DD366 /* blue-edit@2x.png in Resources */,
 				020006801797ABA4004DD366 /* blue-handle.png in Resources */,
-				020006811797ABA4004DD366 /* blue-handle@2.png in Resources */,
 				020006821797ABA4004DD366 /* blue-trash.png in Resources */,
 				020006831797ABA4004DD366 /* blue-trash@2x.png in Resources */,
 				020006861797AC10004DD366 /* settings.png in Resources */,
 				020006871797AC10004DD366 /* settings@2x.png in Resources */,
 				020006A717991391004DD366 /* cancel-button.png in Resources */,
 				020006A817991391004DD366 /* cancel-button@2x.png in Resources */,
-				020006A917991391004DD366 /* save-changes-button.png in Resources */,
-				020006AA17991391004DD366 /* save-changes-button@2x.png in Resources */,
+				02A3A5D817A7A36E00D99238 /* Motivational Quotes.plist in Resources */,
+				029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */,
+				029D1F3417AA194600106797 /* cancel-button-selected.png in Resources */,
+				029D1F3517AA194600106797 /* cancel-button-selected@2x.png in Resources */,
+				029D1F3617AA194600106797 /* save-button-selected.png in Resources */,
+				029D1F3717AA194600106797 /* save-button-selected@2x.png in Resources */,
+				029D1F3817AA194600106797 /* save-button.png in Resources */,
+				029D1F3917AA194600106797 /* save-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

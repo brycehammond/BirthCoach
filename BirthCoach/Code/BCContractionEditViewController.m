@@ -18,8 +18,13 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *startTimePickerView;
 @property (nonatomic, strong) IBOutlet UIView *fadeView;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, strong) NSDate *startTime;
+
 
 @end
 
@@ -74,6 +79,10 @@
     
     self.startTimePickerView.minimumDate = [self.contraction previousContraction].endTime;
     self.startTimePickerView.maximumDate = [self.contraction nextContraction].startTime;
+    
+    self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.titleLabel.font.pointSize];
+    self.saveButton.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.saveButton.titleLabel.font.pointSize];
+    self.cancelButton.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.cancelButton.titleLabel.font.pointSize];
 }
 
 - (void)updateView
