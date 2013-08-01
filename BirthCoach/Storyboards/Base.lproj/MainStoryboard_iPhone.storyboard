@@ -719,6 +719,29 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="a6K-aQ-v7z">
+                                <rect key="frame" x="0.0" y="185" width="320" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Vo-YY-DRa">
+                                        <rect key="frame" x="238" y="10" width="73" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Done" backgroundImage="save-button.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="save-button-selected.png"/>
+                                        <state key="highlighted" backgroundImage="save-button-selected.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="donePressed:" destination="07H-zW-wPl" eventType="touchUpInside" id="PKq-vl-dkx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.070588235294117646" green="0.43529411764705883" blue="0.53725490196078429" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                            </view>
                             <pickerView contentMode="scaleToFill" id="S21-wd-2K4">
                                 <rect key="frame" x="0.0" y="244" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -760,6 +783,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="e8n-JN-WQs" id="WLz-IM-WMs"/>
+                        <outlet property="doneBannerView" destination="a6K-aQ-v7z" id="Shf-2d-uJn"/>
+                        <outlet property="doneButton" destination="5Vo-YY-DRa" id="bJM-hn-bvL"/>
                         <outlet property="durationLabel" destination="GtB-Bj-eQC" id="DPy-9M-4ec"/>
                         <outlet property="durationPickerView" destination="S21-wd-2K4" id="fIP-BW-Nh6"/>
                         <outlet property="durationTitleLabel" destination="l5m-Xe-vPj" id="Ua5-LA-dLp"/>
@@ -1193,8 +1218,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCContractionEditViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="donePressed:"/>
                 <relationship kind="action" name="savePressed:"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="doneBannerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="durationPickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="durationTitleLabel" candidateClass="UILabel"/>

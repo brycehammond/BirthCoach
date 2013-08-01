@@ -15,7 +15,7 @@
     #import "UIColor+Expanded.h"
     #import "BCConstants.h"
     #import "BCTimeIntervalFormatter.h"
-    #import "UIView+FrameConvenience.h"
+    #import "UIView+IMUFrameConvenience.h"
     #import "UIStoryboard+BCConvenience.h"
 
     #define MR_SHORTHAND 1

@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIView *doneBannerView;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, strong) NSDate *startTime;
@@ -65,8 +67,9 @@
     
     self.fadeView.alpha = 0.0;
     
-    [self.durationPickerView setFrameYOrigin:self.view.frame.size.height];
-    [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height];
+    self.doneBannerView.frameYOrigin = self.view.frameHeight;
+    self.durationPickerView.frameYOrigin = self.doneBannerView.bottomBorderYValue;
+    self.startTimePickerView.frameYOrigin = self.doneBannerView.bottomBorderYValue;
     
     [self.startTimePickerView addTarget:self action:@selector(startTimeChanged:) forControlEvents:UIControlEventValueChanged];
     
@@ -83,6 +86,7 @@
     self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.titleLabel.font.pointSize];
     self.saveButton.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.saveButton.titleLabel.font.pointSize];
     self.cancelButton.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.cancelButton.titleLabel.font.pointSize];
+    self.doneButton.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.doneButton.titleLabel.font.pointSize];
 }
 
 - (void)updateView
@@ -107,7 +111,8 @@
 - (void)startTimeTapped:(UIGestureRecognizer *)gesture
 {
     [UIView animateWithDuration:0.3 animations:^{
-        [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height - self.startTimePickerView.frame.size.height];
+        self.startTimePickerView.frameYOrigin = self.view.frameHeight - self.startTimePickerView.frameHeight;
+        self.doneBannerView.frameYOrigin = self.startTimePickerView.frameYOrigin - self.doneBannerView.frameHeight;
         self.fadeView.alpha = 0.3;
     }];
 }
@@ -116,16 +121,26 @@
 {
     [self.durationPickerView reloadAllComponents];
     [UIView animateWithDuration:0.3 animations:^{
-        [self.durationPickerView setFrameYOrigin:self.view.frame.size.height - self.durationPickerView.frame.size.height];
+        self.durationPickerView.frameYOrigin = self.view.frameHeight - self.durationPickerView.frameHeight;
+        self.doneBannerView.frameYOrigin = self.durationPickerView.frameYOrigin - self.doneBannerView.frameHeight;
         self.fadeView.alpha = 0.3;
     }];
 }
 
 - (void)fadeViewTapped:(UIGestureRecognizer *)gesture
 {
+    [self hideAllPickers];
+}
+
+#pragma mark -
+#pragma mark Picker animation
+
+- (void)hideAllPickers
+{
     [UIView animateWithDuration:0.3 animations:^{
-        [self.durationPickerView setFrameYOrigin:self.view.frame.size.height];
-        [self.startTimePickerView setFrameYOrigin:self.view.frame.size.height];
+        self.doneBannerView.frameYOrigin = self.view.frameHeight;
+        self.durationPickerView.frameYOrigin = self.doneBannerView.bottomBorderYValue;
+        self.startTimePickerView.frameYOrigin = self.doneBannerView.bottomBorderYValue;
         self.fadeView.alpha = 0.0;
     }];
 }
@@ -144,6 +159,11 @@
     self.contraction.endTime = [self.startTime dateByAddingTimeInterval:self.duration];
     [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
     [self.delegate contractionEditViewController:self didFinishWithSave:YES];
+}
+
+- (IBAction)donePressed:(id)sender
+{
+    [self hideAllPickers];
 }
 
 #pragma mark -
