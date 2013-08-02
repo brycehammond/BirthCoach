@@ -15,4 +15,9 @@
     return [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
 }
 
++ (UIStoryboard *)settingsStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"SettingsStoryboard_iPhone" bundle:nil];
+}
+
 @end

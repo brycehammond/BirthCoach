@@ -7,9 +7,10 @@
 //
 
 #import "BCSettingsViewController.h"
+#import "BCSettingsTitleCell.h"
 
 @interface BCSettingsViewController ()
-@property (weak, nonatomic) IBOutlet UISwitch *displayOnSwitch;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
@@ -28,8 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.displayOnSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:kDisplayKeepOnKey];
-    self.titleLabel.font = [UIFont fontWithName:@"OpenSansPro-Semibold" size:self.titleLabel.font.pointSize];
+    self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.titleLabel.font.pointSize];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,12 +49,59 @@
     [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
 }
 
-- (IBAction)displayOnChanged:(UISwitch *)sender
+
+#pragma mark -
+#pragma mark UITableViewDatasource/Delegate methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    BOOL displayOn = sender.on;
-    [[NSUserDefaults standardUserDefaults] setBool:displayOn forKey:kDisplayKeepOnKey];
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BCSettingsTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
+    if(0 == indexPath.row)
+    {
+        cell.titleLabel.text = @"Motivation";
+        cell.disclosureIndicatorHidden = NO;
+    }
+    else if(1 == indexPath.row)
+    {
+        cell.titleLabel.text = @"Audio Reminders";
+        cell.disclosureIndicatorHidden = NO;
+    }
+    else if(2 == indexPath.row)
+    {
+        cell.titleLabel.text = @"Clear Contractions";
+        cell.disclosureIndicatorHidden = YES;
+    }
+    else if(3 == indexPath.row)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"OnOffCell"];
+        cell.titleLabel.text = @"Disable Auto-Lock";
+        BCSettingsOnOffCell *onOffCell = (BCSettingsOnOffCell *)cell;
+        onOffCell.delegate = self;
+        onOffCell.onOffSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:kDisplayKeepOnKey];
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark -
+#pragma mark BCSettingsOnOffCellDelegate
+
+- (void)settingsOnOffCell:(BCSettingsOnOffCell *)cell didSwitchOn:(BOOL)switchOn
+{
+    [[NSUserDefaults standardUserDefaults] setBool:switchOn forKey:kDisplayKeepOnKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [[UIApplication sharedApplication] setIdleTimerDisabled:displayOn];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:switchOn];
 }
 
 @end

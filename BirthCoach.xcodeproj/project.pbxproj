@@ -30,6 +30,10 @@
 		020006A217990336004DD366 /* BCContractionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020006A117990336004DD366 /* BCContractionEditViewController.m */; };
 		020006A717991391004DD366 /* cancel-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A317991391004DD366 /* cancel-button.png */; };
 		020006A817991391004DD366 /* cancel-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020006A417991391004DD366 /* cancel-button@2x.png */; };
+		0249CDC417AB752800A1B538 /* BCSettingsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDC317AB752800A1B538 /* BCSettingsTitleCell.m */; };
+		0249CDC817AB760A00A1B538 /* BCSettingsOnOffCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDC717AB760A00A1B538 /* BCSettingsOnOffCell.m */; };
+		0249CDCC17AB809D00A1B538 /* settings-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDCA17AB809D00A1B538 /* settings-disclosure.png */; };
+		0249CDCD17AB809D00A1B538 /* settings-disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDCB17AB809D00A1B538 /* settings-disclosure@2x.png */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
 		029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2C17AA18C600106797 /* blue-handle@2x.png */; };
@@ -44,6 +48,7 @@
 		029D1F4217AA2A7500106797 /* appicon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3D17AA2A7500106797 /* appicon114.png */; };
 		029D1F4317AA2A7500106797 /* appicon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3E17AA2A7500106797 /* appicon144.png */; };
 		029D1F4417AA2A7500106797 /* appicon512.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3F17AA2A7500106797 /* appicon512.png */; };
+		029D1F5417AB718E00106797 /* SettingsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F5217AB718E00106797 /* SettingsStoryboard_iPhone.storyboard */; };
 		029DFA9C1764E26F00D022FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9B1764E26F00D022FC /* UIKit.framework */; };
 		029DFA9E1764E26F00D022FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9D1764E26F00D022FC /* Foundation.framework */; };
 		029DFAA01764E26F00D022FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9F1764E26F00D022FC /* CoreGraphics.framework */; };
@@ -109,6 +114,12 @@
 		020006A117990336004DD366 /* BCContractionEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContractionEditViewController.m; path = Code/BCContractionEditViewController.m; sourceTree = "<group>"; };
 		020006A317991391004DD366 /* cancel-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button.png"; path = "Images/cancel-button.png"; sourceTree = "<group>"; };
 		020006A417991391004DD366 /* cancel-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button@2x.png"; path = "Images/cancel-button@2x.png"; sourceTree = "<group>"; };
+		0249CDC217AB752800A1B538 /* BCSettingsTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCSettingsTitleCell.h; path = Code/BCSettingsTitleCell.h; sourceTree = "<group>"; };
+		0249CDC317AB752800A1B538 /* BCSettingsTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCSettingsTitleCell.m; path = Code/BCSettingsTitleCell.m; sourceTree = "<group>"; };
+		0249CDC617AB760A00A1B538 /* BCSettingsOnOffCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCSettingsOnOffCell.h; path = Code/BCSettingsOnOffCell.h; sourceTree = "<group>"; };
+		0249CDC717AB760A00A1B538 /* BCSettingsOnOffCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCSettingsOnOffCell.m; path = Code/BCSettingsOnOffCell.m; sourceTree = "<group>"; };
+		0249CDCA17AB809D00A1B538 /* settings-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-disclosure.png"; path = "Images/settings-disclosure.png"; sourceTree = "<group>"; };
+		0249CDCB17AB809D00A1B538 /* settings-disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-disclosure@2x.png"; path = "Images/settings-disclosure@2x.png"; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +135,7 @@
 		029D1F3D17AA2A7500106797 /* appicon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon114.png; path = Icons/appicon114.png; sourceTree = "<group>"; };
 		029D1F3E17AA2A7500106797 /* appicon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon144.png; path = Icons/appicon144.png; sourceTree = "<group>"; };
 		029D1F3F17AA2A7500106797 /* appicon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon512.png; path = Icons/appicon512.png; sourceTree = "<group>"; };
+		029D1F5317AB718E00106797 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BirthCoach/Storyboards/Base.lproj/SettingsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		029DFA981764E26F00D022FC /* BirthCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029DFA9B1764E26F00D022FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		029DFA9D1764E26F00D022FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -238,6 +250,26 @@
 			name = Blue;
 			sourceTree = "<group>";
 		};
+		0249CDC517AB75E100A1B538 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0249CDC217AB752800A1B538 /* BCSettingsTitleCell.h */,
+				0249CDC317AB752800A1B538 /* BCSettingsTitleCell.m */,
+				0249CDC617AB760A00A1B538 /* BCSettingsOnOffCell.h */,
+				0249CDC717AB760A00A1B538 /* BCSettingsOnOffCell.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		0249CDC917AB808600A1B538 /* Indicators */ = {
+			isa = PBXGroup;
+			children = (
+				0249CDCA17AB809D00A1B538 /* settings-disclosure.png */,
+				0249CDCB17AB809D00A1B538 /* settings-disclosure@2x.png */,
+			);
+			name = Indicators;
+			sourceTree = "<group>";
+		};
 		029D1F3A17AA2A6100106797 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				02AA22D9177AB6B200C84BBA /* MainStoryboard_iPhone.storyboard */,
+				029D1F5217AB718E00106797 /* SettingsStoryboard_iPhone.storyboard */,
 			);
 			name = Storyboards;
 			path = ..;
@@ -371,6 +404,7 @@
 		02AD1D0D1787769F0082A8A7 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0249CDC517AB75E100A1B538 /* Settings */,
 				02AD1D0E178776C30082A8A7 /* BCContractionCell.h */,
 				02AD1D0F178776C30082A8A7 /* BCContractionCell.m */,
 				02AD1D11178776D50082A8A7 /* BCFrequencyCell.h */,
@@ -393,6 +427,7 @@
 		02BB09D4177D5B6B0040A622 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0249CDC917AB808600A1B538 /* Indicators */,
 				029D1F3A17AA2A6100106797 /* Icons */,
 				0200065D1797AB6A004DD366 /* Edit Bars */,
 				02BB09DD177D622A0040A622 /* Buttons */,
@@ -557,6 +592,9 @@
 				029D1F4217AA2A7500106797 /* appicon114.png in Resources */,
 				029D1F4317AA2A7500106797 /* appicon144.png in Resources */,
 				029D1F4417AA2A7500106797 /* appicon512.png in Resources */,
+				029D1F5417AB718E00106797 /* SettingsStoryboard_iPhone.storyboard in Resources */,
+				0249CDCC17AB809D00A1B538 /* settings-disclosure.png in Resources */,
+				0249CDCD17AB809D00A1B538 /* settings-disclosure@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,12 +656,22 @@
 				02A3A5CF17A791D900D99238 /* BCSettingsViewController.m in Sources */,
 				02A3A5D317A79DDF00D99238 /* BCMotivationalListViewController.m in Sources */,
 				02A3A5D617A7A01000D99238 /* BCMotivationalQuote.m in Sources */,
+				0249CDC417AB752800A1B538 /* BCSettingsTitleCell.m in Sources */,
+				0249CDC817AB760A00A1B538 /* BCSettingsOnOffCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		029D1F5217AB718E00106797 /* SettingsStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				029D1F5317AB718E00106797 /* Base */,
+			);
+			name = SettingsStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
 		029DFAA41764E26F00D022FC /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

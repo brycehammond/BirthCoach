@@ -7,6 +7,7 @@
 //
 
 #import "BCBaseViewController.h"
+#import "BCSettingsOnOffCell.h"
 
 @class BCSettingsViewController;
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface BCSettingsViewController : BCBaseViewController
+@interface BCSettingsViewController : BCBaseViewController <UITableViewDataSource, UITableViewDelegate, BCSettingsOnOffCellDelegate>
 
 @property (nonatomic, weak) id<BCSettingsViewControllerDelegate> delegate;
 

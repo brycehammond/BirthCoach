@@ -413,11 +413,14 @@
         editController.contraction = [BCContraction lastContraction];
         editController.delegate = self;
     }
-    else if([segue.identifier isEqualToString:@"Settings"])
-    {
-        BCSettingsViewController *settingsController = [segue.destinationViewController viewControllers][0];
-        settingsController.delegate = self;
-    }
+}
+
+- (IBAction)settingsButtonPressed:(id)sender
+{
+    UINavigationController *settingsNav = [[UIStoryboard settingsStoryboard] instantiateViewControllerWithIdentifier:@"SettingsNav"];
+    BCSettingsViewController *settingsController = settingsNav.viewControllers[0];
+    settingsController.delegate = self;
+    [self presentViewController:settingsNav animated:YES completion:nil];
 }
 
 #pragma mark -

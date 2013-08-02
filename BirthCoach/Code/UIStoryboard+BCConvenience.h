@@ -11,5 +11,6 @@
 @interface UIStoryboard (BCConvenience)
 
 + (UIStoryboard *)mainStoryboard;
++ (UIStoryboard *)settingsStoryboard;
 
 @end
