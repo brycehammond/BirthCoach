@@ -111,6 +111,11 @@
         //hide the last contraction thumb if we don't have any contractions yet
         [self.lastContractionSlideOut setFrameXOrigin:kSliderHiddenXCoordinate];
     }
+    
+    for(UIButton *intensityButton in self.lastContractionIntensityContainerView.subviews)
+    {
+        intensityButton.titleLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:intensityButton.titleLabel.font.pointSize];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -173,8 +178,6 @@
     {
         intensityButton.enabled = [intensityButton titleForState:UIControlStateNormal].intValue != lastContraction.intensity.intValue;
     }
-    
-    
 }
 
 - (void)updateDisappearanceState

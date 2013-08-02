@@ -98,6 +98,11 @@
     {
         [self.contractionSlideOut setFrameXOrigin:kSliderHiddenXCoordinate];
     }
+    
+    for(UIButton *intensityButton in self.contractionIntensityContainerView.subviews)
+    {
+        intensityButton.titleLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:intensityButton.titleLabel.font.pointSize];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -10,6 +10,7 @@
 
 @interface BCSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *displayOnSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -28,6 +29,7 @@
 {
     [super viewDidLoad];
     self.displayOnSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:kDisplayKeepOnKey];
+    self.titleLabel.font = [UIFont fontWithName:@"OpenSansPro-Semibold" size:self.titleLabel.font.pointSize];
 }
 
 - (void)didReceiveMemoryWarning
