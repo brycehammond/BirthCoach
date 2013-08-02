@@ -34,6 +34,7 @@
 		0249CDC817AB760A00A1B538 /* BCSettingsOnOffCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDC717AB760A00A1B538 /* BCSettingsOnOffCell.m */; };
 		0249CDCC17AB809D00A1B538 /* settings-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDCA17AB809D00A1B538 /* settings-disclosure.png */; };
 		0249CDCD17AB809D00A1B538 /* settings-disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDCB17AB809D00A1B538 /* settings-disclosure@2x.png */; };
+		0249CDD017AB889400A1B538 /* BCStretchableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDCF17AB889400A1B538 /* BCStretchableButton.m */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
 		029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2C17AA18C600106797 /* blue-handle@2x.png */; };
@@ -120,6 +121,8 @@
 		0249CDC717AB760A00A1B538 /* BCSettingsOnOffCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCSettingsOnOffCell.m; path = Code/BCSettingsOnOffCell.m; sourceTree = "<group>"; };
 		0249CDCA17AB809D00A1B538 /* settings-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-disclosure.png"; path = "Images/settings-disclosure.png"; sourceTree = "<group>"; };
 		0249CDCB17AB809D00A1B538 /* settings-disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-disclosure@2x.png"; path = "Images/settings-disclosure@2x.png"; sourceTree = "<group>"; };
+		0249CDCE17AB889400A1B538 /* BCStretchableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCStretchableButton.h; path = Code/BCStretchableButton.h; sourceTree = "<group>"; };
+		0249CDCF17AB889400A1B538 /* BCStretchableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCStretchableButton.m; path = Code/BCStretchableButton.m; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -473,6 +476,8 @@
 				02AD1D0D1787769F0082A8A7 /* Table View Cells */,
 				02BB09F5177F911E0040A622 /* BCPageControl.h */,
 				02BB09F6177F911E0040A622 /* BCPageControl.m */,
+				0249CDCE17AB889400A1B538 /* BCStretchableButton.h */,
+				0249CDCF17AB889400A1B538 /* BCStretchableButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				02A3A5D617A7A01000D99238 /* BCMotivationalQuote.m in Sources */,
 				0249CDC417AB752800A1B538 /* BCSettingsTitleCell.m in Sources */,
 				0249CDC817AB760A00A1B538 /* BCSettingsOnOffCell.m in Sources */,
+				0249CDD017AB889400A1B538 /* BCStretchableButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

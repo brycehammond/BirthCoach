@@ -35,6 +35,7 @@
 
 - (void)setupCell
 {
+    self.backgroundColor = [UIColor colorWithHexString:kLightOrangeColor];
     self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.titleLabel.font.pointSize];
 }
 
