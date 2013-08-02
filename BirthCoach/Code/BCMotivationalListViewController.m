@@ -71,7 +71,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
+        BCMotivationalQuote *quote = self.quotes[indexPath.row];
+        [self.quotes removeObjectAtIndex:indexPath.row];
+        [quote deleteEntity];
+        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
