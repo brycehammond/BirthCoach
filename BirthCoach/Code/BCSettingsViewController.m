@@ -43,13 +43,6 @@
     [self.delegate settingsControllerDidDismiss:self];
 }
 
-- (IBAction)clearContractions:(id)sender
-{
-    [BCContraction truncateAll];
-    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
-}
-
-
 #pragma mark -
 #pragma mark UITableViewDatasource/Delegate methods
 
@@ -90,6 +83,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if(0 == indexPath.row)
+    {
+        //Go to motivational controller
+    }
+    else if(1 == indexPath.row)
+    {
+        //Go to audio settings
+    }
+    else if(2 == indexPath.row)
+    {
+        //Clear all contractions
+        [BCContraction truncateAll];
+        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
