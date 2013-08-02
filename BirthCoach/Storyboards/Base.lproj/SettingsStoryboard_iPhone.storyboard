@@ -155,6 +155,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="disclosureImageView" destination="iNY-aS-RX8" id="3fw-gh-UT3"/>
+                                            <outlet property="lowerBorder" destination="Re1-dx-GJJ" id="GlO-9P-lLV"/>
                                             <outlet property="titleLabel" destination="EVK-QT-Xuf" id="kY2-2C-bAi"/>
                                             <segue destination="mUe-HP-EkY" kind="push" id="A9n-YL-xE2"/>
                                         </connections>
@@ -327,6 +328,7 @@
         <class className="BCMotivationalQuoteEditViewController" superclassName="BCSettingsBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCMotivationalQuoteEditViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
@@ -343,6 +345,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCSettingsTitleCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="disclosureImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lowerBorder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

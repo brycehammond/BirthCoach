@@ -11,6 +11,7 @@
 @interface BCSettingsTitleCell ()
 
 @property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
+@property (nonatomic, weak) IBOutlet UIView *lowerBorder;
 
 @end
 
@@ -37,6 +38,12 @@
 {
     self.backgroundColor = [UIColor colorWithHexString:kLightOrangeColor];
     self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:self.titleLabel.font.pointSize];
+    
+    if(self.lowerBorder)
+    {
+        //move the lower border to the cell itself
+        [self addSubview:self.lowerBorder];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
