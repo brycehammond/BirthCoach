@@ -8,6 +8,7 @@
 
 #import "BCSettingsViewController.h"
 #import "BCSettingsTitleCell.h"
+#import "BCMotivationalListViewController.h"
 
 @interface BCSettingsViewController ()
 
@@ -31,7 +32,6 @@
 {
     [super viewDidLoad];
     self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.titleLabel.font.pointSize];
-    self.view.backgroundColor = [UIColor colorWithHexString:kLightOrangeColor];
     self.settingsTableView.backgroundColor = [UIColor colorWithHexString:kLightOrangeColor];
 }
 
@@ -90,6 +90,8 @@
     if(0 == indexPath.row)
     {
         //Go to motivational controller
+        BCMotivationalListViewController *motivationController = [[UIStoryboard settingsStoryboard] instantiateViewControllerWithIdentifier:@"MotivationList"];
+        [self.navigationController pushViewController:motivationController animated:YES];
     }
     else if(1 == indexPath.row)
     {
@@ -114,5 +116,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[UIApplication sharedApplication] setIdleTimerDisabled:switchOn];
 }
+
 
 @end

@@ -35,6 +35,9 @@
 		0249CDCC17AB809D00A1B538 /* settings-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDCA17AB809D00A1B538 /* settings-disclosure.png */; };
 		0249CDCD17AB809D00A1B538 /* settings-disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDCB17AB809D00A1B538 /* settings-disclosure@2x.png */; };
 		0249CDD017AB889400A1B538 /* BCStretchableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDCF17AB889400A1B538 /* BCStretchableButton.m */; };
+		0249CDD317AB8D1500A1B538 /* BCSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDD217AB8D1500A1B538 /* BCSettingsBaseViewController.m */; };
+		0249CDD617AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDD517AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m */; };
+		0249CDDA17AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDD917AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
 		029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2C17AA18C600106797 /* blue-handle@2x.png */; };
@@ -123,6 +126,12 @@
 		0249CDCB17AB809D00A1B538 /* settings-disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-disclosure@2x.png"; path = "Images/settings-disclosure@2x.png"; sourceTree = "<group>"; };
 		0249CDCE17AB889400A1B538 /* BCStretchableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCStretchableButton.h; path = Code/BCStretchableButton.h; sourceTree = "<group>"; };
 		0249CDCF17AB889400A1B538 /* BCStretchableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCStretchableButton.m; path = Code/BCStretchableButton.m; sourceTree = "<group>"; };
+		0249CDD117AB8D1500A1B538 /* BCSettingsBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCSettingsBaseViewController.h; path = Code/BCSettingsBaseViewController.h; sourceTree = "<group>"; };
+		0249CDD217AB8D1500A1B538 /* BCSettingsBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCSettingsBaseViewController.m; path = Code/BCSettingsBaseViewController.m; sourceTree = "<group>"; };
+		0249CDD417AB90DD00A1B538 /* BCMotivationalQuote+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BCMotivationalQuote+Convenience.h"; path = "Code/BCMotivationalQuote+Convenience.h"; sourceTree = "<group>"; };
+		0249CDD517AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCMotivationalQuote+Convenience.m"; path = "Code/BCMotivationalQuote+Convenience.m"; sourceTree = "<group>"; };
+		0249CDD817AB992C00A1B538 /* BCMotivationalQuoteEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMotivationalQuoteEditViewController.h; path = Code/BCMotivationalQuoteEditViewController.h; sourceTree = "<group>"; };
+		0249CDD917AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMotivationalQuoteEditViewController.m; path = Code/BCMotivationalQuoteEditViewController.m; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -273,6 +282,17 @@
 			name = Indicators;
 			sourceTree = "<group>";
 		};
+		0249CDD717AB90E100A1B538 /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				02A3A5D417A7A01000D99238 /* BCMotivationalQuote.h */,
+				02A3A5D517A7A01000D99238 /* BCMotivationalQuote.m */,
+				0249CDD417AB90DD00A1B538 /* BCMotivationalQuote+Convenience.h */,
+				0249CDD517AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m */,
+			);
+			name = Convenience;
+			sourceTree = "<group>";
+		};
 		029D1F3A17AA2A6100106797 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,8 +401,7 @@
 		029DFACA1764E89900D022FC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				02A3A5D417A7A01000D99238 /* BCMotivationalQuote.h */,
-				02A3A5D517A7A01000D99238 /* BCMotivationalQuote.m */,
+				0249CDD717AB90E100A1B538 /* Convenience */,
 				029DFAD117651A1300D022FC /* BCContraction.h */,
 				029DFAD217651A1300D022FC /* BCContraction.m */,
 				029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */,
@@ -396,10 +415,14 @@
 		02A3A5D017A79DBF00D99238 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0249CDD117AB8D1500A1B538 /* BCSettingsBaseViewController.h */,
+				0249CDD217AB8D1500A1B538 /* BCSettingsBaseViewController.m */,
 				02A3A5CD17A791D900D99238 /* BCSettingsViewController.h */,
 				02A3A5CE17A791D900D99238 /* BCSettingsViewController.m */,
 				02A3A5D117A79DDF00D99238 /* BCMotivationalListViewController.h */,
 				02A3A5D217A79DDF00D99238 /* BCMotivationalListViewController.m */,
+				0249CDD817AB992C00A1B538 /* BCMotivationalQuoteEditViewController.h */,
+				0249CDD917AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -664,6 +687,9 @@
 				0249CDC417AB752800A1B538 /* BCSettingsTitleCell.m in Sources */,
 				0249CDC817AB760A00A1B538 /* BCSettingsOnOffCell.m in Sources */,
 				0249CDD017AB889400A1B538 /* BCStretchableButton.m in Sources */,
+				0249CDD317AB8D1500A1B538 /* BCSettingsBaseViewController.m in Sources */,
+				0249CDD617AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m in Sources */,
+				0249CDDA17AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "BCAppDelegate.h"
 #import "TestFlight.h"
+#import "BCMotivationalQuote+Convenience.h"
 
 @implementation BCAppDelegate
 
@@ -24,6 +25,10 @@
     }
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:[[NSUserDefaults standardUserDefaults] boolForKey:kDisplayKeepOnKey]];
+    
+    //Load up our quotes if we haven't already
+    [BCMotivationalQuote loadQuotes];
+    
     return YES;
 }
 							

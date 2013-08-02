@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Fluidvision Design, LLC. All rights reserved.
 //
 
-#import "BCBaseViewController.h"
+#import "BCSettingsBaseViewController.h"
 
-@interface BCMotivationalListViewController : BCBaseViewController
+@interface BCMotivationalListViewController : BCSettingsBaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

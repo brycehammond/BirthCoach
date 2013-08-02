@@ -7,8 +7,15 @@
 //
 
 #import "BCMotivationalListViewController.h"
+#import "BCMotivationalQuote+Convenience.h"
+#import "BCSettingsTitleCell.h"
+#import "BCMotivationalQuoteEditViewController.h"
 
 @interface BCMotivationalListViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *quoteTableView;
+
+@property (nonatomic, strong) NSMutableArray *quotes;
 
 @end
 
@@ -26,13 +33,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.quoteTableView.backgroundColor = [UIColor colorWithHexString:kLightOrangeColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.quotes = [BCMotivationalQuote findAllSortedBy:@"position" ascending:YES].mutableCopy;
+    [self.quoteTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate/Datasource methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.quotes.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BCSettingsTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
+    cell.titleLabel.text = [self.quotes[indexPath.row] text];
+    return cell;
+}
+
+#pragma mark -
+#pragma mark Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    BCMotivationalQuoteEditViewController *editController = segue.destinationViewController;
+    NSIndexPath *selectedIndexPath = [self.quoteTableView indexPathForSelectedRow];
+    editController.quote = self.quotes[selectedIndexPath.row];
+    [self.quoteTableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
 }
 
 @end

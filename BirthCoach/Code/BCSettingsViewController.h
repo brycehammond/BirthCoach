@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Fluidvision Design, LLC. All rights reserved.
 //
 
-#import "BCBaseViewController.h"
+#import "BCSettingsBaseViewController.h"
 #import "BCSettingsOnOffCell.h"
 
 @class BCSettingsViewController;
@@ -17,7 +17,7 @@
 
 @end
 
-@interface BCSettingsViewController : BCBaseViewController <UITableViewDataSource, UITableViewDelegate, BCSettingsOnOffCellDelegate>
+@interface BCSettingsViewController : BCSettingsBaseViewController <UITableViewDataSource, UITableViewDelegate, BCSettingsOnOffCellDelegate>
 
 @property (nonatomic, weak) id<BCSettingsViewControllerDelegate> delegate;
 
