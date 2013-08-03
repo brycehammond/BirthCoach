@@ -109,9 +109,29 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     BCMotivationalQuoteEditViewController *editController = segue.destinationViewController;
-    NSIndexPath *selectedIndexPath = [self.quoteTableView indexPathForSelectedRow];
-    editController.quote = self.quotes[selectedIndexPath.row];
-    [self.quoteTableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+    
+    if([segue.identifier isEqualToString:@"CellPush"])
+    {
+        NSIndexPath *selectedIndexPath = [self.quoteTableView indexPathForSelectedRow];
+        editController.quote = self.quotes[selectedIndexPath.row];
+        [self.quoteTableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+    }
+    else if([segue.identifier isEqualToString:@"AddPush"])
+    {
+        BCMotivationalQuote *newQuote = [BCMotivationalQuote createEntity];
+        newQuote.text = @"";
+        newQuote.position = 1;
+        
+        editController.quote = newQuote;
+        
+        [self.quotes insertObject:newQuote atIndex:0];
+        
+        NSUInteger quoteIdx = 1;
+        for(BCMotivationalQuote *quote in self.quotes)
+        {
+            quote.position = quoteIdx++;
+        }
+    }
 }
 
 @end
