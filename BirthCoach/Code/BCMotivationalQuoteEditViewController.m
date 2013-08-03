@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
 	self.textView.text = self.quote.text;
+    self.textView.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:14];
 }
 
 - (void)viewWillAppear:(BOOL)animated
