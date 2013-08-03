@@ -112,6 +112,14 @@
     [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIFont *titleFont = [UIFont fontWithName:@"SourceSansPro-Semibold" size:16];
+    BCMotivationalQuote *quote = self.quotes[indexPath.row];
+    CGSize quoteSize = [quote.text sizeWithFont:titleFont constrainedToSize:CGSizeMake(240, INT_MAX)];
+    return MAX(quoteSize.height + 12, 62);
+}
+
 #pragma mark -
 #pragma mark Segues
 
