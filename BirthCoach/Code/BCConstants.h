@@ -31,6 +31,7 @@
 
 //Settings
 #define kDisplayKeepOnKey @"DisplayKeepOn"
+#define kCurrentQuoteIndex @"QuoteIndex"
 
 @interface BCConstants : NSObject
 

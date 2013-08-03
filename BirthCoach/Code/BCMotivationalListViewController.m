@@ -85,6 +85,15 @@
         [quote deleteEntity];
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        //Update the current quote index if we've gone passed it
+        NSUInteger quoteIdx = [[NSUserDefaults standardUserDefaults] integerForKey:kCurrentQuoteIndex];
+        if(quoteIdx >= self.quotes.count)
+        {
+            quoteIdx = 0;
+            [[NSUserDefaults standardUserDefaults] setInteger:quoteIdx forKey:kCurrentQuoteIndex];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     }
 }
 

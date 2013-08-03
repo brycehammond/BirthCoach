@@ -10,6 +10,7 @@
 #import "BCAveragesViewController.h"
 #import "BCHistoryViewController.h"
 #import "BCSettingsViewController.h"
+#import "BCMotivationalQuote+Convenience.h"
 
 @interface BCRootViewController ()
 
@@ -37,6 +38,7 @@
 //inspirational
 
 @property (weak, nonatomic) IBOutlet UILabel *inspirationalLabel;
+@property (strong, nonatomic) NSArray *inspirationalQuotes;
 
 //data
 @property (nonatomic, strong)  BCContraction *activeContraction;
@@ -126,6 +128,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contractionDeletedNotification:) name:kContractionDeletedNotification object:nil];
     [self updateAppearanceState];
     [self updateLastContractionView];
+    
+    self.inspirationalQuotes = [BCMotivationalQuote findAllSortedBy:@"position" ascending:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -359,6 +363,23 @@
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kMidOrangeColor] colorWithAlphaComponent:.15];
         
         self.timerLabel.text = @"00:00";
+        
+        //get the next inpirational quote and set it up
+        if(self.inspirationalQuotes.count > 0)
+        {
+            NSUInteger quoteIdx = [[NSUserDefaults standardUserDefaults] integerForKey:kCurrentQuoteIndex];
+            BCMotivationalQuote *quote = self.inspirationalQuotes[quoteIdx];
+            self.inspirationalLabel.text = quote.text;
+            
+            //now go to the next quote
+            quoteIdx = (quoteIdx + 1) % self.inspirationalQuotes.count;
+            [[NSUserDefaults standardUserDefaults] setInteger:quoteIdx forKey:kCurrentQuoteIndex];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        else
+        {
+            self.inspirationalLabel.text = @"We're making progress!";
+        }
         
         //hide the last contraction area and show a motivational quote
         [UIView animateWithDuration:0.3 animations:^{
