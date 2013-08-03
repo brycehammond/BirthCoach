@@ -205,6 +205,7 @@
                                 </state>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="0kC-2K-IS1" eventType="touchUpInside" id="vbO-gF-B5h"/>
+                                    <action selector="editPressed:" destination="IQD-OI-thc" eventType="touchUpInside" id="LCw-cn-Xha"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fgs-pI-oeE" customClass="BCStretchableButton">
@@ -227,6 +228,7 @@
                         <color key="backgroundColor" red="0.97647058819999999" green="0.90196078430000004" blue="0.83137254900000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="Htn-xg-Dq2" id="aG4-Ds-USe"/>
                         <outlet property="quoteTableView" destination="r0Y-3z-f6s" id="Mbv-gS-PST"/>
                     </connections>
                 </viewController>

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *quoteTableView;
 
 @property (nonatomic, strong) NSMutableArray *quotes;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end
 
@@ -49,6 +50,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)editPressed:(id)sender
+{
+    [self.quoteTableView setEditing:! self.quoteTableView.editing animated:YES];
+    
+    [self.editButton setTitle:self.quoteTableView.editing ? @"Done" : @"Edit" forState:UIControlStateNormal];
+}
+
 #pragma mark -
 #pragma mark UITableViewDelegate/Datasource methods
 
@@ -61,6 +69,7 @@
 {
     BCSettingsTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
     cell.titleLabel.text = [self.quotes[indexPath.row] text];
+    cell.showsReorderControl = self.quoteTableView.isEditing;
     return cell;
 }
 
@@ -77,6 +86,21 @@
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    BCMotivationalQuote *quote = self.quotes[sourceIndexPath.row];
+    [self.quotes removeObjectAtIndex:sourceIndexPath.row];
+    [self.quotes insertObject:quote atIndex:destinationIndexPath.row];
+    
+    NSUInteger quoteIdx = 1;
+    for(BCMotivationalQuote *quoteEntry in self.quotes)
+    {
+        quoteEntry.position = quoteIdx++; //update all the positions
+    }
+    
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
 }
 
 #pragma mark -
