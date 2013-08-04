@@ -9,6 +9,7 @@
 #import "BCSettingsViewController.h"
 #import "BCSettingsTitleCell.h"
 #import "BCMotivationalListViewController.h"
+#import "BCAudioAlertsViewController.h"
 
 @interface BCSettingsViewController ()
 
@@ -96,6 +97,8 @@
     else if(1 == indexPath.row)
     {
         //Go to audio settings
+        BCAudioAlertsViewController *audioAlertsController = [[UIStoryboard settingsStoryboard] instantiateViewControllerWithIdentifier:@"AudioAlerts"];
+        [self.navigationController pushViewController:audioAlertsController animated:YES];
     }
     else if(2 == indexPath.row)
     {

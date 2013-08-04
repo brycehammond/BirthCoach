@@ -9,6 +9,7 @@
 #import "BCAppDelegate.h"
 #import "TestFlight.h"
 #import "BCMotivationalQuote+Convenience.h"
+#import "BCAudioReminder.h"
 
 @implementation BCAppDelegate
 
@@ -22,6 +23,24 @@
     {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kDisplayKeepOnKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    //default to having audio reminders on
+    if([[NSUserDefaults standardUserDefaults] objectForKey:kAudioRemindersOnKey] == nil)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAudioRemindersOnKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        //create the default entities
+        for(NSNumber *time in @[@30,@60,@90])
+        {
+            BCAudioReminder *reminder = [BCAudioReminder createEntity];
+            reminder.seconds = time;
+            NSData *audioData = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:time.stringValue ofType:@"m4a"]];
+            reminder.audioData = audioData;
+        }
+        
+        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
     }
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:[[NSUserDefaults standardUserDefaults] boolForKey:kDisplayKeepOnKey]];

@@ -38,6 +38,11 @@
 		0249CDD317AB8D1500A1B538 /* BCSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDD217AB8D1500A1B538 /* BCSettingsBaseViewController.m */; };
 		0249CDD617AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDD517AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m */; };
 		0249CDDA17AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDD917AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m */; };
+		0249CDE017ADB05800A1B538 /* BCAudioAlertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDDF17ADB05800A1B538 /* BCAudioAlertsViewController.m */; };
+		0249CDE817AF08A900A1B538 /* 30.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDE517AF08A900A1B538 /* 30.m4a */; };
+		0249CDE917AF08A900A1B538 /* 60.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDE617AF08A900A1B538 /* 60.m4a */; };
+		0249CDEA17AF08A900A1B538 /* 90.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0249CDE717AF08A900A1B538 /* 90.m4a */; };
+		0249CDED17AF0A3700A1B538 /* BCAudioReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDEC17AF0A3700A1B538 /* BCAudioReminder.m */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
 		029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2C17AA18C600106797 /* blue-handle@2x.png */; };
@@ -132,6 +137,13 @@
 		0249CDD517AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCMotivationalQuote+Convenience.m"; path = "Code/BCMotivationalQuote+Convenience.m"; sourceTree = "<group>"; };
 		0249CDD817AB992C00A1B538 /* BCMotivationalQuoteEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMotivationalQuoteEditViewController.h; path = Code/BCMotivationalQuoteEditViewController.h; sourceTree = "<group>"; };
 		0249CDD917AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMotivationalQuoteEditViewController.m; path = Code/BCMotivationalQuoteEditViewController.m; sourceTree = "<group>"; };
+		0249CDDE17ADB05800A1B538 /* BCAudioAlertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCAudioAlertsViewController.h; path = Code/BCAudioAlertsViewController.h; sourceTree = "<group>"; };
+		0249CDDF17ADB05800A1B538 /* BCAudioAlertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCAudioAlertsViewController.m; path = Code/BCAudioAlertsViewController.m; sourceTree = "<group>"; };
+		0249CDE517AF08A900A1B538 /* 30.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = 30.m4a; path = "Audio Reminders/30.m4a"; sourceTree = "<group>"; };
+		0249CDE617AF08A900A1B538 /* 60.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = 60.m4a; path = "Audio Reminders/60.m4a"; sourceTree = "<group>"; };
+		0249CDE717AF08A900A1B538 /* 90.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = 90.m4a; path = "Audio Reminders/90.m4a"; sourceTree = "<group>"; };
+		0249CDEB17AF0A3700A1B538 /* BCAudioReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCAudioReminder.h; sourceTree = "<group>"; };
+		0249CDEC17AF0A3700A1B538 /* BCAudioReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCAudioReminder.m; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -293,6 +305,16 @@
 			name = Convenience;
 			sourceTree = "<group>";
 		};
+		0249CDE417AF088400A1B538 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				0249CDE517AF08A900A1B538 /* 30.m4a */,
+				0249CDE617AF08A900A1B538 /* 60.m4a */,
+				0249CDE717AF08A900A1B538 /* 90.m4a */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		029D1F3A17AA2A6100106797 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +367,7 @@
 				029DFAC11764E3C300D022FC /* Storyboards */,
 				02BB09D4177D5B6B0040A622 /* Images */,
 				02BB09D3177D5B580040A622 /* Fonts */,
+				0249CDE417AF088400A1B538 /* Audio */,
 				029DFAAA1764E26F00D022FC /* BCAppDelegate.h */,
 				029DFAAB1764E26F00D022FC /* BCAppDelegate.m */,
 				026ADDD71776735B0054FDCF /* BCConstants.h */,
@@ -401,6 +424,8 @@
 		029DFACA1764E89900D022FC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0249CDEB17AF0A3700A1B538 /* BCAudioReminder.h */,
+				0249CDEC17AF0A3700A1B538 /* BCAudioReminder.m */,
 				0249CDD717AB90E100A1B538 /* Convenience */,
 				029DFAD117651A1300D022FC /* BCContraction.h */,
 				029DFAD217651A1300D022FC /* BCContraction.m */,
@@ -423,6 +448,8 @@
 				02A3A5D217A79DDF00D99238 /* BCMotivationalListViewController.m */,
 				0249CDD817AB992C00A1B538 /* BCMotivationalQuoteEditViewController.h */,
 				0249CDD917AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m */,
+				0249CDDE17ADB05800A1B538 /* BCAudioAlertsViewController.h */,
+				0249CDDF17ADB05800A1B538 /* BCAudioAlertsViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -623,6 +650,9 @@
 				029D1F5417AB718E00106797 /* SettingsStoryboard_iPhone.storyboard in Resources */,
 				0249CDCC17AB809D00A1B538 /* settings-disclosure.png in Resources */,
 				0249CDCD17AB809D00A1B538 /* settings-disclosure@2x.png in Resources */,
+				0249CDE817AF08A900A1B538 /* 30.m4a in Resources */,
+				0249CDE917AF08A900A1B538 /* 60.m4a in Resources */,
+				0249CDEA17AF08A900A1B538 /* 90.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +720,8 @@
 				0249CDD317AB8D1500A1B538 /* BCSettingsBaseViewController.m in Sources */,
 				0249CDD617AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m in Sources */,
 				0249CDDA17AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m in Sources */,
+				0249CDE017ADB05800A1B538 /* BCAudioAlertsViewController.m in Sources */,
+				0249CDED17AF0A3700A1B538 /* BCAudioReminder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

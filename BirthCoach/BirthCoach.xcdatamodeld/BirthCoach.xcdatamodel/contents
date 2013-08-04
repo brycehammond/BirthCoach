@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BCAudioReminder" representedClassName="BCAudioReminder" syncable="YES">
+        <attribute name="audioData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="seconds" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="BCContraction" representedClassName="BCContraction" syncable="YES">
         <attribute name="endTime" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="intensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -13,5 +17,6 @@
     <elements>
         <element name="BCContraction" positionX="-252" positionY="-1494" width="128" height="103"/>
         <element name="BCMotivationalQuote" positionX="-83" positionY="-1485" width="128" height="73"/>
+        <element name="BCAudioReminder" positionX="-83" positionY="-1368" width="128" height="73"/>
     </elements>
 </model>

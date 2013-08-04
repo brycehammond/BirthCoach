@@ -31,6 +31,7 @@
 
 //Settings
 #define kDisplayKeepOnKey @"DisplayKeepOn"
+#define kAudioRemindersOnKey @"AudioRemindersOn"
 #define kCurrentQuoteIndex @"QuoteIndex"
 
 @interface BCConstants : NSObject
