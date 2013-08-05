@@ -11,6 +11,7 @@
 #import "BCHistoryViewController.h"
 #import "BCSettingsViewController.h"
 #import "BCMotivationalQuote+Convenience.h"
+#import "BCAudioReminderManager.h"
 
 @interface BCRootViewController ()
 
@@ -142,11 +143,13 @@
 - (void)appForegroundNotification:(NSNotification *)note
 {
     [self updateAppearanceState];
+    [[BCAudioReminderManager sharedManager] scheduleAllReminders];
 }
 
 - (void)appBackgroundNotification:(NSNotification *)note
 {
     [self updateDisappearanceState];
+    [[BCAudioReminderManager sharedManager] cancelReminders];
 }
 
 #pragma mark -
@@ -389,7 +392,9 @@
         } completion:^(BOOL finished) {
             [self.lastContractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
         }];
-        
+     
+        //schedule any audio reminders
+        [[BCAudioReminderManager sharedManager] scheduleAllReminders];
     }
     else
     {
@@ -418,6 +423,9 @@
                 [self.lastContractionSlideOut setFrameXOrigin:kSliderShownXCoordinate];
             }];
         }];
+        
+        //cancel any audio reminders
+        [[BCAudioReminderManager sharedManager] cancelReminders];
     }
     
     [self updateViewState];

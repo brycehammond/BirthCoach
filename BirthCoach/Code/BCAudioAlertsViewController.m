@@ -8,8 +8,13 @@
 
 #import "BCAudioAlertsViewController.h"
 #import "BCSettingsTitleCell.h"
+#import "BCAudioReminderManager.h"
+#import "BCAudioReminder.h"
 
 @interface BCAudioAlertsViewController ()
+
+@property (nonatomic, strong) NSMutableArray *reminders;
+@property (strong, nonatomic) IBOutlet UIView *remindersTableView;
 
 @end
 
@@ -27,7 +32,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	self.remindersTableView.backgroundColor = [UIColor colorWithHexString:kLightOrangeColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.reminders = [BCAudioReminder findAllSortedBy:@"seconds" ascending:YES].mutableCopy;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +62,7 @@
     }
     else
     {
-        return 0;
+        return self.reminders.count;
     }
     
 }
@@ -61,7 +72,7 @@
     if(indexPath.section == 0)
     {
         BCSettingsOnOffCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OnOffCell"];
-        cell.titleLabel.text = @"Audio Reminders Enabled";
+        cell.titleLabel.text = @"Audio Reminders";
         cell.onOffSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:kAudioRemindersOnKey];
         cell.delegate = self;
         return cell;
@@ -69,6 +80,7 @@
     else
     {
         BCSettingsTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
+        cell.titleLabel.text = [NSString stringWithFormat:@"%@ seconds", [[self.reminders[indexPath.row] seconds] stringValue]];
         return cell;
     }
 }
@@ -86,6 +98,15 @@
 {
     [[NSUserDefaults standardUserDefaults] setBool:switchOn forKey:kAudioRemindersOnKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    if(switchOn)
+    {
+        [[BCAudioReminderManager sharedManager] scheduleAllReminders];
+    }
+    else
+    {
+        [[BCAudioReminderManager sharedManager] cancelReminders];
+    }
 }
 
 

@@ -38,4 +38,9 @@
     [self.player stop];
 }
 
+- (BOOL)isPlaying
+{
+    return self.player.isPlaying;
+}
+
 @end
