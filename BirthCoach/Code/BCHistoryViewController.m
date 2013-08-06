@@ -494,7 +494,7 @@
 - (void)moveHandleToIndex:(NSInteger)contractionIndex
 {
     CGRect cellRect = [self.contractionTableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIndex inSection:0]];
-    CGPoint newOffset = CGPointMake(kSliderThumbShownXCoordinate, cellRect.origin.y - self.contractionTableView.contentOffset.y + 5 + kHeaderHeight);
+    CGPoint newOffset = CGPointMake(MAX(kSliderThumbShownXCoordinate, self.contractionSlideOut.frameXOrigin), cellRect.origin.y - self.contractionTableView.contentOffset.y + 5 + kHeaderHeight);
     [UIView animateWithDuration:0.3 animations:^{
         [self.contractionSlideOut setFrameOrigin:newOffset];
     }];
