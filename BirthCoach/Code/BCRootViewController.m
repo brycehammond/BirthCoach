@@ -427,6 +427,7 @@
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
         self.timerLabel.text = @"";
         self.timerLabel.alpha = 0.0;
+        self.nextContractionEstimateLabel.alpha = 0.0;
         self.timerLabel.textColor = [[UIColor colorWithHexString:kMidGreenColor] colorWithAlphaComponent:.7];
         [self updateLastContractionView];
         
@@ -438,14 +439,15 @@
             //set up the next contraction extimate view
             if(self.secondsUntilNextContraction > 0)
             {
-                self.timerLabel.alpha = 0.0;
                 self.nextContractionEstimateFlashLabel.alpha = 1.0;
             }
             else
             {
                 self.nextContractionEstimateLabel.alpha = 1.0;
+                self.timerLabel.alpha = 1.0;
+                [self updateTimerLabel];
             }
-            
+         
         } completion:^(BOOL finished) {
             //show the contraction slider so they can set intensity
             [UIView animateWithDuration:0.3 animations:^{
