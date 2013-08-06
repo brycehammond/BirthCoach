@@ -11,7 +11,7 @@
 
 @class BCAudioReminder;
 
-@interface BCAudioAlertEditViewController : BCSettingsBaseViewController <AVAudioPlayerDelegate>
+@interface BCAudioAlertEditViewController : BCSettingsBaseViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate>
 
 @property (nonatomic, strong) BCAudioReminder *reminder;
 

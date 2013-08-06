@@ -13,6 +13,9 @@
 @interface BCAudioAlertEditViewController ()
 
 @property (nonatomic, strong) AVAudioPlayer *player;
+@property (nonatomic, strong) AVAudioRecorder *recorder;
+@property (nonatomic, strong) NSData *currentAudioData;
+
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end
@@ -20,6 +23,7 @@
 @implementation BCAudioAlertEditViewController
 
 @synthesize reminder = _reminder;
+@synthesize recorder = _recorder;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.player = [[AVAudioPlayer alloc] initWithData:self.reminder.audioData error:nil];
+    self.currentAudioData = self.reminder.audioData;
+	self.player = [[AVAudioPlayer alloc] initWithData:self.currentAudioData error:nil];
     self.player.delegate = self;
     [self.player prepareToPlay];
 }
@@ -57,6 +62,19 @@
         [self.player play];
         [self.playButton setTitle:@"Stop" forState:UIControlStateNormal];
     }
+}
+
+- (AVAudioRecorder *)recorder
+{
+    if(nil == _recorder)
+    {
+        NSString *recordFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"BirthCoach_reminder.m4a"];
+        _recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:recordFilePath] settings:@{AVNumberOfChannelsKey : @1, AVSampleRateKey : @16000.0, AVFormatIDKey : @(kAudioFormatAppleIMA4)} error:nil];
+        _recorder.delegate = self;
+        [_recorder prepareToRecord];
+    }
+    
+    return _recorder;
 }
 
 #pragma mark -
