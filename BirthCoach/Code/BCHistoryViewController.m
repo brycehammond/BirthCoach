@@ -479,10 +479,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *lookupPath = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
-    if(tableView == self.frequencyTableView)
-    {
-        lookupPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
-    }
     
     [self moveHandleToIndex:lookupPath.row];
     
@@ -506,13 +502,13 @@
 {
     [self.contractionTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIdx inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     
-    if(contractionIdx > 0)
+    if(contractionIdx < self.frequencies.count )
     {
-        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIdx - 1 inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:contractionIdx inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
     }
     else
     {
-        [self.frequencyTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:-1 inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [self.frequencyTableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectedContractionRow inSection:1] animated:YES];
     }
     
     BCContraction *selectedContraction = self.contractions[contractionIdx];
