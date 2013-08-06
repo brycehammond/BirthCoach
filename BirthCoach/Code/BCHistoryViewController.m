@@ -16,6 +16,7 @@
 #define kHeaderHeight 40
 
 @interface BCHistoryViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *contractionHistoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationHeaderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *intensityHeaderLabel;
@@ -34,8 +35,6 @@
 @property (assign, nonatomic) CGFloat slideOutOffset;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedContractionHandle;
 @property (assign, nonatomic) NSInteger selectedContractionRow;
-
-
 
 @end
 

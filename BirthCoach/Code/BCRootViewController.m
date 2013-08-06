@@ -12,6 +12,7 @@
 #import "BCSettingsViewController.h"
 #import "BCMotivationalQuote+Convenience.h"
 #import "BCAudioReminderManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BCRootViewController ()
 
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *timerBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *nextContractionEstimateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UILabel *nextContractionEstimateFlashLabel;
 
 //Last Contraction
 @property (weak, nonatomic) IBOutlet UIView *lastContractionContainerView;
@@ -75,10 +77,12 @@
     self.inspirationalLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.inspirationalLabel.font.pointSize];
     self.inspirationalLabel.alpha = 0.0;
     
-    for(UILabel *titleLabel in @[self.nextContractionEstimateLabel, self.lastContractionLabel])
+    for(UILabel *titleLabel in @[self.nextContractionEstimateLabel, self.lastContractionLabel, self.nextContractionEstimateFlashLabel])
     {
         titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:titleLabel.font.pointSize];
     }
+    
+    self.nextContractionEstimateFlashLabel.alpha = 0.0;
     
     for(UILabel *titleLabel in @[self.durationTitleLabel, self.intensityTitleLabel, self.frequencyTitleLabel])
     {
@@ -367,6 +371,8 @@
         
         self.timerLabel.text = @"00:00";
         
+        
+        
         //get the next inpirational quote and set it up
         if(self.inspirationalQuotes.count > 0)
         {
@@ -389,8 +395,11 @@
             self.lastContractionContainerView.alpha = 0.0;
             self.inspirationalLabel.alpha = 1.0;
             self.nextContractionEstimateLabel.alpha = 0.0;
+            self.nextContractionEstimateFlashLabel.alpha = 0.0;
+            self.timerLabel.alpha = 1.0;
         } completion:^(BOOL finished) {
             [self.lastContractionSlideOut setFrameXOrigin:kSliderThumbShownXCoordinate];
+            [self.nextContractionEstimateFlashLabel.layer removeAllAnimations];
         }];
      
         //schedule any audio reminders
@@ -410,18 +419,41 @@
         [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
         self.timerLabel.text = @"";
+        self.timerLabel.alpha = 0.0;
         [self updateLastContractionView];
         
-        //show the last contraction area and hide the motivational quote
         [UIView animateWithDuration:0.2 animations:^{
+            //show the last contraction area and hide the motivational quote
             self.lastContractionContainerView.alpha = 1.0;
             self.inspirationalLabel.alpha = 0.0;
-            self.nextContractionEstimateLabel.alpha = 1.0;
+            
+            //set up the next contraction extimate view
+            if(self.secondsUntilNextContraction > 0)
+            {
+                self.timerLabel.alpha = 0.0;
+                self.nextContractionEstimateFlashLabel.alpha = 1.0;
+            }
+            else
+            {
+                self.nextContractionEstimateLabel.alpha = 1.0;
+            }
+            
         } completion:^(BOOL finished) {
             //show the contraction slider so they can set intensity
             [UIView animateWithDuration:0.3 animations:^{
                 [self.lastContractionSlideOut setFrameXOrigin:kSliderShownXCoordinate];
             }];
+            
+            if(self.nextContractionEstimateFlashLabel.alpha > 0)
+            {
+                //we are showing the big next contraction estimate label so flash it
+                CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+                flashAnimation.duration = 4;
+                flashAnimation.removedOnCompletion = YES;
+                flashAnimation.values = @[@1.0, @0.0, @1.0, @0.0, @1.0, @0.0, @1.0];
+                flashAnimation.delegate = self;
+                [self.nextContractionEstimateFlashLabel.layer addAnimation:flashAnimation forKey:nil];
+            }
         }];
         
         //cancel any audio reminders
@@ -429,6 +461,18 @@
     }
     
     [self updateViewState];
+}
+
+- (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)finished
+{
+    if(finished)
+    {
+        [UIView animateWithDuration:0.4 animations:^{
+            self.nextContractionEstimateFlashLabel.alpha = 0.0;
+            self.timerLabel.alpha = 1.0;
+            self.nextContractionEstimateLabel.alpha = 1.0;
+        }];
+    }
 }
 
 #pragma mark -

@@ -40,17 +40,24 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1:08:23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="eQf-Pf-xzs">
-                                        <rect key="frame" x="20" y="27" width="188" height="56"/>
+                                        <rect key="frame" x="20" y="37" width="188" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="55"/>
                                         <color key="textColor" red="0.050980392156862744" green="0.14117647058823529" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="NEXT CONTRACTION ESTIMATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dt8-Gn-Lyq">
-                                        <rect key="frame" x="26" y="81" width="189" height="21"/>
+                                        <rect key="frame" x="30" y="19" width="189" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
                                         <color key="textColor" red="0.37254901960784315" green="0.69411764705882351" blue="0.72549019607843135" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="NEXT CONTRACTION ESTIMATE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z6P-Sx-wcV">
+                                        <rect key="frame" x="37" y="24" width="174" height="73"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                        <color key="textColor" red="0.37254901959999998" green="0.69411764710000001" blue="0.72549019609999998" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -305,6 +312,7 @@
                         <outlet property="lastContractionIntensityContainerView" destination="lLz-y6-khd" id="I19-zx-GEk"/>
                         <outlet property="lastContractionLabel" destination="eJG-KD-7GQ" id="Rky-00-gGz"/>
                         <outlet property="lastContractionSlideOut" destination="KYF-Bj-iAR" id="nNB-fL-idW"/>
+                        <outlet property="nextContractionEstimateFlashLabel" destination="z6P-Sx-wcV" id="0Cs-ZN-7kT"/>
                         <outlet property="nextContractionEstimateLabel" destination="Dt8-Gn-Lyq" id="Yur-zC-g4I"/>
                         <outlet property="settingsButton" destination="0ya-54-ZtW" id="x1h-vZ-I7l"/>
                         <outlet property="startStopButton" destination="5fc-QZ-lLx" id="Ys9-Xr-fad"/>
@@ -1050,113 +1058,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="settings.png" width="41" height="42"/>
         <image name="start-button.png" width="61" height="81"/>
     </resources>
-    <classes>
-        <class className="BCAveragesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCAveragesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="averageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="averagesScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="fifteenMinuteDuration" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fifteenMinuteFrequency" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fifteenMinuteIntensity" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fifteenMinuteNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minuteNumberScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="oneHourDuration" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="oneHourFrequency" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="oneHourIntensity" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="BCPageControl"/>
-                <relationship kind="outlet" name="sixtyMinuteNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirtyMinuteDuration" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirtyMinuteFrequency" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirtyMinuteIntensity" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirtyMinuteNumberLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BCBaseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCBaseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="BCContractionCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCContractionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="intensityLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BCContractionEditViewController" superclassName="BCBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCContractionEditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doneBannerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="durationPickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="durationTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fadeView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startTimePickerView" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="startTimeTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BCFrequencyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCFrequencyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="frequencyLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BCHistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCHistoryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contractionHistoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="contractionIntensityContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="contractionSlideOut" candidateClass="UIView"/>
-                <relationship kind="outlet" name="contractionTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="durationHeaderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="frequencyHeaderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="frequencyTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="headerContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="intensityHeaderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedContractionHandle" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="BCPageControl" superclassName="UIPageControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCPageControl.h"/>
-        </class>
-        <class className="BCRootViewController" superclassName="BCBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCRootViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="averagesContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="durationTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="frequencyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="frequencyTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="historyContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="inspirationalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="intensityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="intensityTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lastContractionContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="lastContractionHandle" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="lastContractionIntensityContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="lastContractionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lastContractionSlideOut" candidateClass="UIView"/>
-                <relationship kind="outlet" name="nextContractionEstimateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startStopButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timerBackgroundView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="timerLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gHv-HP-DCe"/>
+        <segue reference="wFg-P6-rVT"/>
     </inferredMetricsTieBreakers>
 </document>
