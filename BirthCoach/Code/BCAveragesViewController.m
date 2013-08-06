@@ -80,6 +80,10 @@
     self.thirtyMinuteNumberLabel.alpha = 0;
     self.sixtyMinuteNumberLabel.alpha = 0;
     
+    self.fifteenMinuteNumberLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.fifteenMinuteNumberLabel.font.pointSize];
+    self.thirtyMinuteNumberLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.thirtyMinuteNumberLabel.font.pointSize];
+    self.sixtyMinuteNumberLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.sixtyMinuteNumberLabel.font.pointSize];
+    
     self.pageControl.numberOfPages = 3;
     self.pageControl.currentPage = 1;
     self.pageControl.delegate = self;
