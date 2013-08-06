@@ -162,17 +162,25 @@
 - (void)updateAppearanceState
 {
     [self clearTimer];
+    self.timerLabel.alpha = 1.0;
+    self.nextContractionEstimateFlashLabel.alpha = 0.0;
     self.activeContraction = [BCContraction activeContraction];
     self.secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(secondTimerIncremented:) userInfo:nil repeats:YES];
     if(nil != self.activeContraction)
     {
         self.secondsIntoContraction = [[NSDate date] timeIntervalSinceDate:self.activeContraction.startTime];
         [self.startStopButton setImage:[UIImage imageNamed:@"stop-button"] forState:UIControlStateNormal];
+        self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kMidOrangeColor] colorWithAlphaComponent:.15];
+        self.timerLabel.textColor = [UIColor colorWithHexString:kDarkBlueColor];
+        self.nextContractionEstimateLabel.alpha = 0.0;
     }
     else
     {
         self.secondsUntilNextContraction = [BCContraction estimatedTimeUntilNextContraction];
         [self.startStopButton setImage:[UIImage imageNamed:@"start-button"] forState:UIControlStateNormal];
+        self.nextContractionEstimateLabel.alpha = 1.0;
+        self.timerLabel.textColor = [[UIColor colorWithHexString:kMidGreenColor] colorWithAlphaComponent:.7];
+        self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
     }
     
     [self updateViewState];
@@ -370,8 +378,7 @@
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kMidOrangeColor] colorWithAlphaComponent:.15];
         
         self.timerLabel.text = @"00:00";
-        
-        
+        self.timerLabel.textColor = [UIColor colorWithHexString:kDarkBlueColor];
         
         //get the next inpirational quote and set it up
         if(self.inspirationalQuotes.count > 0)
@@ -420,6 +427,7 @@
         self.timerBackgroundView.backgroundColor = [[UIColor colorWithHexString:kDarkGreenColor] colorWithAlphaComponent:.1];
         self.timerLabel.text = @"";
         self.timerLabel.alpha = 0.0;
+        self.timerLabel.textColor = [[UIColor colorWithHexString:kMidGreenColor] colorWithAlphaComponent:.7];
         [self updateLastContractionView];
         
         [UIView animateWithDuration:0.2 animations:^{
