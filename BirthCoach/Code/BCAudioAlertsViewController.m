@@ -10,11 +10,12 @@
 #import "BCSettingsTitleCell.h"
 #import "BCAudioReminderManager.h"
 #import "BCAudioReminder.h"
+#import "BCAudioAlertEditViewController.h"
 
 @interface BCAudioAlertsViewController ()
 
 @property (nonatomic, strong) NSMutableArray *reminders;
-@property (strong, nonatomic) IBOutlet UIView *remindersTableView;
+@property (strong, nonatomic) IBOutlet UITableView *remindersTableView;
 
 @end
 
@@ -109,5 +110,14 @@
     }
 }
 
+#pragma mark -
+#pragma mark Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *selectedPath = [self.remindersTableView indexPathForSelectedRow];
+    BCAudioAlertEditViewController *reminderEditController = segue.destinationViewController;
+    reminderEditController.reminder = self.reminders[selectedPath.row];
+}
 
 @end

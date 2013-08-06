@@ -45,6 +45,7 @@
 		0249CDED17AF0A3700A1B538 /* BCAudioReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDEC17AF0A3700A1B538 /* BCAudioReminder.m */; };
 		0249CDF017AF0CF900A1B538 /* BCAudioReminderPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDEF17AF0CF900A1B538 /* BCAudioReminderPlayer.m */; };
 		0249CDF317AF30B200A1B538 /* BCAudioReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDF217AF30B200A1B538 /* BCAudioReminderManager.m */; };
+		0249CDF617AF70CE00A1B538 /* BCAudioAlertEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDF517AF70CE00A1B538 /* BCAudioAlertEditViewController.m */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
 		029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2C17AA18C600106797 /* blue-handle@2x.png */; };
@@ -150,6 +151,8 @@
 		0249CDEF17AF0CF900A1B538 /* BCAudioReminderPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCAudioReminderPlayer.m; path = Code/BCAudioReminderPlayer.m; sourceTree = "<group>"; };
 		0249CDF117AF30B200A1B538 /* BCAudioReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCAudioReminderManager.h; path = Code/BCAudioReminderManager.h; sourceTree = "<group>"; };
 		0249CDF217AF30B200A1B538 /* BCAudioReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCAudioReminderManager.m; path = Code/BCAudioReminderManager.m; sourceTree = "<group>"; };
+		0249CDF417AF70CE00A1B538 /* BCAudioAlertEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCAudioAlertEditViewController.h; path = Code/BCAudioAlertEditViewController.h; sourceTree = "<group>"; };
+		0249CDF517AF70CE00A1B538 /* BCAudioAlertEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCAudioAlertEditViewController.m; path = Code/BCAudioAlertEditViewController.m; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -460,6 +463,8 @@
 				0249CDD917AB992C00A1B538 /* BCMotivationalQuoteEditViewController.m */,
 				0249CDDE17ADB05800A1B538 /* BCAudioAlertsViewController.h */,
 				0249CDDF17ADB05800A1B538 /* BCAudioAlertsViewController.m */,
+				0249CDF417AF70CE00A1B538 /* BCAudioAlertEditViewController.h */,
+				0249CDF517AF70CE00A1B538 /* BCAudioAlertEditViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -734,6 +739,7 @@
 				0249CDED17AF0A3700A1B538 /* BCAudioReminder.m in Sources */,
 				0249CDF017AF0CF900A1B538 /* BCAudioReminderPlayer.m in Sources */,
 				0249CDF317AF30B200A1B538 /* BCAudioReminderManager.m in Sources */,
+				0249CDF617AF70CE00A1B538 /* BCAudioAlertEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
