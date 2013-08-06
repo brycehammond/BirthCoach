@@ -7,10 +7,11 @@
 //
 
 #import "BCSettingsBaseViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @class BCAudioReminder;
 
-@interface BCAudioAlertEditViewController : BCSettingsBaseViewController
+@interface BCAudioAlertEditViewController : BCSettingsBaseViewController <AVAudioPlayerDelegate>
 
 @property (nonatomic, strong) BCAudioReminder *reminder;
 

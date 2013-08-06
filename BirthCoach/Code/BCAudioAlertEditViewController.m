@@ -8,11 +8,12 @@
 
 #import "BCAudioAlertEditViewController.h"
 #import "BCAudioReminder.h"
-#import <AVFoundation/AVFoundation.h>
+
 
 @interface BCAudioAlertEditViewController ()
 
 @property (nonatomic, strong) AVAudioPlayer *player;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end
 
@@ -33,6 +34,7 @@
 {
     [super viewDidLoad];
 	self.player = [[AVAudioPlayer alloc] initWithData:self.reminder.audioData error:nil];
+    self.player.delegate = self;
     [self.player prepareToPlay];
 }
 
@@ -40,6 +42,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)playStop:(id)sender
+{
+    if([self.player isPlaying])
+    {
+        [self.player pause];
+        [self.player setCurrentTime:0];
+        [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.player play];
+        [self.playButton setTitle:@"Stop" forState:UIControlStateNormal];
+    }
+}
+
+#pragma mark -
+#pragma mark AudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
 }
 
 @end

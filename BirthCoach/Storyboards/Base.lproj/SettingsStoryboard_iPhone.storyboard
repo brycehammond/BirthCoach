@@ -264,7 +264,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2P9-1f-RQ3">
-                                <rect key="frame" x="133" y="253" width="55" height="44"/>
+                                <rect key="frame" x="133" y="295" width="55" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Play">
@@ -274,11 +274,17 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="playStop:" destination="y3n-hD-w5n" eventType="touchUpInside" id="sYg-SZ-Qs3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.90196078430000004" blue="0.83137254900000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Th-8w-ufv"/>
+                    <connections>
+                        <outlet property="playButton" destination="2P9-1f-RQ3" id="iDA-gc-77W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msx-O1-cjm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -484,11 +490,15 @@
     <classes>
         <class className="BCAudioAlertEditViewController" superclassName="BCSettingsBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCAudioAlertEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playStop:"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="BCAudioAlertsViewController" superclassName="BCSettingsBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCAudioAlertsViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="remindersTableView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="remindersTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="BCBaseViewController" superclassName="UIViewController">
