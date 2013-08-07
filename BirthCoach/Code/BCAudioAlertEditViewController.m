@@ -68,7 +68,6 @@
     if([self.recorder isRecording])
     {
         [self.recorder stop];
-        self.currentAudioData = [[NSData alloc] initWithContentsOfURL:self.recorder.url];
         self.player = nil; //clear out the player so it loads the recorded audio
         self.playButton.hidden = NO;
         [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
@@ -80,6 +79,13 @@
         self.playButton.hidden = YES;
         [self.recordButton setTitle:@"Stop" forState:UIControlStateNormal];
     }
+}
+
+- (IBAction)save:(id)sender
+{
+    self.reminder.audioData = self.currentAudioData;
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (AVAudioPlayer *)player
@@ -98,8 +104,9 @@
 {
     if(nil == _recorder)
     {
+        NSError *error = nil;
         NSString *recordFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"BirthCoach_reminder.caf"];
-        _recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:recordFilePath] settings:@{AVNumberOfChannelsKey : @1, AVSampleRateKey : @16000.0, AVFormatIDKey : @(kAudioFormatAppleIMA4)} error:nil];
+        _recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:recordFilePath] settings:@{AVNumberOfChannelsKey : @1, AVSampleRateKey : @16000.0, AVFormatIDKey : @(kAudioFormatAppleIMA4)} error:&error];
         _recorder.delegate = self;
         [_recorder prepareToRecord];
     }
@@ -114,5 +121,17 @@
 {
     [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
 }
+
+#pragma mark -
+#pragma mark AudioRecorderDelegate
+
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)success
+{
+    if(success)
+    {
+        self.currentAudioData = [[NSData alloc] initWithContentsOfURL:recorder.url];
+    }
+}
+
 
 @end

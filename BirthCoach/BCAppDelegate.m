@@ -10,6 +10,7 @@
 #import "TestFlight.h"
 #import "BCMotivationalQuote+Convenience.h"
 #import "BCAudioReminder.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation BCAppDelegate
 
@@ -47,6 +48,8 @@
     
     //Load up our quotes if we haven't already
     [BCMotivationalQuote loadQuotes];
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
     return YES;
 }
