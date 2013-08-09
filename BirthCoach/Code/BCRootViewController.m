@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UILabel *nextContractionEstimateFlashLabel;
 
+
 //Last Contraction
 @property (weak, nonatomic) IBOutlet UIView *lastContractionContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *lastContractionLabel;
@@ -33,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *intensityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *slideOutIntensityLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *lastContractionHandle;
 @property (weak, nonatomic) IBOutlet UIView *lastContractionSlideOut;
@@ -84,7 +86,7 @@
     
     self.nextContractionEstimateFlashLabel.alpha = 0.0;
     
-    for(UILabel *titleLabel in @[self.durationTitleLabel, self.intensityTitleLabel, self.frequencyTitleLabel])
+    for(UILabel *titleLabel in @[self.durationTitleLabel, self.intensityTitleLabel, self.frequencyTitleLabel, self.slideOutIntensityLabel])
     {
         titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:titleLabel.font.pointSize];
     }
