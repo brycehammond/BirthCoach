@@ -42,6 +42,12 @@
     self.currentAudioData = self.reminder.audioData;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -68,13 +74,14 @@
     if([self.recorder isRecording])
     {
         [self.recorder stop];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         self.player = nil; //clear out the player so it loads the recorded audio
         self.playButton.hidden = NO;
         [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
     }
     else
     {
-        [self.recorder deleteRecording];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:nil];
         [self.recorder record];
         self.playButton.hidden = YES;
         [self.recordButton setTitle:@"Stop" forState:UIControlStateNormal];
@@ -108,7 +115,6 @@
         NSString *recordFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"BirthCoach_reminder.caf"];
         _recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:recordFilePath] settings:@{AVNumberOfChannelsKey : @1, AVSampleRateKey : @16000.0, AVFormatIDKey : @(kAudioFormatAppleIMA4)} error:&error];
         _recorder.delegate = self;
-        [_recorder prepareToRecord];
     }
     
     return _recorder;

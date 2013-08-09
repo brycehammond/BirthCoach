@@ -49,7 +49,7 @@
     //Load up our quotes if we haven't already
     [BCMotivationalQuote loadQuotes];
     
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     
     return YES;
 }
