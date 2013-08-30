@@ -46,6 +46,10 @@
 		0249CDF017AF0CF900A1B538 /* BCAudioReminderPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDEF17AF0CF900A1B538 /* BCAudioReminderPlayer.m */; };
 		0249CDF317AF30B200A1B538 /* BCAudioReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDF217AF30B200A1B538 /* BCAudioReminderManager.m */; };
 		0249CDF617AF70CE00A1B538 /* BCAudioAlertEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249CDF517AF70CE00A1B538 /* BCAudioAlertEditViewController.m */; };
+		026AC8FF17D04E0D004DC5B4 /* settings-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 026AC8FB17D04E0D004DC5B4 /* settings-back-button.png */; };
+		026AC90017D04E0D004DC5B4 /* settings-back-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 026AC8FC17D04E0D004DC5B4 /* settings-back-button@2x.png */; };
+		026AC90117D04E0D004DC5B4 /* settings-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 026AC8FD17D04E0D004DC5B4 /* settings-button.png */; };
+		026AC90217D04E0D004DC5B4 /* settings-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 026AC8FE17D04E0D004DC5B4 /* settings-button@2x.png */; };
 		026ADDD91776735C0054FDCF /* BCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 026ADDD81776735B0054FDCF /* BCConstants.m */; };
 		0291B7AC179CD83E00DDC00D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0291B7AB179CD83E00DDC00D /* AVFoundation.framework */; };
 		029D1F2D17AA18C600106797 /* blue-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F2C17AA18C600106797 /* blue-handle@2x.png */; };
@@ -153,6 +157,10 @@
 		0249CDF217AF30B200A1B538 /* BCAudioReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCAudioReminderManager.m; path = Code/BCAudioReminderManager.m; sourceTree = "<group>"; };
 		0249CDF417AF70CE00A1B538 /* BCAudioAlertEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCAudioAlertEditViewController.h; path = Code/BCAudioAlertEditViewController.h; sourceTree = "<group>"; };
 		0249CDF517AF70CE00A1B538 /* BCAudioAlertEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCAudioAlertEditViewController.m; path = Code/BCAudioAlertEditViewController.m; sourceTree = "<group>"; };
+		026AC8FB17D04E0D004DC5B4 /* settings-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-back-button.png"; path = "Images/settings-back-button.png"; sourceTree = "<group>"; };
+		026AC8FC17D04E0D004DC5B4 /* settings-back-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-back-button@2x.png"; path = "Images/settings-back-button@2x.png"; sourceTree = "<group>"; };
+		026AC8FD17D04E0D004DC5B4 /* settings-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-button.png"; path = "Images/settings-button.png"; sourceTree = "<group>"; };
+		026AC8FE17D04E0D004DC5B4 /* settings-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-button@2x.png"; path = "Images/settings-button@2x.png"; sourceTree = "<group>"; };
 		026ADDD71776735B0054FDCF /* BCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCConstants.h; path = Code/BCConstants.h; sourceTree = "<group>"; };
 		026ADDD81776735B0054FDCF /* BCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCConstants.m; path = Code/BCConstants.m; sourceTree = "<group>"; };
 		0291B7AB179CD83E00DDC00D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -506,6 +514,10 @@
 		02BB09DD177D622A0040A622 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				026AC8FB17D04E0D004DC5B4 /* settings-back-button.png */,
+				026AC8FC17D04E0D004DC5B4 /* settings-back-button@2x.png */,
+				026AC8FD17D04E0D004DC5B4 /* settings-button.png */,
+				026AC8FE17D04E0D004DC5B4 /* settings-button@2x.png */,
 				029D1F2E17AA194600106797 /* cancel-button-selected.png */,
 				029D1F2F17AA194600106797 /* cancel-button-selected@2x.png */,
 				029D1F3017AA194600106797 /* save-button-selected.png */,
@@ -668,6 +680,10 @@
 				0249CDE817AF08A900A1B538 /* 30.m4a in Resources */,
 				0249CDE917AF08A900A1B538 /* 60.m4a in Resources */,
 				0249CDEA17AF08A900A1B538 /* 90.m4a in Resources */,
+				026AC8FF17D04E0D004DC5B4 /* settings-back-button.png in Resources */,
+				026AC90017D04E0D004DC5B4 /* settings-back-button@2x.png in Resources */,
+				026AC90117D04E0D004DC5B4 /* settings-button.png in Resources */,
+				026AC90217D04E0D004DC5B4 /* settings-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

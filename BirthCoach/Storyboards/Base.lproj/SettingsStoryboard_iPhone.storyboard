@@ -130,10 +130,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qN1-nZ-LSV" customClass="BCStretchableButton">
-                                <rect key="frame" x="10" y="5" width="53" height="32"/>
+                                <rect key="frame" x="8" y="5" width="70" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Back" backgroundImage="save-button.png">
+                                <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Back" backgroundImage="settings-back-button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -385,10 +386,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z7e-CU-SNY" customClass="BCStretchableButton">
-                                <rect key="frame" x="20" y="5" width="53" height="32"/>
+                                <rect key="frame" x="8" y="5" width="70" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Back" backgroundImage="save-button.png">
+                                <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Back" backgroundImage="settings-back-button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -401,10 +403,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Htn-xg-Dq2" customClass="BCStretchableButton">
-                                <rect key="frame" x="215" y="5" width="53" height="32"/>
+                                <rect key="frame" x="216" y="5" width="53" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Edit" backgroundImage="save-button.png">
+                                <state key="normal" title="Edit" backgroundImage="settings-button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -417,10 +419,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fgs-pI-oeE" customClass="BCStretchableButton">
-                                <rect key="frame" x="276" y="5" width="32" height="32"/>
+                                <rect key="frame" x="277" y="5" width="32" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="+" backgroundImage="save-button.png">
+                                <inset key="titleEdgeInsets" minX="2" minY="-2" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="+" backgroundImage="settings-button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -461,10 +464,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EBk-yb-VJW" customClass="BCStretchableButton">
-                                <rect key="frame" x="20" y="5" width="53" height="32"/>
+                                <rect key="frame" x="8" y="4" width="70" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Back" backgroundImage="save-button.png">
+                                <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Back" backgroundImage="settings-back-button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -519,12 +523,17 @@
         <image name="cancel-button.png" width="107" height="46"/>
         <image name="save-button-selected.png" width="162" height="46"/>
         <image name="save-button.png" width="162" height="46"/>
+        <image name="settings-back-button.png" width="70" height="33"/>
+        <image name="settings-button.png" width="42" height="33"/>
         <image name="settings-disclosure.png" width="14" height="23"/>
     </resources>
     <classes>
         <class className="BCAudioAlertEditViewController" superclassName="BCSettingsBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BCAudioAlertEditViewController.h"/>
             <relationships>
+                <relationship kind="action" name="playStop:"/>
+                <relationship kind="action" name="recordStop:"/>
+                <relationship kind="action" name="save:"/>
                 <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="recordButton" candidateClass="UIButton"/>
             </relationships>
