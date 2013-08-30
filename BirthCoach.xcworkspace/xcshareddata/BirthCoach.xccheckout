@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2590E0B7-2B9E-4714-8438-7A01099CD079</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BirthCoach</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DB32A584-1472-411A-84F5-ACFD8105176C</key>
+		<string>ssh://github.com/Fluidvision/BirthCoach.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BirthCoach.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DB32A584-1472-411A-84F5-ACFD8105176C</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Fluidvision/BirthCoach.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DB32A584-1472-411A-84F5-ACFD8105176C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DB32A584-1472-411A-84F5-ACFD8105176C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BirthCoach</string>
+		</dict>
+	</array>
+</dict>
+</plist>
