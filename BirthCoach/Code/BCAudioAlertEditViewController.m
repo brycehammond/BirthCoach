@@ -18,7 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
-
 @end
 
 @implementation BCAudioAlertEditViewController
