@@ -9,21 +9,9 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>appicon57.png</string>
-				<string>appicon72.png</string>
-				<string>appicon114.png</string>
-				<string>appicon144.png</string>
-				<string>appicon512.png</string>
-			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
-		</dict>
-	</dict>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>com.fluidvisiondesign.birthcoach</string>
 	<key>CFBundleInfoDictionaryVersion</key>

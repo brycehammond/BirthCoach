@@ -79,6 +79,7 @@
 		029DFAD01764FED600D022FC /* BCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFACF1764FED600D022FC /* BCRootViewController.m */; };
 		029DFAD317651A1300D022FC /* BCContraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD217651A1300D022FC /* BCContraction.m */; };
 		029DFAD617651A7E00D022FC /* BCContraction+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */; };
+		02A1F4A4180B0A3E0094772A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A1F4A3180B0A3E0094772A /* Images.xcassets */; };
 		02A3A5CF17A791D900D99238 /* BCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A5CE17A791D900D99238 /* BCSettingsViewController.m */; };
 		02A3A5D317A79DDF00D99238 /* BCMotivationalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A5D217A79DDF00D99238 /* BCMotivationalListViewController.m */; };
 		02A3A5D617A7A01000D99238 /* BCMotivationalQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A5D517A7A01000D99238 /* BCMotivationalQuote.m */; };
@@ -199,6 +200,7 @@
 		029DFAD217651A1300D022FC /* BCContraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCContraction.m; path = Code/BCContraction.m; sourceTree = "<group>"; };
 		029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BCContraction+Convenience.h"; path = "Code/BCContraction+Convenience.h"; sourceTree = "<group>"; };
 		029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCContraction+Convenience.m"; path = "Code/BCContraction+Convenience.m"; sourceTree = "<group>"; };
+		02A1F4A3180B0A3E0094772A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		02A3A5CD17A791D900D99238 /* BCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCSettingsViewController.h; path = Code/BCSettingsViewController.h; sourceTree = "<group>"; };
 		02A3A5CE17A791D900D99238 /* BCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCSettingsViewController.m; path = Code/BCSettingsViewController.m; sourceTree = "<group>"; };
 		02A3A5D117A79DDF00D99238 /* BCMotivationalListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMotivationalListViewController.h; path = Code/BCMotivationalListViewController.h; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				029DFAAB1764E26F00D022FC /* BCAppDelegate.m */,
 				026ADDD71776735B0054FDCF /* BCConstants.h */,
 				026ADDD81776735B0054FDCF /* BCConstants.m */,
+				02A1F4A3180B0A3E0094772A /* Images.xcassets */,
 				029DFAA21764E26F00D022FC /* Supporting Files */,
 			);
 			path = BirthCoach;
@@ -646,6 +649,7 @@
 				0200066A1797AB90004DD366 /* orange-circle-unselected@2x.png in Resources */,
 				0200066B1797AB90004DD366 /* orange-edit.png in Resources */,
 				0200066C1797AB90004DD366 /* orange-edit@2x.png in Resources */,
+				02A1F4A4180B0A3E0094772A /* Images.xcassets in Resources */,
 				0200066D1797AB90004DD366 /* orange-trash.png in Resources */,
 				0200066E1797AB90004DD366 /* orange-trash@2x.png in Resources */,
 				0200067A1797ABA4004DD366 /* blue-circle-selected.png in Resources */,
@@ -815,7 +819,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -840,7 +844,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -852,12 +856,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthCoach/BirthCoach-Prefix.pch";
 				INFOPLIST_FILE = "BirthCoach/BirthCoach-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -870,12 +876,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthCoach/BirthCoach-Prefix.pch";
 				INFOPLIST_FILE = "BirthCoach/BirthCoach-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -903,7 +911,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -917,11 +925,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B7CCAAA84C048368DDCECC2 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthCoach/BirthCoach-Prefix.pch";
 				INFOPLIST_FILE = "BirthCoach/BirthCoach-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
