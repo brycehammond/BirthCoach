@@ -138,7 +138,7 @@
 
 - (void)moveToYCoordinate:(CGFloat)yCoordinate
 {
-    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - yCoordinate - 20;
+    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - yCoordinate;
     [self.view setFrameYOrigin:yCoordinate];
     [self.view setFrameHeight:newViewHeight];
     [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
@@ -302,7 +302,7 @@
         newYOrigin = kBottomBound;
     }
     
-    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
+    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
     
     [UIView animateWithDuration:0 animations:^{
         [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
@@ -331,7 +331,7 @@
         CGPoint yTranslation = [gesture translationInView:self.view];
         CGFloat newYOrigin = originalGesturePosition + yTranslation.y;
         [self.view setFrameYOrigin:newYOrigin];
-        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
+        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
         
         [self.view setFrameYOrigin:newYOrigin];
         [self.view setFrameHeight:newViewHeight];
@@ -354,7 +354,7 @@
     }
     
     [UIView animateWithDuration:0 animations:^{
-        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
+        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
         
         [self.view setFrameYOrigin:newYOrigin];
         [self.view setFrameHeight:newViewHeight];
@@ -537,7 +537,7 @@
         newYOrigin = MAX(kTopBound, currentYOrigin - scrollView.contentOffset.y);
     }
     
-    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin - 20;
+    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
     
     [self.view setFrameYOrigin:newYOrigin];
     [self.view setFrameHeight:newViewHeight];
