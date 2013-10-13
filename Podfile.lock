@@ -1,12 +1,12 @@
 PODS:
-  - MagicalRecord (2.1)
-  - TestFlightSDK (1.2.6)
+  - MagicalRecord (2.2)
+  - TestFlightSDK (2.1.1-beta)
   - UIColor-Utilities (1.0.1)
   - UIView-IMUUtilities (0.0.1)
 
 DEPENDENCIES:
   - MagicalRecord
-  - TestFlightSDK (~> 1.2.4)
+  - TestFlightSDK (~> 2.0)
   - UIColor-Utilities
   - UIView-IMUUtilities (from `podspecs/UIView-IMUUtilities.podspec`)
 
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :podspec: podspecs/UIView-IMUUtilities.podspec
 
 SPEC CHECKSUMS:
-  MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
-  TestFlightSDK: 7d9abce62f5a17191c4df84fd88e05797e6776e0
+  MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
+  TestFlightSDK: dea28c16f0bf65c49c4ed8939b2ae0b0ed9bf8b0
   UIColor-Utilities: a392783be1b72e5d5ad9ae450ef2280239441bc8
   UIView-IMUUtilities: 27fb272f24adb20ec780386f979ef7394a2537fb
 
-COCOAPODS: 0.22.3
+COCOAPODS: 0.26.2
