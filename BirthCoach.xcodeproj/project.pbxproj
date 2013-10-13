@@ -396,6 +396,11 @@
 				CLASSPREFIX = BC;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Fluidvision Design, LLC";
+				TargetAttributes = {
+					029DFA971764E26F00D022FC = {
+						DevelopmentTeam = 8MW535NRK9;
+					};
+				};
 			};
 			buildConfigurationList = 029DFA931764E26F00D022FC /* Build configuration list for PBXProject "BirthCoach" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -671,6 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthCoach/BirthCoach-Prefix.pch";
