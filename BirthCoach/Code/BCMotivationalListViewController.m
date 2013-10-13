@@ -116,8 +116,13 @@
 {
     UIFont *titleFont = [UIFont fontWithName:@"SourceSansPro-Semibold" size:16];
     BCMotivationalQuote *quote = self.quotes[indexPath.row];
-    CGSize quoteSize = [quote.text sizeWithFont:titleFont constrainedToSize:CGSizeMake(240, INT_MAX)];
-    return MAX(quoteSize.height + 12, 62);
+                                         
+    CGRect quoteRect = [quote.text boundingRectWithSize:CGSizeMake(240, INT_MAX)
+                                options:NSStringDrawingUsesLineFragmentOrigin
+                                 attributes:@{NSFontAttributeName:titleFont}
+                                 context:nil];
+    
+    return MAX(quoteRect.size.height + 12, 62);
 }
 
 #pragma mark -
