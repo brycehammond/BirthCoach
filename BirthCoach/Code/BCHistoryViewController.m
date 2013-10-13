@@ -55,10 +55,7 @@
     for(BCContraction *contraction in self.contractions)
     {
         NSTimeInterval frequency = contraction.frequency;
-        if(frequency > 0)
-        {
-            [self.frequencies addObject:@(frequency)];
-        }
+        [self.frequencies addObject:@(frequency)];
     }
 }
 

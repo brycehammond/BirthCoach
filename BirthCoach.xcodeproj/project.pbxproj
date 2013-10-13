@@ -175,6 +175,8 @@
 				02A3A5D517A7A01000D99238 /* BCMotivationalQuote.m */,
 				0249CDD417AB90DD00A1B538 /* BCMotivationalQuote+Convenience.h */,
 				0249CDD517AB90DD00A1B538 /* BCMotivationalQuote+Convenience.m */,
+				029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */,
+				029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */,
 			);
 			name = Convenience;
 			sourceTree = "<group>";
@@ -286,8 +288,6 @@
 				0249CDD717AB90E100A1B538 /* Convenience */,
 				029DFAD117651A1300D022FC /* BCContraction.h */,
 				029DFAD217651A1300D022FC /* BCContraction.m */,
-				029DFAD417651A7E00D022FC /* BCContraction+Convenience.h */,
-				029DFAD517651A7E00D022FC /* BCContraction+Convenience.m */,
 				02BB09EE177EB1630040A622 /* BCTimeIntervalFormatter.h */,
 				02BB09EF177EB1630040A622 /* BCTimeIntervalFormatter.m */,
 				0249CDEB17AF0A3700A1B538 /* BCAudioReminder.h */,

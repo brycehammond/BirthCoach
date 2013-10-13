@@ -23,12 +23,28 @@
     }
     
     NSTimeInterval frequency = [self.startTime timeIntervalSinceDate:prevContraction.startTime];
+    
+    //If the duration is over 4 hours then this is obviously a misnomer and they forgot to turn it off so just say it was 0
+    if(frequency >= 4 * 60 * 60)
+    {
+        frequency = 0;
+    }
+    
     return frequency;
 }
 
 - (NSTimeInterval)duration
 {
-    return [self.endTime timeIntervalSinceDate:self.startTime];
+    
+    NSTimeInterval duration = [self.endTime timeIntervalSinceDate:self.startTime];
+    
+    //If the duration is over 20 minutes then this is obviously a misnomer and they forgot to turn it off so just say it was 0
+    if(duration >= 20 * 60)
+    {
+        duration = 0;
+    }
+    
+    return duration;
 }
 
 + (BCContraction *)lastContractionBeforeTime:(NSDate *)time
@@ -70,22 +86,31 @@
     BCContraction *previousContraction = nil;
     for(BCContraction *contraction in contractions)
     {
-        if(nil == previousContraction)
+        NSTimeInterval frequency = contraction.frequency;
+        if(frequency > 0)
         {
-            //if there was a contraction before the first one then inclue the frequency in the average
-            summedFrequency += contraction.frequency;
-        }
-        else
-        {
-            summedFrequency += [contraction.startTime timeIntervalSinceDate:previousContraction.startTime];
-        }
-        
-        if(summedFrequency > 0)
-        {
-            ++totalContractions;
+            if(nil == previousContraction)
+            {
+                //if there was a contraction before the first one then inclue the frequency in the average
+                summedFrequency += frequency;
+            }
+            else
+            {
+                summedFrequency += [contraction.startTime timeIntervalSinceDate:previousContraction.startTime];
+            }
+            
+            if(summedFrequency > 0)
+            {
+                ++totalContractions;
+            }
         }
         
         previousContraction = contraction;
+    }
+    
+    if(summedFrequency == 0)
+    {
+        return 0; //prevent 0/0;
     }
     
     return summedFrequency / totalContractions;
@@ -96,9 +121,16 @@
     NSArray *contractions = [BCContraction findAllSortedBy:@"startTime" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"endTime != nil AND endTime >= %@", [[NSDate date] dateByAddingTimeInterval:-(minutes * 60)]]];
     
     NSTimeInterval totalDuration = 0;
+    NSInteger validContractionCount = 0;
     for(BCContraction *contraction in contractions)
     {
-        totalDuration += contraction.duration;
+        NSTimeInterval duration = contraction.duration;
+        
+        if(duration > 0)
+        {
+            totalDuration += contraction.duration;
+            validContractionCount++;
+        }
     }
     
     if(0 == totalDuration)
@@ -106,7 +138,7 @@
         return 0; //prevent a 0/0 error
     }
     
-    return totalDuration / contractions.count;
+    return totalDuration / validContractionCount;
     
 }
 
