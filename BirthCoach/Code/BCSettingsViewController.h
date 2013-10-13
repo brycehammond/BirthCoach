@@ -17,7 +17,7 @@
 
 @end
 
-@interface BCSettingsViewController : BCSettingsBaseViewController <UITableViewDataSource, UITableViewDelegate, BCSettingsOnOffCellDelegate>
+@interface BCSettingsViewController : BCSettingsBaseViewController <UITableViewDataSource, UITableViewDelegate, BCSettingsOnOffCellDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) id<BCSettingsViewControllerDelegate> delegate;
 

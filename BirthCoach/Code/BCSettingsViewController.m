@@ -103,11 +103,23 @@
     else if(2 == indexPath.row)
     {
         //Clear all contractions
-        [BCContraction truncateAll];
-        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
+        
+        [[[UIAlertView alloc] initWithTitle:@"Clear Contractions" message:@"This will clear your entire contraction history.  Are you sure you want to continue?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear", nil] show];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Clear"])
+    {
+        [BCContraction truncateAll];
+        [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreWithCompletion:nil];
+    }
 }
 
 #pragma mark -
