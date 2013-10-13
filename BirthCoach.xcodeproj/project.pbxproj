@@ -59,11 +59,6 @@
 		029D1F3717AA194600106797 /* save-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3117AA194600106797 /* save-button-selected@2x.png */; };
 		029D1F3817AA194600106797 /* save-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3217AA194600106797 /* save-button.png */; };
 		029D1F3917AA194600106797 /* save-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3317AA194600106797 /* save-button@2x.png */; };
-		029D1F4017AA2A7500106797 /* appicon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3B17AA2A7500106797 /* appicon57.png */; };
-		029D1F4117AA2A7500106797 /* appicon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3C17AA2A7500106797 /* appicon72.png */; };
-		029D1F4217AA2A7500106797 /* appicon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3D17AA2A7500106797 /* appicon114.png */; };
-		029D1F4317AA2A7500106797 /* appicon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3E17AA2A7500106797 /* appicon144.png */; };
-		029D1F4417AA2A7500106797 /* appicon512.png in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F3F17AA2A7500106797 /* appicon512.png */; };
 		029D1F5417AB718E00106797 /* SettingsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029D1F5217AB718E00106797 /* SettingsStoryboard_iPhone.storyboard */; };
 		029DFA9C1764E26F00D022FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9B1764E26F00D022FC /* UIKit.framework */; };
 		029DFA9E1764E26F00D022FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029DFA9D1764E26F00D022FC /* Foundation.framework */; };
@@ -172,11 +167,6 @@
 		029D1F3117AA194600106797 /* save-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-button-selected@2x.png"; path = "Images/save-button-selected@2x.png"; sourceTree = "<group>"; };
 		029D1F3217AA194600106797 /* save-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-button.png"; path = "Images/save-button.png"; sourceTree = "<group>"; };
 		029D1F3317AA194600106797 /* save-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-button@2x.png"; path = "Images/save-button@2x.png"; sourceTree = "<group>"; };
-		029D1F3B17AA2A7500106797 /* appicon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon57.png; path = Icons/appicon57.png; sourceTree = "<group>"; };
-		029D1F3C17AA2A7500106797 /* appicon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon72.png; path = Icons/appicon72.png; sourceTree = "<group>"; };
-		029D1F3D17AA2A7500106797 /* appicon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon114.png; path = Icons/appicon114.png; sourceTree = "<group>"; };
-		029D1F3E17AA2A7500106797 /* appicon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon144.png; path = Icons/appicon144.png; sourceTree = "<group>"; };
-		029D1F3F17AA2A7500106797 /* appicon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon512.png; path = Icons/appicon512.png; sourceTree = "<group>"; };
 		029D1F5317AB718E00106797 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BirthCoach/Storyboards/Base.lproj/SettingsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		029DFA981764E26F00D022FC /* BirthCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029DFA9B1764E26F00D022FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -332,18 +322,6 @@
 				0249CDE717AF08A900A1B538 /* 90.m4a */,
 			);
 			name = Audio;
-			sourceTree = "<group>";
-		};
-		029D1F3A17AA2A6100106797 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				029D1F3B17AA2A7500106797 /* appicon57.png */,
-				029D1F3C17AA2A7500106797 /* appicon72.png */,
-				029D1F3D17AA2A7500106797 /* appicon114.png */,
-				029D1F3E17AA2A7500106797 /* appicon144.png */,
-				029D1F3F17AA2A7500106797 /* appicon512.png */,
-			);
-			name = Icons;
 			sourceTree = "<group>";
 		};
 		029DFA8F1764E26F00D022FC = {
@@ -507,7 +485,6 @@
 			isa = PBXGroup;
 			children = (
 				0249CDC917AB808600A1B538 /* Indicators */,
-				029D1F3A17AA2A6100106797 /* Icons */,
 				0200065D1797AB6A004DD366 /* Edit Bars */,
 				02BB09DD177D622A0040A622 /* Buttons */,
 			);
@@ -673,11 +650,6 @@
 				029D1F3717AA194600106797 /* save-button-selected@2x.png in Resources */,
 				029D1F3817AA194600106797 /* save-button.png in Resources */,
 				029D1F3917AA194600106797 /* save-button@2x.png in Resources */,
-				029D1F4017AA2A7500106797 /* appicon57.png in Resources */,
-				029D1F4117AA2A7500106797 /* appicon72.png in Resources */,
-				029D1F4217AA2A7500106797 /* appicon114.png in Resources */,
-				029D1F4317AA2A7500106797 /* appicon144.png in Resources */,
-				029D1F4417AA2A7500106797 /* appicon512.png in Resources */,
 				029D1F5417AB718E00106797 /* SettingsStoryboard_iPhone.storyboard in Resources */,
 				0249CDCC17AB809D00A1B538 /* settings-disclosure.png in Resources */,
 				0249CDCD17AB809D00A1B538 /* settings-disclosure@2x.png in Resources */,
