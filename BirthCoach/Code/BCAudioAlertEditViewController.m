@@ -39,6 +39,8 @@
 {
     [super viewDidLoad];
     self.currentAudioData = self.reminder.audioData;
+    self.playButton.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.playButton.titleLabel.font.pointSize];
+    self.recordButton.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.recordButton.titleLabel.font.pointSize];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -59,12 +61,14 @@
     {
         [self.player pause];
         [self.player setCurrentTime:0];
-        [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
+        [self.playButton setImage:[UIImage imageNamed:@"play-icon"] forState:UIControlStateNormal];
+        [self.playButton setTitle:@"Playback Reminder" forState:UIControlStateNormal];
     }
     else
     {
         [self.player play];
-        [self.playButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.playButton setImage:[UIImage imageNamed:@"stop-icon"] forState:UIControlStateNormal];
+        [self.playButton setTitle:@"Stop Playback" forState:UIControlStateNormal];
     }
 }
 
@@ -76,14 +80,16 @@
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         self.player = nil; //clear out the player so it loads the recorded audio
         self.playButton.hidden = NO;
-        [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
+        [self.recordButton setImage:[UIImage imageNamed:@"record-icon"] forState:UIControlStateNormal];
+        [self.recordButton setTitle:@"Record Reminder" forState:UIControlStateNormal];
     }
     else
     {
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:nil];
         [self.recorder record];
         self.playButton.hidden = YES;
-        [self.recordButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.recordButton setImage:[UIImage imageNamed:@"stop-icon"] forState:UIControlStateNormal];
+        [self.recordButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
     }
 }
 
@@ -124,7 +130,8 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
+    [self.playButton setImage:[UIImage imageNamed:@"play-icon"] forState:UIControlStateNormal];
+    [self.playButton setTitle:@"Playback Reminder" forState:UIControlStateNormal];
 }
 
 #pragma mark -

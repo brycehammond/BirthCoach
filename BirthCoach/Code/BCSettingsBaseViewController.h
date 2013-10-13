@@ -10,4 +10,6 @@
 
 @interface BCSettingsBaseViewController : BCBaseViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end

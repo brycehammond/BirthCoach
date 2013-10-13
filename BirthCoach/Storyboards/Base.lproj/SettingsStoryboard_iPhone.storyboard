@@ -25,7 +25,7 @@
                                 <rect key="frame" x="245" y="25" width="55" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Done" backgroundImage="settings-button.png">
+                                <state key="normal" title="Done" backgroundImage="settings-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -41,6 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.90196078430000004" blue="0.83137254900000002" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="separatorColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TitleCell" id="MVH-lI-JoA" customClass="BCSettingsTitleCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="62"/>
@@ -56,7 +57,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="settings-disclosure.png" id="lfi-ey-GBE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="settings-disclosure" id="lfi-ey-GBE">
                                                     <rect key="frame" x="286" y="19" width="14" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -132,7 +133,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Back" backgroundImage="settings-back-button.png">
+                                <state key="normal" title="Back" backgroundImage="settings-back-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -163,11 +164,11 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" id="WQ2-bB-Bvs">
-                                                    <rect key="frame" x="0.0" y="62" width="320" height="1"/>
+                                                    <rect key="frame" x="0.0" y="61" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <color key="backgroundColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="settings-disclosure.png" id="enw-f1-XMD">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="settings-disclosure" id="enw-f1-XMD">
                                                     <rect key="frame" x="286" y="19" width="14" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -198,7 +199,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </switch>
                                                 <view contentMode="scaleToFill" id="paC-nV-lK4">
-                                                    <rect key="frame" x="0.0" y="62" width="320" height="1"/>
+                                                    <rect key="frame" x="0.0" y="61" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <color key="backgroundColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -220,6 +221,7 @@
                     </view>
                     <connections>
                         <outlet property="remindersTableView" destination="ywI-yK-HgY" id="JfR-Fj-8Wt"/>
+                        <outlet property="titleLabel" destination="sSH-mD-Wzy" id="Ap2-vO-YSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX8-Pv-EJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -246,7 +248,7 @@
                                 <rect key="frame" x="7" y="24" width="65" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Cancel" backgroundImage="settings-button.png">
+                                <state key="normal" title="Cancel" backgroundImage="settings-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -261,7 +263,7 @@
                                 <rect key="frame" x="250" y="24" width="65" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Save" backgroundImage="settings-button.png">
+                                <state key="normal" title="Save" backgroundImage="settings-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -272,20 +274,26 @@
                                     <action selector="save:" destination="y3n-hD-w5n" eventType="touchUpInside" id="MJr-tN-giQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2P9-1f-RQ3">
-                                <rect key="frame" x="182" y="163" width="97" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2P9-1f-RQ3">
+                                <rect key="frame" x="54" y="166" width="212" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Playback Reminder" image="play-icon" backgroundImage="audio-button-bg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playStop:" destination="y3n-hD-w5n" eventType="touchUpInside" id="sYg-SZ-Qs3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K7Z-6U-8Gf">
-                                <rect key="frame" x="39" y="163" width="100" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K7Z-6U-8Gf">
+                                <rect key="frame" x="54" y="100" width="212" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Record">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Record Reminder" image="record-icon" backgroundImage="audio-button-bg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -299,6 +307,7 @@
                     <connections>
                         <outlet property="playButton" destination="2P9-1f-RQ3" id="iDA-gc-77W"/>
                         <outlet property="recordButton" destination="K7Z-6U-8Gf" id="JGt-dr-z8C"/>
+                        <outlet property="titleLabel" destination="c6S-zD-e9k" id="mve-CR-saP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msx-O1-cjm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -333,8 +342,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="settings-disclosure.png" id="iNY-aS-RX8">
-                                                    <rect key="frame" x="280" y="14" width="20" height="34"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="settings-disclosure" id="iNY-aS-RX8">
+                                                    <rect key="frame" x="286" y="19" width="14" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="Re1-dx-GJJ">
@@ -374,7 +383,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Back" backgroundImage="settings-back-button.png">
+                                        <state key="normal" title="Back" backgroundImage="settings-back-button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -389,7 +398,7 @@
                                         <rect key="frame" x="219" y="25" width="53" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Edit" backgroundImage="settings-button.png">
+                                        <state key="normal" title="Edit" backgroundImage="settings-button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -405,7 +414,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="2" minY="-2" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="+" backgroundImage="settings-button.png">
+                                        <state key="normal" title="+" backgroundImage="settings-button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -425,6 +434,7 @@
                     <connections>
                         <outlet property="editButton" destination="Htn-xg-Dq2" id="aG4-Ds-USe"/>
                         <outlet property="quoteTableView" destination="r0Y-3z-f6s" id="Mbv-gS-PST"/>
+                        <outlet property="titleLabel" destination="53C-dV-7am" id="HOf-ic-XH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocY-hJ-aK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -452,7 +462,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Back" backgroundImage="settings-back-button.png">
+                                <state key="normal" title="Back" backgroundImage="settings-back-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -478,6 +488,7 @@
                     <navigationItem key="navigationItem" id="NS1-Qe-V7j"/>
                     <connections>
                         <outlet property="textView" destination="jKG-Ue-600" id="627-mc-3Qx"/>
+                        <outlet property="titleLabel" destination="Cfe-15-ONu" id="sub-bp-8tQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aV0-yf-Mh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -504,9 +515,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="audio-button-bg" width="212" height="46"/>
+        <image name="play-icon" width="22" height="25"/>
+        <image name="record-icon" width="29" height="29"/>
+        <image name="settings-back-button" width="70" height="33"/>
         <image name="settings-back-button.png" width="70" height="33"/>
-        <image name="settings-button.png" width="42" height="33"/>
-        <image name="settings-disclosure.png" width="14" height="23"/>
+        <image name="settings-button" width="42" height="33"/>
+        <image name="settings-disclosure" width="14" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

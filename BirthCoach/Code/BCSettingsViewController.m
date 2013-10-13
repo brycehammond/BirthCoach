@@ -13,7 +13,6 @@
 
 @interface BCSettingsViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *settingsTableView;
 
 @end
@@ -32,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.titleLabel.font.pointSize];
     self.settingsTableView.backgroundColor = [UIColor colorWithHexString:kLightOrangeColor];
 }
 
