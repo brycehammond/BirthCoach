@@ -1041,49 +1041,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </scenes>
     <resources>
         <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-selected.png" width="29" height="29"/>
-        <image name="blue-circle-unselected.png" width="31" height="31"/>
-        <image name="blue-circle-unselected.png" width="31" height="31"/>
-        <image name="blue-circle-unselected.png" width="31" height="31"/>
-        <image name="blue-circle-unselected.png" width="31" height="31"/>
         <image name="blue-circle-unselected.png" width="31" height="31"/>
         <image name="blue-edit.png" width="28" height="27"/>
         <image name="blue-handle.png" width="26" height="44"/>
         <image name="blue-trash.png" width="22" height="31"/>
         <image name="cancel-button-selected.png" width="107" height="46"/>
-        <image name="cancel-button-selected.png" width="107" height="46"/>
         <image name="cancel-button.png" width="107" height="46"/>
         <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-selected.png" width="29" height="30"/>
-        <image name="orange-circle-unselected.png" width="29" height="28"/>
-        <image name="orange-circle-unselected.png" width="29" height="28"/>
-        <image name="orange-circle-unselected.png" width="29" height="28"/>
-        <image name="orange-circle-unselected.png" width="29" height="28"/>
         <image name="orange-circle-unselected.png" width="29" height="28"/>
         <image name="orange-edit.png" width="28" height="27"/>
         <image name="orange-handle.png" width="26" height="44"/>
         <image name="orange-trash.png" width="22" height="30"/>
         <image name="save-button-selected.png" width="162" height="46"/>
-        <image name="save-button-selected.png" width="162" height="46"/>
-        <image name="save-button-selected.png" width="162" height="46"/>
-        <image name="save-button-selected.png" width="162" height="46"/>
-        <image name="save-button.png" width="162" height="46"/>
         <image name="save-button.png" width="162" height="46"/>
         <image name="settings.png" width="41" height="42"/>
         <image name="start-button.png" width="61" height="81"/>
