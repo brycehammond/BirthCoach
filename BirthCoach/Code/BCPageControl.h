@@ -17,13 +17,10 @@
 @end
 
 @interface BCPageControl : UIPageControl
-{
-    NSInteger currentPage;
-}
 
 @property (nonatomic, weak) id<BCPageControlDelegate> delegate;
-@property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) NSInteger numberOfPages;
+@property (nonatomic, assign) NSInteger currentSelectedPage;
 @property (nonatomic, assign) BOOL hidesForSinglePage;
 @property (nonatomic, assign) float dotSize;
 @property (nonatomic, assign) float dotSpacing;

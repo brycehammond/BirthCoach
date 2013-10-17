@@ -85,7 +85,7 @@
     self.sixtyMinuteNumberLabel.font = [UIFont fontWithName:@"SourceSansPro-Black" size:self.sixtyMinuteNumberLabel.font.pointSize];
     
     self.pageControl.numberOfPages = 3;
-    self.pageControl.currentPage = 1;
+    self.pageControl.currentSelectedPage = 1;
     self.pageControl.delegate = self;
 }
 
@@ -210,7 +210,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    self.pageControl.currentPage = scrollView.currentPage;
+    self.pageControl.currentSelectedPage = scrollView.currentPage;
 }
 
 #pragma mark -

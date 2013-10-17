@@ -19,6 +19,7 @@
 @synthesize numberOfPages, hidesForSinglePage, currentPage;
 @synthesize dotSize = _dotSize;
 @synthesize dotSpacing = _dotSpacing;
+@synthesize currentSelectedPage = _currentSelectedPage;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -56,7 +57,7 @@
 		float offset = 5;
 		
 		for (NSInteger i = 1; i <= [self numberOfPages]; i++){
-			if (i == [self currentPage]){
+			if (i == [self currentSelectedPage]){
                 CGContextSetStrokeColorWithColor(context, [activePageColor CGColor]);
 				CGContextSetFillColorWithColor(context, [activePageColor CGColor]);
 			} else {
@@ -95,19 +96,15 @@
     NSInteger tappedPage = [self.tapViews indexOfObject:tapRecognizer.view] + 1;
     if(tappedPage != self.currentPage)
     {
-        self.currentPage = tappedPage;
+        self.currentSelectedPage = tappedPage;
         [self.delegate pageControl:self didSelectPage:tappedPage];
     }
 }
 
-- (NSInteger) currentPage
+- (void)setCurrentSelectedPage:(NSInteger)currentSelectedPage
 {
-	return currentPage;
-}
-
-- (void) setCurrentPage:(NSInteger)page {
-	currentPage = page;
-	[self setNeedsDisplay];
+    _currentSelectedPage = currentSelectedPage;
+    [self setNeedsDisplay];
 }
 
 - (void)setDotSpacing:(float)dotSpacing
