@@ -301,7 +301,7 @@
         newYOrigin = kHistoryViewBottomBound;
     }
     
-    [UIView animateWithDuration:0 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
         [self.contractionTableView setContentOffset:CGPointZero animated:NO];
         [self.view setFrameYOrigin:newYOrigin];
@@ -339,7 +339,7 @@
         newYOrigin = kHistoryViewBottomBound;
     }
     
-    [UIView animateWithDuration:0 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
         [self.view setFrameYOrigin:newYOrigin];
         [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
         [self.contractionTableView setContentOffset:CGPointZero animated:NO];
