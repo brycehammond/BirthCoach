@@ -52,8 +52,6 @@
 @property (assign, nonatomic) NSTimeInterval secondsUntilNextContraction;
 
 //sub view controllers
-@property (weak, nonatomic) IBOutlet UIView *historyContainerView;
-@property (weak, nonatomic) IBOutlet UIView *averagesContainerView;
 @property (strong, nonatomic) BCAveragesViewController *averagesController;
 @property (strong, nonatomic) BCHistoryViewController *historyController;
 
@@ -96,15 +94,12 @@
         valueLabel.font = [UIFont fontWithName:@"OpenSans" size:valueLabel.font.pointSize];
     }
     
-    self.averagesController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"AveragesController"];
-    [self addChildViewController:self.averagesController];
-    self.averagesController.view.frame = self.averagesContainerView.frame;
-    [self.view insertSubview:self.averagesController.view belowSubview:self.settingsButton];
-    
     self.historyController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"HistoryController"];
     [self addChildViewController:self.historyController];
     
-    self.historyController.view.frame = self.historyContainerView.frame;
+    self.historyController.view.frameHeight = self.view.frameHeight - kHistoryViewTopBound;
+    self.historyController.view.frameYOrigin = kHistoryViewBottomBound;
+    
     [self.view insertSubview:self.historyController.view belowSubview:self.settingsButton];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lastContractionHandleTapped:)];
@@ -497,6 +492,10 @@
         BCContractionEditViewController *editController = segue.destinationViewController;
         editController.contraction = [BCContraction lastContraction];
         editController.delegate = self;
+    }
+    else if([segue.identifier isEqualToString:@"Averages"])
+    {
+        self.averagesController = segue.destinationViewController;
     }
 }
 

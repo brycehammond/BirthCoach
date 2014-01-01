@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BCContractionEditViewController.h"
 
+#define kHistoryViewTopBound 162
+#define kHistoryViewBottomBound 368
+
 @interface BCHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, BCContractionEditViewControllerDelegate>
 
 - (void)refreshData;

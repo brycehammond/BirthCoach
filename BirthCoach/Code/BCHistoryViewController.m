@@ -11,8 +11,6 @@
 #import "BCFrequencyCell.h"
 #import "BCContraction.h"
 
-#define kTopBound 162
-#define kBottomBound 368
 #define kHeaderHeight 40
 
 @interface BCHistoryViewController ()
@@ -28,6 +26,9 @@
 
 @property (strong, nonatomic) NSMutableArray *contractions;
 @property (strong, nonatomic) NSMutableArray *frequencies;
+
+//animating
+@property (strong, nonatomic) UIDynamicAnimator *animator;
 
 //contraction editing
 @property (weak, nonatomic) IBOutlet UIView *contractionSlideOut;
@@ -128,19 +129,17 @@
 
 - (void)moveToBottomBound
 {
-    [self moveToYCoordinate:kBottomBound];
+    [self moveToYCoordinate:kHistoryViewBottomBound];
 }
 
 - (void)moveToTopBound
 {
-    [self moveToYCoordinate:kTopBound];
+    [self moveToYCoordinate:kHistoryViewTopBound];
 }
 
 - (void)moveToYCoordinate:(CGFloat)yCoordinate
 {
-    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - yCoordinate;
     [self.view setFrameYOrigin:yCoordinate];
-    [self.view setFrameHeight:newViewHeight];
     [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
     [self.contractionTableView setContentOffset:CGPointZero animated:NO];
 }
@@ -293,26 +292,19 @@
 - (void)headerTapped:(UITapGestureRecognizer *)gesture
 {
     CGFloat newYOrigin = 0;
-    if(self.view.frame.origin.y >= kBottomBound)
+    if(self.view.frame.origin.y >= kHistoryViewBottomBound)
     {
-        newYOrigin = kTopBound;
+        newYOrigin = kHistoryViewTopBound;
     }
     else
     {
-        newYOrigin = kBottomBound;
+        newYOrigin = kHistoryViewBottomBound;
     }
-    
-    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
     
     [UIView animateWithDuration:0 animations:^{
         [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
         [self.contractionTableView setContentOffset:CGPointZero animated:NO];
         [self.view setFrameYOrigin:newYOrigin];
-        [self.view setFrameHeight:newViewHeight];
-        [self.frequencyTableView setFrameHeight:newViewHeight - self.frequencyTableView.frame.origin.y];
-        [self.contractionTableView setFrameHeight:newViewHeight - self.contractionTableView.frame.origin.y];
-        
-        
     }];
         
 }
@@ -331,12 +323,6 @@
         CGPoint yTranslation = [gesture translationInView:self.view];
         CGFloat newYOrigin = originalGesturePosition + yTranslation.y;
         [self.view setFrameYOrigin:newYOrigin];
-        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
-        
-        [self.view setFrameYOrigin:newYOrigin];
-        [self.view setFrameHeight:newViewHeight];
-        
-        [self.view setFrameHeight:newViewHeight];
     }
     else if(gesture.state == UIGestureRecognizerStateEnded)
     {
@@ -346,18 +332,15 @@
 
 - (void)finishAnimationToBound
 {
-    CGFloat newYOrigin = kTopBound;
-    if(fabs(self.view.frame.origin.y - kBottomBound)
-       < fabs(self.view.frame.origin.y - kTopBound))
+    CGFloat newYOrigin = kHistoryViewTopBound;
+    if(fabs(self.view.frame.origin.y - kHistoryViewBottomBound)
+       < fabs(self.view.frame.origin.y - kHistoryViewTopBound))
     {
-        newYOrigin = kBottomBound;
+        newYOrigin = kHistoryViewBottomBound;
     }
     
     [UIView animateWithDuration:0 animations:^{
-        CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
-        
         [self.view setFrameYOrigin:newYOrigin];
-        [self.view setFrameHeight:newViewHeight];
         [self.frequencyTableView setContentOffset:CGPointZero animated:NO];
         [self.contractionTableView setContentOffset:CGPointZero animated:NO];
     }];
@@ -530,26 +513,19 @@
     
     if(scrollView.contentOffset.y < 0)
     {
-        newYOrigin = MIN(kBottomBound, currentYOrigin - scrollView.contentOffset.y);
+        newYOrigin = MIN(kHistoryViewBottomBound, currentYOrigin - scrollView.contentOffset.y);
     }
     else
     {
-        newYOrigin = MAX(kTopBound, currentYOrigin - scrollView.contentOffset.y);
+        newYOrigin = MAX(kHistoryViewTopBound, currentYOrigin - scrollView.contentOffset.y);
     }
     
-    CGFloat newViewHeight = [[UIScreen mainScreen] bounds].size.height - newYOrigin;
+    self.view.frameYOrigin = newYOrigin;
     
-    [self.view setFrameYOrigin:newYOrigin];
-    [self.view setFrameHeight:newViewHeight];
-    
-    [self.view setFrameHeight:newViewHeight];
-    
-    if(newYOrigin > kTopBound && newYOrigin < kBottomBound)
+    if(newYOrigin > kHistoryViewTopBound && newYOrigin < kHistoryViewBottomBound)
     {
             self.frequencyTableView.contentOffset = CGPointZero;
             self.contractionTableView.contentOffset = CGPointZero;
-            [self.frequencyTableView setFrameHeight:newViewHeight - self.frequencyTableView.frame.origin.y];
-            [self.contractionTableView setFrameHeight:newViewHeight - self.contractionTableView.frame.origin.y];
     }
     else
     {
@@ -564,7 +540,7 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     CGFloat currentYOrigin = self.view.frame.origin.y;
-    if(currentYOrigin > kTopBound && currentYOrigin < kBottomBound)
+    if(currentYOrigin > kHistoryViewTopBound && currentYOrigin < kHistoryViewBottomBound)
     {
         [self finishAnimationToBound];
     }
