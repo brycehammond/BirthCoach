@@ -26,10 +26,10 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    //default to having audio reminders on
+    //default to having audio reminders off
     if([[NSUserDefaults standardUserDefaults] objectForKey:kAudioRemindersOnKey] == nil)
     {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAudioRemindersOnKey];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kAudioRemindersOnKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         //create the default entities
