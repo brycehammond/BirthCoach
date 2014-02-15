@@ -1,6 +1,6 @@
 PODS:
   - MagicalRecord (2.2)
-  - TestFlightSDK (2.1.1-beta)
+  - TestFlightSDK (2.2.0-noadid-beta)
   - UIColor-Utilities (1.0.1)
   - UIView-IMUUtilities (0.0.1)
 
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
-  TestFlightSDK: dea28c16f0bf65c49c4ed8939b2ae0b0ed9bf8b0
+  TestFlightSDK: 64f333f91ab9d11985e6c4c188a71b22cc528097
   UIColor-Utilities: a392783be1b72e5d5ad9ae450ef2280239441bc8
   UIView-IMUUtilities: 27fb272f24adb20ec780386f979ef7394a2537fb
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.29.0
